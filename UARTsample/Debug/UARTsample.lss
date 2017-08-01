@@ -1,0 +1,430 @@
+
+UARTsample.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  000002d0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         0000025c  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000009  00800100  00800100  000002d0  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000002d0  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000300  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000000b8  00000000  00000000  0000033c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000f20  00000000  00000000  000003f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000cbb  00000000  00000000  00001314  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000005b8  00000000  00000000  00001fcf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000001a0  00000000  00000000  00002588  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000006f0  00000000  00000000  00002728  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000283  00000000  00000000  00002e18  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000088  00000000  00000000  0000309b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 4a 00 	jmp	0x94	; 0x94 <__ctors_end>
+   4:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+   8:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+   c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  10:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  14:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  18:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  1c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  20:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  24:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  28:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  2c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  30:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  34:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  38:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  3c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  40:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  44:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  48:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  4c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  50:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  54:	0c 94 a2 00 	jmp	0x144	; 0x144 <__vector_21>
+  58:	0c 94 74 00 	jmp	0xe8	; 0xe8 <__vector_22>
+  5c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  60:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  64:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  68:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  6c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  70:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  74:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  78:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  7c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  80:	0c 94 fe 00 	jmp	0x1fc	; 0x1fc <__vector_32>
+  84:	0c 94 d0 00 	jmp	0x1a0	; 0x1a0 <__vector_33>
+  88:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  8c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  90:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+
+00000094 <__ctors_end>:
+  94:	11 24       	eor	r1, r1
+  96:	1f be       	out	0x3f, r1	; 63
+  98:	cf ef       	ldi	r28, 0xFF	; 255
+  9a:	d0 e1       	ldi	r29, 0x10	; 16
+  9c:	de bf       	out	0x3e, r29	; 62
+  9e:	cd bf       	out	0x3d, r28	; 61
+
+000000a0 <__do_copy_data>:
+  a0:	11 e0       	ldi	r17, 0x01	; 1
+  a2:	a0 e0       	ldi	r26, 0x00	; 0
+  a4:	b1 e0       	ldi	r27, 0x01	; 1
+  a6:	ec e5       	ldi	r30, 0x5C	; 92
+  a8:	f2 e0       	ldi	r31, 0x02	; 2
+  aa:	02 c0       	rjmp	.+4      	; 0xb0 <__do_copy_data+0x10>
+  ac:	05 90       	lpm	r0, Z+
+  ae:	0d 92       	st	X+, r0
+  b0:	a0 30       	cpi	r26, 0x00	; 0
+  b2:	b1 07       	cpc	r27, r17
+  b4:	d9 f7       	brne	.-10     	; 0xac <__do_copy_data+0xc>
+
+000000b6 <__do_clear_bss>:
+  b6:	21 e0       	ldi	r18, 0x01	; 1
+  b8:	a0 e0       	ldi	r26, 0x00	; 0
+  ba:	b1 e0       	ldi	r27, 0x01	; 1
+  bc:	01 c0       	rjmp	.+2      	; 0xc0 <.do_clear_bss_start>
+
+000000be <.do_clear_bss_loop>:
+  be:	1d 92       	st	X+, r1
+
+000000c0 <.do_clear_bss_start>:
+  c0:	a9 30       	cpi	r26, 0x09	; 9
+  c2:	b2 07       	cpc	r27, r18
+  c4:	e1 f7       	brne	.-8      	; 0xbe <.do_clear_bss_loop>
+  c6:	0e 94 69 00 	call	0xd2	; 0xd2 <main>
+  ca:	0c 94 2c 01 	jmp	0x258	; 0x258 <_exit>
+
+000000ce <__bad_interrupt>:
+  ce:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000d2 <main>:
+
+
+
+int main(void)
+{
+	uart1_init();
+  d2:	0e 94 12 01 	call	0x224	; 0x224 <_Z10uart1_initv>
+	uart0_init();
+  d6:	0e 94 b6 00 	call	0x16c	; 0x16c <_Z10uart0_initv>
+	
+	
+    /* Replace with your application code */
+    while (1) 
+    {
+		if(flag_rx){
+  da:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_end>
+  de:	88 23       	and	r24, r24
+  e0:	e1 f3       	breq	.-8      	; 0xda <main+0x8>
+			int8_t t;
+			//uart1_send_buff(test_string,6);//strlen(test_string));
+
+			flag_rx = false;
+  e2:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__data_end>
+  e6:	f9 cf       	rjmp	.-14     	; 0xda <main+0x8>
+
+000000e8 <__vector_22>:
+ *
+ * This handler is called each time the UART data register is available for
+ * sending data.
+ */
+ISR(USART0_UDRE_vect)
+{
+  e8:	1f 92       	push	r1
+  ea:	0f 92       	push	r0
+  ec:	0f b6       	in	r0, 0x3f	; 63
+  ee:	0f 92       	push	r0
+  f0:	11 24       	eor	r1, r1
+  f2:	8f 93       	push	r24
+  f4:	9f 93       	push	r25
+  f6:	ef 93       	push	r30
+  f8:	ff 93       	push	r31
+	if(send_num0 > send_pos0){
+  fa:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <_ZL9send_pos0>
+  fe:	90 91 03 01 	lds	r25, 0x0103	; 0x800103 <_ZL9send_num0>
+ 102:	89 17       	cp	r24, r25
+ 104:	78 f4       	brcc	.+30     	; 0x124 <__vector_22+0x3c>
+		UDR0= send_buf0[send_pos0];
+ 106:	e0 91 01 01 	lds	r30, 0x0101	; 0x800101 <_ZL9send_buf0>
+ 10a:	f0 91 02 01 	lds	r31, 0x0102	; 0x800102 <_ZL9send_buf0+0x1>
+ 10e:	e8 0f       	add	r30, r24
+ 110:	f1 1d       	adc	r31, r1
+ 112:	80 81       	ld	r24, Z
+ 114:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+		send_pos0++;
+ 118:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <_ZL9send_pos0>
+ 11c:	8f 5f       	subi	r24, 0xFF	; 255
+ 11e:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <_ZL9send_pos0>
+ 122:	07 c0       	rjmp	.+14     	; 0x132 <__vector_22+0x4a>
+	} else {
+		send_num0= 0;
+ 124:	10 92 03 01 	sts	0x0103, r1	; 0x800103 <_ZL9send_num0>
+		//disable sending interrupt
+		UCSR0B &= ~(1 << UDRIE0); //Disable sending
+ 128:	e1 ec       	ldi	r30, 0xC1	; 193
+ 12a:	f0 e0       	ldi	r31, 0x00	; 0
+ 12c:	80 81       	ld	r24, Z
+ 12e:	8f 7d       	andi	r24, 0xDF	; 223
+ 130:	80 83       	st	Z, r24
+	}
+}
+ 132:	ff 91       	pop	r31
+ 134:	ef 91       	pop	r30
+ 136:	9f 91       	pop	r25
+ 138:	8f 91       	pop	r24
+ 13a:	0f 90       	pop	r0
+ 13c:	0f be       	out	0x3f, r0	; 63
+ 13e:	0f 90       	pop	r0
+ 140:	1f 90       	pop	r1
+ 142:	18 95       	reti
+
+00000144 <__vector_21>:
+ * \brief Data RX interrupt handler
+ *
+ * This is the handler for UART receive data
+ */
+ISR(USART0_RX_vect)
+{
+ 144:	1f 92       	push	r1
+ 146:	0f 92       	push	r0
+ 148:	0f b6       	in	r0, 0x3f	; 63
+ 14a:	0f 92       	push	r0
+ 14c:	11 24       	eor	r1, r1
+ 14e:	8f 93       	push	r24
+ 150:	ef 93       	push	r30
+ 152:	ff 93       	push	r31
+	//ring_buffer_put(&ring_buffer_in, UDR0);
+	uint8_t temp;
+	
+	
+	temp = UDR0; // read buffer
+ 154:	e6 ec       	ldi	r30, 0xC6	; 198
+ 156:	f0 e0       	ldi	r31, 0x00	; 0
+ 158:	80 81       	ld	r24, Z
+	
+	//UDR1=temp; //tx byte
+	
+	UDR0 = temp;
+ 15a:	80 83       	st	Z, r24
+	
+	//flag_rx = true;
+	
+}
+ 15c:	ff 91       	pop	r31
+ 15e:	ef 91       	pop	r30
+ 160:	8f 91       	pop	r24
+ 162:	0f 90       	pop	r0
+ 164:	0f be       	out	0x3f, r0	; 63
+ 166:	0f 90       	pop	r0
+ 168:	1f 90       	pop	r1
+ 16a:	18 95       	reti
+
+0000016c <_Z10uart0_initv>:
+
+
+void uart0_init(void) {
+	UBRR0H = UBRRH_VALUE;
+ 16c:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
+	UBRR0L = UBRRL_VALUE;
+ 170:	87 e6       	ldi	r24, 0x67	; 103
+ 172:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
+	
+	send_pos0= 0;
+ 176:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <_ZL9send_pos0>
+	send_num0= 0;
+ 17a:	10 92 03 01 	sts	0x0103, r1	; 0x800103 <_ZL9send_num0>
+
+	#if USE_2X
+	UCSR0A |= _BV(U2X0);
+	#else
+	UCSR0A &= ~(_BV(U2X0));
+ 17e:	e0 ec       	ldi	r30, 0xC0	; 192
+ 180:	f0 e0       	ldi	r31, 0x00	; 0
+ 182:	80 81       	ld	r24, Z
+ 184:	8d 7f       	andi	r24, 0xFD	; 253
+ 186:	80 83       	st	Z, r24
+	#endif
+
+	
+	UCSR0B = _BV(RXEN0) | _BV(TXEN0) | _BV(RXCIE0);   /* Enable RX and TX, RX complete ISR */
+ 188:	e1 ec       	ldi	r30, 0xC1	; 193
+ 18a:	f0 e0       	ldi	r31, 0x00	; 0
+ 18c:	88 e9       	ldi	r24, 0x98	; 152
+ 18e:	80 83       	st	Z, r24
+	UCSR0C = _BV(UCSZ01) | _BV(UCSZ00); /* 8-bit data, 1 stop bit, no parity, asynchronous UART*/
+ 190:	86 e0       	ldi	r24, 0x06	; 6
+ 192:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
+
+	UCSR0B &= ~(1 << UDRIE0); //Disable sending, ready TX buffer
+ 196:	80 81       	ld	r24, Z
+ 198:	8f 7d       	andi	r24, 0xDF	; 223
+ 19a:	80 83       	st	Z, r24
+
+	//set_sleep_mode(SLEEP_MODE_IDLE);
+	//enable global interrupt
+	sei();
+ 19c:	78 94       	sei
+ 19e:	08 95       	ret
+
+000001a0 <__vector_33>:
+ *
+ * This handler is called each time the UART data register is available for
+ * sending data.
+ */
+ISR(USART1_UDRE_vect)
+{
+ 1a0:	1f 92       	push	r1
+ 1a2:	0f 92       	push	r0
+ 1a4:	0f b6       	in	r0, 0x3f	; 63
+ 1a6:	0f 92       	push	r0
+ 1a8:	11 24       	eor	r1, r1
+ 1aa:	8f 93       	push	r24
+ 1ac:	9f 93       	push	r25
+ 1ae:	ef 93       	push	r30
+ 1b0:	ff 93       	push	r31
+	if(send_num1 > send_pos1){
+ 1b2:	80 91 08 01 	lds	r24, 0x0108	; 0x800108 <_ZL9send_pos1>
+ 1b6:	90 91 07 01 	lds	r25, 0x0107	; 0x800107 <_ZL9send_num1>
+ 1ba:	89 17       	cp	r24, r25
+ 1bc:	78 f4       	brcc	.+30     	; 0x1dc <__vector_33+0x3c>
+		UDR1= send_buf1[send_pos1];
+ 1be:	e0 91 05 01 	lds	r30, 0x0105	; 0x800105 <_ZL9send_buf1>
+ 1c2:	f0 91 06 01 	lds	r31, 0x0106	; 0x800106 <_ZL9send_buf1+0x1>
+ 1c6:	e8 0f       	add	r30, r24
+ 1c8:	f1 1d       	adc	r31, r1
+ 1ca:	80 81       	ld	r24, Z
+ 1cc:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
+		send_pos1++;
+ 1d0:	80 91 08 01 	lds	r24, 0x0108	; 0x800108 <_ZL9send_pos1>
+ 1d4:	8f 5f       	subi	r24, 0xFF	; 255
+ 1d6:	80 93 08 01 	sts	0x0108, r24	; 0x800108 <_ZL9send_pos1>
+ 1da:	07 c0       	rjmp	.+14     	; 0x1ea <__vector_33+0x4a>
+	} else {
+		send_num1= 0;
+ 1dc:	10 92 07 01 	sts	0x0107, r1	; 0x800107 <_ZL9send_num1>
+		//disable sending interrupt
+		UCSR1B &= ~(1 << UDRIE1); //Disable sending
+ 1e0:	e9 ec       	ldi	r30, 0xC9	; 201
+ 1e2:	f0 e0       	ldi	r31, 0x00	; 0
+ 1e4:	80 81       	ld	r24, Z
+ 1e6:	8f 7d       	andi	r24, 0xDF	; 223
+ 1e8:	80 83       	st	Z, r24
+	}
+}
+ 1ea:	ff 91       	pop	r31
+ 1ec:	ef 91       	pop	r30
+ 1ee:	9f 91       	pop	r25
+ 1f0:	8f 91       	pop	r24
+ 1f2:	0f 90       	pop	r0
+ 1f4:	0f be       	out	0x3f, r0	; 63
+ 1f6:	0f 90       	pop	r0
+ 1f8:	1f 90       	pop	r1
+ 1fa:	18 95       	reti
+
+000001fc <__vector_32>:
+ * \brief Data RX interrupt handler
+ *
+ * This is the handler for UART receive data
+ */
+ISR(USART1_RX_vect)
+{
+ 1fc:	1f 92       	push	r1
+ 1fe:	0f 92       	push	r0
+ 200:	0f b6       	in	r0, 0x3f	; 63
+ 202:	0f 92       	push	r0
+ 204:	11 24       	eor	r1, r1
+ 206:	8f 93       	push	r24
+ 208:	ef 93       	push	r30
+ 20a:	ff 93       	push	r31
+	//ring_buffer_put(&ring_buffer_in, UDR0);
+	uint8_t temp;
+	
+	
+	temp = UDR1; // read buffer
+ 20c:	ee ec       	ldi	r30, 0xCE	; 206
+ 20e:	f0 e0       	ldi	r31, 0x00	; 0
+ 210:	80 81       	ld	r24, Z
+	
+	//UDR1=temp; //tx byte
+	
+	UDR1 = temp;
+ 212:	80 83       	st	Z, r24
+	
+	//flag_rx = true;
+	
+}
+ 214:	ff 91       	pop	r31
+ 216:	ef 91       	pop	r30
+ 218:	8f 91       	pop	r24
+ 21a:	0f 90       	pop	r0
+ 21c:	0f be       	out	0x3f, r0	; 63
+ 21e:	0f 90       	pop	r0
+ 220:	1f 90       	pop	r1
+ 222:	18 95       	reti
+
+00000224 <_Z10uart1_initv>:
+
+
+void uart1_init(void) {
+	UBRR1H = UBRRH_VALUE;
+ 224:	10 92 cd 00 	sts	0x00CD, r1	; 0x8000cd <__TEXT_REGION_LENGTH__+0x7e00cd>
+	UBRR1L = UBRRL_VALUE;
+ 228:	87 e6       	ldi	r24, 0x67	; 103
+ 22a:	80 93 cc 00 	sts	0x00CC, r24	; 0x8000cc <__TEXT_REGION_LENGTH__+0x7e00cc>
+	
+	send_pos1= 0;
+ 22e:	10 92 08 01 	sts	0x0108, r1	; 0x800108 <_ZL9send_pos1>
+	send_num1= 0;
+ 232:	10 92 07 01 	sts	0x0107, r1	; 0x800107 <_ZL9send_num1>
+
+	#if USE_2X
+	UCSR1A |= _BV(U2X1);
+	#else
+	UCSR1A &= ~(_BV(U2X1));
+ 236:	e8 ec       	ldi	r30, 0xC8	; 200
+ 238:	f0 e0       	ldi	r31, 0x00	; 0
+ 23a:	80 81       	ld	r24, Z
+ 23c:	8d 7f       	andi	r24, 0xFD	; 253
+ 23e:	80 83       	st	Z, r24
+	#endif
+
+	
+	UCSR1B = _BV(RXEN1) | _BV(TXEN1) | _BV(RXCIE1);   /* Enable RX and TX, RX complete ISR */
+ 240:	e9 ec       	ldi	r30, 0xC9	; 201
+ 242:	f0 e0       	ldi	r31, 0x00	; 0
+ 244:	88 e9       	ldi	r24, 0x98	; 152
+ 246:	80 83       	st	Z, r24
+	UCSR1C = _BV(UCSZ11) | _BV(UCSZ10); /* 8-bit data, 1 stop bit, no parity, asynchronous UART*/
+ 248:	86 e0       	ldi	r24, 0x06	; 6
+ 24a:	80 93 ca 00 	sts	0x00CA, r24	; 0x8000ca <__TEXT_REGION_LENGTH__+0x7e00ca>
+
+	UCSR1B &= ~(1 << UDRIE1); //Disable sending, ready TX buffer
+ 24e:	80 81       	ld	r24, Z
+ 250:	8f 7d       	andi	r24, 0xDF	; 223
+ 252:	80 83       	st	Z, r24
+
+	//set_sleep_mode(SLEEP_MODE_IDLE);
+	//enable global interrupt
+	sei();
+ 254:	78 94       	sei
+ 256:	08 95       	ret
+
+00000258 <_exit>:
+ 258:	f8 94       	cli
+
+0000025a <__stop_program>:
+ 25a:	ff cf       	rjmp	.-2      	; 0x25a <__stop_program>
