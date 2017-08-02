@@ -12,7 +12,7 @@
 void uart1_init(void);
 int8_t uart1_send_buff(uint8_t* buffer, uint8_t num);
 int8_t uart1_busy(void);
-
+void config_timer0(void);
 
 
 #endif /* UART1_H_ */

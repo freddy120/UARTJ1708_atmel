@@ -57,7 +57,7 @@ ISR(USART0_RX_vect)
 	
 	//UDR1=temp; //tx byte
 	
-	UDR0 = temp;
+	//UDR0 = temp;
 	
 	//flag_rx = true;
 	
