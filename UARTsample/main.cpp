@@ -20,39 +20,6 @@
 #include "uart1.h"
 #include "uart0.h"
 
-#define j1708_my_mid 128 // change this value to change the MID of the module , all modules on the bus should have a different MID
-
-uint8_t j1708_tx_buffer[20];
-uint8_t j1708_rx_buffer0[21];
-uint8_t j1708_rx_buffer1[21];
-uint8_t j1708_rx_buffer0_count;
-uint8_t j1708_rx_buffer1_count;
-
-uint8_t j1708_tx_ptr;
-uint8_t j1708_tx_length;
-uint8_t j1708_rx_buffer0_ptr;
-uint8_t j1708_rx_buffer1_ptr;
-uint8_t j1708_checksum;
-volatile uint8_t j1708_status;
-uint8_t j1708_rx_temp;
-uint8_t j1708_collision_counter;
-uint8_t j1708_rx_limit;
-
-volatile uint8_t bit_times = 1;  // values from 1-10
-
-
-#define j1708_rx_check_mid		0 //j1708_status,0
-#define j1708_transmitting		1 //j1708_status,1
-#define j1708_tx_busy   		2 //j1708_status,2
-#define j1708_active_buffer		3 //j1708_status,3
-#define j1708_busy				4 //j1708_status,4
-#define j1708_checksum_error	5 //j1708_status,5
-#define j1708_rx_overflow		6 //j1708_status,6
-#define j1708_tx_sent_checksum	7 //j1708_status,7
-
-
-
-
 
 
 
