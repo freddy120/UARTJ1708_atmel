@@ -9,20 +9,16 @@
 #ifndef UART1_H_
 #define UART1_H_
 
-void uart1_init(void);
-int8_t uart1_send_buff(uint8_t* buffer, uint8_t num);
-int8_t uart1_busy(void);
+
+void j1708_init(void);
 void config_timer0(void);
-
-
+void handle_times_isr();
 void j1708_rx_isr_receiving();
-void rx_must_check_mid();
 void rx_collision_detection();
+void send_checksum();
 
-int8_t j1708_send_packet(uint8_t* buffer, uint8_t len); // send bytes, and number of bytes to sent
+void j1708_send_packet(uint8_t* buffer, uint8_t len); // send bytes, and number of bytes to sent
 void j1708_tx_data();
-void handle_buffer0();
-void handle_buffer1();
 
 
-#endif /* UART1_H_ *
+#endif /* UART1_H_ */

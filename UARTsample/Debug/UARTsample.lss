@@ -3,31 +3,31 @@ UARTsample.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000008  00800100  00000348  000003dc  2**0
+  0 .data         00000008  00800100  000005ec  00000680  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000348  00000000  00000000  00000094  2**1
+  1 .text         000005ec  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          0000000d  00800108  00800108  000003e4  2**0
+  2 .bss          00000023  00800108  00800108  00000688  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  000003e4  2**0
+  3 .comment      00000030  00000000  00000000  00000688  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000414  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000006b8  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000000c8  00000000  00000000  00000450  2**0
+  5 .debug_aranges 000000e0  00000000  00000000  000006f4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   000010d1  00000000  00000000  00000518  2**0
+  6 .debug_info   00001177  00000000  00000000  000007d4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000cd8  00000000  00000000  000015e9  2**0
+  7 .debug_abbrev 00000cc2  00000000  00000000  0000194b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000619  00000000  00000000  000022c1  2**0
+  8 .debug_line   000007f6  00000000  00000000  0000260d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000001cc  00000000  00000000  000028dc  2**2
+  9 .debug_frame  00000298  00000000  00000000  00002e04  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000824  00000000  00000000  00002aa8  2**0
+ 10 .debug_str    00000993  00000000  00000000  0000309c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000281  00000000  00000000  000032cc  2**0
+ 11 .debug_loc    00000431  00000000  00000000  00003a2f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000098  00000000  00000000  0000354d  2**0
+ 12 .debug_ranges 000000b0  00000000  00000000  00003e60  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -43,19 +43,19 @@ Disassembly of section .text:
   1c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   20:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   24:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  28:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+  28:	0c 94 78 00 	jmp	0xf0	; 0xf0 <__vector_10>
   2c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   30:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   34:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   38:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   3c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   40:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  44:	0c 94 74 00 	jmp	0xe8	; 0xe8 <__vector_17>
+  44:	0c 94 bc 02 	jmp	0x578	; 0x578 <__vector_17>
   48:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   4c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   50:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  54:	0c 94 f8 00 	jmp	0x1f0	; 0x1f0 <__vector_21>
-  58:	0c 94 ca 00 	jmp	0x194	; 0x194 <__vector_22>
+  54:	0c 94 fa 00 	jmp	0x1f4	; 0x1f4 <__vector_21>
+  58:	0c 94 cc 00 	jmp	0x198	; 0x198 <__vector_22>
   5c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   60:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   64:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
@@ -65,8 +65,8 @@ Disassembly of section .text:
   74:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   78:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   7c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  80:	0c 94 64 01 	jmp	0x2c8	; 0x2c8 <__vector_32>
-  84:	0c 94 36 01 	jmp	0x26c	; 0x26c <__vector_33>
+  80:	0c 94 fc 01 	jmp	0x3f8	; 0x3f8 <__vector_32>
+  84:	0c 94 9e 01 	jmp	0x33c	; 0x33c <__vector_33>
   88:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   8c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
   90:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
@@ -83,8 +83,8 @@ Disassembly of section .text:
   a0:	11 e0       	ldi	r17, 0x01	; 1
   a2:	a0 e0       	ldi	r26, 0x00	; 0
   a4:	b1 e0       	ldi	r27, 0x01	; 1
-  a6:	e8 e4       	ldi	r30, 0x48	; 72
-  a8:	f3 e0       	ldi	r31, 0x03	; 3
+  a6:	ec ee       	ldi	r30, 0xEC	; 236
+  a8:	f5 e0       	ldi	r31, 0x05	; 5
   aa:	02 c0       	rjmp	.+4      	; 0xb0 <__do_copy_data+0x10>
   ac:	05 90       	lpm	r0, Z+
   ae:	0d 92       	st	X+, r0
@@ -102,483 +102,939 @@ Disassembly of section .text:
   be:	1d 92       	st	X+, r1
 
 000000c0 <.do_clear_bss_start>:
-  c0:	a5 31       	cpi	r26, 0x15	; 21
+  c0:	ab 32       	cpi	r26, 0x2B	; 43
   c2:	b2 07       	cpc	r27, r18
   c4:	e1 f7       	brne	.-8      	; 0xbe <.do_clear_bss_loop>
-  c6:	0e 94 b3 00 	call	0x166	; 0x166 <main>
-  ca:	0c 94 a2 01 	jmp	0x344	; 0x344 <_exit>
+  c6:	0e 94 ba 00 	call	0x174	; 0x174 <main>
+  ca:	0c 94 f4 02 	jmp	0x5e8	; 0x5e8 <_exit>
 
 000000ce <__bad_interrupt>:
   ce:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-000000d2 <_Z13config_timer0v>:
+000000d2 <_Z13config_timer2v>:
+volatile uint32_t count;
+volatile bool flag_count = false;
 
-void putString (char *str)
-{
-	while (*str) 
-		uart_putchar(*str++);
+void config_timer2(void){
+	// Prescaler = FCPU/8
+	TCCR2A |= (1<<CS21);
+  d2:	e0 eb       	ldi	r30, 0xB0	; 176
+  d4:	f0 e0       	ldi	r31, 0x00	; 0
+  d6:	80 81       	ld	r24, Z
+  d8:	82 60       	ori	r24, 0x02	; 2
+  da:	80 83       	st	Z, r24
+
+	
+	//Enable Overflow Interrupt Enable
+	TIMSK2|=(1<<TOIE2);
+  dc:	e0 e7       	ldi	r30, 0x70	; 112
+  de:	f0 e0       	ldi	r31, 0x00	; 0
+  e0:	80 81       	ld	r24, Z
+  e2:	81 60       	ori	r24, 0x01	; 1
+  e4:	80 83       	st	Z, r24
+	
+	//enable global interrupt
+	sei();
+  e6:	78 94       	sei
+	
+	//Initialize Counter
+	//TCNT0=0; //127.5 us overflow
+	TCNT2=47; //104 us overflow   1 bit time
+  e8:	8f e2       	ldi	r24, 0x2F	; 47
+  ea:	80 93 b2 00 	sts	0x00B2, r24	; 0x8000b2 <__TEXT_REGION_LENGTH__+0x7e00b2>
+  ee:	08 95       	ret
+
+000000f0 <__vector_10>:
 }
-  d2:	84 b5       	in	r24, 0x24	; 36
-  d4:	82 60       	ori	r24, 0x02	; 2
-  d6:	84 bd       	out	0x24, r24	; 36
-  d8:	ee e6       	ldi	r30, 0x6E	; 110
-  da:	f0 e0       	ldi	r31, 0x00	; 0
-  dc:	80 81       	ld	r24, Z
-  de:	81 60       	ori	r24, 0x01	; 1
-  e0:	80 83       	st	Z, r24
-  e2:	78 94       	sei
-  e4:	16 bc       	out	0x26, r1	; 38
-  e6:	08 95       	ret
 
-000000e8 <__vector_17>:
-  e8:	1f 92       	push	r1
-  ea:	0f 92       	push	r0
-  ec:	0f b6       	in	r0, 0x3f	; 63
-  ee:	0f 92       	push	r0
-  f0:	11 24       	eor	r1, r1
-  f2:	2f 93       	push	r18
-  f4:	8f 93       	push	r24
-  f6:	9f 93       	push	r25
-  f8:	af 93       	push	r26
-  fa:	bf 93       	push	r27
-  fc:	80 91 09 01 	lds	r24, 0x0109	; 0x800109 <count>
- 100:	90 91 0a 01 	lds	r25, 0x010A	; 0x80010a <count+0x1>
- 104:	a0 91 0b 01 	lds	r26, 0x010B	; 0x80010b <count+0x2>
- 108:	b0 91 0c 01 	lds	r27, 0x010C	; 0x80010c <count+0x3>
- 10c:	01 96       	adiw	r24, 0x01	; 1
- 10e:	a1 1d       	adc	r26, r1
- 110:	b1 1d       	adc	r27, r1
- 112:	80 93 09 01 	sts	0x0109, r24	; 0x800109 <count>
- 116:	90 93 0a 01 	sts	0x010A, r25	; 0x80010a <count+0x1>
- 11a:	a0 93 0b 01 	sts	0x010B, r26	; 0x80010b <count+0x2>
- 11e:	b0 93 0c 01 	sts	0x010C, r27	; 0x80010c <count+0x3>
- 122:	80 91 09 01 	lds	r24, 0x0109	; 0x800109 <count>
- 126:	90 91 0a 01 	lds	r25, 0x010A	; 0x80010a <count+0x1>
- 12a:	a0 91 0b 01 	lds	r26, 0x010B	; 0x80010b <count+0x2>
- 12e:	b0 91 0c 01 	lds	r27, 0x010C	; 0x80010c <count+0x3>
- 132:	83 3a       	cpi	r24, 0xA3	; 163
- 134:	9e 41       	sbci	r25, 0x1E	; 30
- 136:	a1 05       	cpc	r26, r1
- 138:	b1 05       	cpc	r27, r1
- 13a:	59 f4       	brne	.+22     	; 0x152 <__vector_17+0x6a>
- 13c:	81 e0       	ldi	r24, 0x01	; 1
- 13e:	80 93 08 01 	sts	0x0108, r24	; 0x800108 <__data_end>
- 142:	10 92 09 01 	sts	0x0109, r1	; 0x800109 <count>
- 146:	10 92 0a 01 	sts	0x010A, r1	; 0x80010a <count+0x1>
- 14a:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <count+0x2>
- 14e:	10 92 0c 01 	sts	0x010C, r1	; 0x80010c <count+0x3>
- 152:	bf 91       	pop	r27
- 154:	af 91       	pop	r26
- 156:	9f 91       	pop	r25
- 158:	8f 91       	pop	r24
- 15a:	2f 91       	pop	r18
- 15c:	0f 90       	pop	r0
- 15e:	0f be       	out	0x3f, r0	; 63
- 160:	0f 90       	pop	r0
- 162:	1f 90       	pop	r1
- 164:	18 95       	reti
 
-00000166 <main>:
+ISR(TIMER2_OVF_vect)
+{
+  f0:	1f 92       	push	r1
+  f2:	0f 92       	push	r0
+  f4:	0f b6       	in	r0, 0x3f	; 63
+  f6:	0f 92       	push	r0
+  f8:	11 24       	eor	r1, r1
+  fa:	2f 93       	push	r18
+  fc:	8f 93       	push	r24
+  fe:	9f 93       	push	r25
+ 100:	af 93       	push	r26
+ 102:	bf 93       	push	r27
+	//This is the interrupt service routine for TIMER0 OVERFLOW Interrupt.
+	//CPU automatically call this when TIMER0 overflows.
+	//Increment our variable
+	TCNT2=47; //104 us overflow   1 bit time
+ 104:	8f e2       	ldi	r24, 0x2F	; 47
+ 106:	80 93 b2 00 	sts	0x00B2, r24	; 0x8000b2 <__TEXT_REGION_LENGTH__+0x7e00b2>
+	
+	count++;
+ 10a:	80 91 09 01 	lds	r24, 0x0109	; 0x800109 <count>
+ 10e:	90 91 0a 01 	lds	r25, 0x010A	; 0x80010a <count+0x1>
+ 112:	a0 91 0b 01 	lds	r26, 0x010B	; 0x80010b <count+0x2>
+ 116:	b0 91 0c 01 	lds	r27, 0x010C	; 0x80010c <count+0x3>
+ 11a:	01 96       	adiw	r24, 0x01	; 1
+ 11c:	a1 1d       	adc	r26, r1
+ 11e:	b1 1d       	adc	r27, r1
+ 120:	80 93 09 01 	sts	0x0109, r24	; 0x800109 <count>
+ 124:	90 93 0a 01 	sts	0x010A, r25	; 0x80010a <count+0x1>
+ 128:	a0 93 0b 01 	sts	0x010B, r26	; 0x80010b <count+0x2>
+ 12c:	b0 93 0c 01 	sts	0x010C, r27	; 0x80010c <count+0x3>
+	if(count==7843) //1 second
+ 130:	80 91 09 01 	lds	r24, 0x0109	; 0x800109 <count>
+ 134:	90 91 0a 01 	lds	r25, 0x010A	; 0x80010a <count+0x1>
+ 138:	a0 91 0b 01 	lds	r26, 0x010B	; 0x80010b <count+0x2>
+ 13c:	b0 91 0c 01 	lds	r27, 0x010C	; 0x80010c <count+0x3>
+ 140:	83 3a       	cpi	r24, 0xA3	; 163
+ 142:	9e 41       	sbci	r25, 0x1E	; 30
+ 144:	a1 05       	cpc	r26, r1
+ 146:	b1 05       	cpc	r27, r1
+ 148:	59 f4       	brne	.+22     	; 0x160 <__vector_10+0x70>
+	{
+		flag_count = true;
+ 14a:	81 e0       	ldi	r24, 0x01	; 1
+ 14c:	80 93 08 01 	sts	0x0108, r24	; 0x800108 <__data_end>
+		count=0;
+ 150:	10 92 09 01 	sts	0x0109, r1	; 0x800109 <count>
+ 154:	10 92 0a 01 	sts	0x010A, r1	; 0x80010a <count+0x1>
+ 158:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <count+0x2>
+ 15c:	10 92 0c 01 	sts	0x010C, r1	; 0x80010c <count+0x3>
+	}
+}
+ 160:	bf 91       	pop	r27
+ 162:	af 91       	pop	r26
+ 164:	9f 91       	pop	r25
+ 166:	8f 91       	pop	r24
+ 168:	2f 91       	pop	r18
+ 16a:	0f 90       	pop	r0
+ 16c:	0f be       	out	0x3f, r0	; 63
+ 16e:	0f 90       	pop	r0
+ 170:	1f 90       	pop	r1
+ 172:	18 95       	reti
+
+00000174 <main>:
 
 
 
 int main(void)
 {
-	config_timer0();
- 166:	0e 94 69 00 	call	0xd2	; 0xd2 <_Z13config_timer0v>
-	uart1_init();
- 16a:	0e 94 72 01 	call	0x2e4	; 0x2e4 <_Z10uart1_initv>
+	config_timer2();
+ 174:	0e 94 69 00 	call	0xd2	; 0xd2 <_Z13config_timer2v>
+	j1708_init();
+ 178:	0e 94 4f 02 	call	0x49e	; 0x49e <_Z10j1708_initv>
 	uart0_init();
- 16e:	0e 94 06 01 	call	0x20c	; 0x20c <_Z10uart0_initv>
+ 17c:	0e 94 08 01 	call	0x210	; 0x210 <_Z10uart0_initv>
 	
 	
     /* Replace with your application code */
     while (1) 
     {
 		if(flag_count){
- 172:	80 91 08 01 	lds	r24, 0x0108	; 0x800108 <__data_end>
- 176:	88 23       	and	r24, r24
- 178:	e1 f3       	breq	.-8      	; 0x172 <main+0xc>
+ 180:	80 91 08 01 	lds	r24, 0x0108	; 0x800108 <__data_end>
+ 184:	88 23       	and	r24, r24
+ 186:	e1 f3       	breq	.-8      	; 0x180 <main+0xc>
 			//int8_t t;
 			//uart1_send_buff(test_string,6);//strlen(test_string));
 			uart0_send_buff(test_string,6);
- 17a:	66 e0       	ldi	r22, 0x06	; 6
- 17c:	80 e0       	ldi	r24, 0x00	; 0
- 17e:	91 e0       	ldi	r25, 0x01	; 1
- 180:	0e 94 20 01 	call	0x240	; 0x240 <_Z15uart0_send_buffPhh>
-			uart1_send_buff(test_string,6);
- 184:	66 e0       	ldi	r22, 0x06	; 6
- 186:	80 e0       	ldi	r24, 0x00	; 0
- 188:	91 e0       	ldi	r25, 0x01	; 1
- 18a:	0e 94 8c 01 	call	0x318	; 0x318 <_Z15uart1_send_buffPhh>
+ 188:	66 e0       	ldi	r22, 0x06	; 6
+ 18a:	80 e0       	ldi	r24, 0x00	; 0
+ 18c:	91 e0       	ldi	r25, 0x01	; 1
+ 18e:	0e 94 22 01 	call	0x244	; 0x244 <_Z15uart0_send_buffPhh>
 			flag_count = false;
- 18e:	10 92 08 01 	sts	0x0108, r1	; 0x800108 <__data_end>
- 192:	ef cf       	rjmp	.-34     	; 0x172 <main+0xc>
+ 192:	10 92 08 01 	sts	0x0108, r1	; 0x800108 <__data_end>
+ 196:	f4 cf       	rjmp	.-24     	; 0x180 <main+0xc>
 
-00000194 <__vector_22>:
+00000198 <__vector_22>:
  *
  * This handler is called each time the UART data register is available for
  * sending data.
  */
 ISR(USART0_UDRE_vect)
 {
- 194:	1f 92       	push	r1
- 196:	0f 92       	push	r0
- 198:	0f b6       	in	r0, 0x3f	; 63
+ 198:	1f 92       	push	r1
  19a:	0f 92       	push	r0
- 19c:	11 24       	eor	r1, r1
- 19e:	8f 93       	push	r24
- 1a0:	9f 93       	push	r25
- 1a2:	ef 93       	push	r30
- 1a4:	ff 93       	push	r31
+ 19c:	0f b6       	in	r0, 0x3f	; 63
+ 19e:	0f 92       	push	r0
+ 1a0:	11 24       	eor	r1, r1
+ 1a2:	8f 93       	push	r24
+ 1a4:	9f 93       	push	r25
+ 1a6:	ef 93       	push	r30
+ 1a8:	ff 93       	push	r31
 	if(send_num0 > send_pos0){
- 1a6:	80 91 10 01 	lds	r24, 0x0110	; 0x800110 <_ZL9send_pos0>
- 1aa:	90 91 0f 01 	lds	r25, 0x010F	; 0x80010f <_ZL9send_num0>
- 1ae:	89 17       	cp	r24, r25
- 1b0:	78 f4       	brcc	.+30     	; 0x1d0 <__vector_22+0x3c>
+ 1aa:	80 91 10 01 	lds	r24, 0x0110	; 0x800110 <_ZL9send_pos0>
+ 1ae:	90 91 0f 01 	lds	r25, 0x010F	; 0x80010f <_ZL9send_num0>
+ 1b2:	89 17       	cp	r24, r25
+ 1b4:	78 f4       	brcc	.+30     	; 0x1d4 <__vector_22+0x3c>
 		UDR0= send_buf0[send_pos0];
- 1b2:	e0 91 0d 01 	lds	r30, 0x010D	; 0x80010d <_ZL9send_buf0>
- 1b6:	f0 91 0e 01 	lds	r31, 0x010E	; 0x80010e <_ZL9send_buf0+0x1>
- 1ba:	e8 0f       	add	r30, r24
- 1bc:	f1 1d       	adc	r31, r1
- 1be:	80 81       	ld	r24, Z
- 1c0:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+ 1b6:	e0 91 0d 01 	lds	r30, 0x010D	; 0x80010d <_ZL9send_buf0>
+ 1ba:	f0 91 0e 01 	lds	r31, 0x010E	; 0x80010e <_ZL9send_buf0+0x1>
+ 1be:	e8 0f       	add	r30, r24
+ 1c0:	f1 1d       	adc	r31, r1
+ 1c2:	80 81       	ld	r24, Z
+ 1c4:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
 		send_pos0++;
- 1c4:	80 91 10 01 	lds	r24, 0x0110	; 0x800110 <_ZL9send_pos0>
- 1c8:	8f 5f       	subi	r24, 0xFF	; 255
- 1ca:	80 93 10 01 	sts	0x0110, r24	; 0x800110 <_ZL9send_pos0>
- 1ce:	07 c0       	rjmp	.+14     	; 0x1de <__vector_22+0x4a>
+ 1c8:	80 91 10 01 	lds	r24, 0x0110	; 0x800110 <_ZL9send_pos0>
+ 1cc:	8f 5f       	subi	r24, 0xFF	; 255
+ 1ce:	80 93 10 01 	sts	0x0110, r24	; 0x800110 <_ZL9send_pos0>
+ 1d2:	07 c0       	rjmp	.+14     	; 0x1e2 <__vector_22+0x4a>
 	} else {
 		send_num0= 0;
- 1d0:	10 92 0f 01 	sts	0x010F, r1	; 0x80010f <_ZL9send_num0>
+ 1d4:	10 92 0f 01 	sts	0x010F, r1	; 0x80010f <_ZL9send_num0>
 		//disable sending interrupt
 		UCSR0B &= ~(1 << UDRIE0); //Disable sending
- 1d4:	e1 ec       	ldi	r30, 0xC1	; 193
- 1d6:	f0 e0       	ldi	r31, 0x00	; 0
- 1d8:	80 81       	ld	r24, Z
- 1da:	8f 7d       	andi	r24, 0xDF	; 223
- 1dc:	80 83       	st	Z, r24
+ 1d8:	e1 ec       	ldi	r30, 0xC1	; 193
+ 1da:	f0 e0       	ldi	r31, 0x00	; 0
+ 1dc:	80 81       	ld	r24, Z
+ 1de:	8f 7d       	andi	r24, 0xDF	; 223
+ 1e0:	80 83       	st	Z, r24
 	}
 }
- 1de:	ff 91       	pop	r31
- 1e0:	ef 91       	pop	r30
- 1e2:	9f 91       	pop	r25
- 1e4:	8f 91       	pop	r24
- 1e6:	0f 90       	pop	r0
- 1e8:	0f be       	out	0x3f, r0	; 63
+ 1e2:	ff 91       	pop	r31
+ 1e4:	ef 91       	pop	r30
+ 1e6:	9f 91       	pop	r25
+ 1e8:	8f 91       	pop	r24
  1ea:	0f 90       	pop	r0
- 1ec:	1f 90       	pop	r1
- 1ee:	18 95       	reti
+ 1ec:	0f be       	out	0x3f, r0	; 63
+ 1ee:	0f 90       	pop	r0
+ 1f0:	1f 90       	pop	r1
+ 1f2:	18 95       	reti
 
-000001f0 <__vector_21>:
+000001f4 <__vector_21>:
  * \brief Data RX interrupt handler
  *
  * This is the handler for UART receive data
  */
 ISR(USART0_RX_vect)
 {
- 1f0:	1f 92       	push	r1
- 1f2:	0f 92       	push	r0
- 1f4:	0f b6       	in	r0, 0x3f	; 63
+ 1f4:	1f 92       	push	r1
  1f6:	0f 92       	push	r0
- 1f8:	11 24       	eor	r1, r1
- 1fa:	8f 93       	push	r24
+ 1f8:	0f b6       	in	r0, 0x3f	; 63
+ 1fa:	0f 92       	push	r0
+ 1fc:	11 24       	eor	r1, r1
+ 1fe:	8f 93       	push	r24
 	//ring_buffer_put(&ring_buffer_in, UDR0);
 	uint8_t temp;
 	
 	
 	temp = UDR0; // read buffer
- 1fc:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+ 200:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
 	
 	//UDR0 = temp;
 	
 	//flag_rx = true;
 	
 }
- 200:	8f 91       	pop	r24
- 202:	0f 90       	pop	r0
- 204:	0f be       	out	0x3f, r0	; 63
+ 204:	8f 91       	pop	r24
  206:	0f 90       	pop	r0
- 208:	1f 90       	pop	r1
- 20a:	18 95       	reti
+ 208:	0f be       	out	0x3f, r0	; 63
+ 20a:	0f 90       	pop	r0
+ 20c:	1f 90       	pop	r1
+ 20e:	18 95       	reti
 
-0000020c <_Z10uart0_initv>:
+00000210 <_Z10uart0_initv>:
 
 
 void uart0_init(void) {
 	UBRR0H = UBRRH_VALUE;
- 20c:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
+ 210:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
 	UBRR0L = UBRRL_VALUE;
- 210:	87 e6       	ldi	r24, 0x67	; 103
- 212:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
+ 214:	87 e6       	ldi	r24, 0x67	; 103
+ 216:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
 	
 	send_pos0= 0;
- 216:	10 92 10 01 	sts	0x0110, r1	; 0x800110 <_ZL9send_pos0>
+ 21a:	10 92 10 01 	sts	0x0110, r1	; 0x800110 <_ZL9send_pos0>
 	send_num0= 0;
- 21a:	10 92 0f 01 	sts	0x010F, r1	; 0x80010f <_ZL9send_num0>
+ 21e:	10 92 0f 01 	sts	0x010F, r1	; 0x80010f <_ZL9send_num0>
 
 	#if USE_2X
 	UCSR0A |= _BV(U2X0);
 	#else
 	UCSR0A &= ~(_BV(U2X0));
- 21e:	e0 ec       	ldi	r30, 0xC0	; 192
- 220:	f0 e0       	ldi	r31, 0x00	; 0
- 222:	80 81       	ld	r24, Z
- 224:	8d 7f       	andi	r24, 0xFD	; 253
- 226:	80 83       	st	Z, r24
+ 222:	e0 ec       	ldi	r30, 0xC0	; 192
+ 224:	f0 e0       	ldi	r31, 0x00	; 0
+ 226:	80 81       	ld	r24, Z
+ 228:	8d 7f       	andi	r24, 0xFD	; 253
+ 22a:	80 83       	st	Z, r24
 	#endif
 
 	
 	UCSR0B = _BV(RXEN0) | _BV(TXEN0) | _BV(RXCIE0);   /* Enable RX and TX, RX complete ISR */
- 228:	e1 ec       	ldi	r30, 0xC1	; 193
- 22a:	f0 e0       	ldi	r31, 0x00	; 0
- 22c:	88 e9       	ldi	r24, 0x98	; 152
- 22e:	80 83       	st	Z, r24
+ 22c:	e1 ec       	ldi	r30, 0xC1	; 193
+ 22e:	f0 e0       	ldi	r31, 0x00	; 0
+ 230:	88 e9       	ldi	r24, 0x98	; 152
+ 232:	80 83       	st	Z, r24
 	UCSR0C = _BV(UCSZ01) | _BV(UCSZ00); /* 8-bit data, 1 stop bit, no parity, asynchronous UART*/
- 230:	86 e0       	ldi	r24, 0x06	; 6
- 232:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
+ 234:	86 e0       	ldi	r24, 0x06	; 6
+ 236:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
 
 	UCSR0B &= ~(1 << UDRIE0); //Disable sending, ready TX buffer
- 236:	80 81       	ld	r24, Z
- 238:	8f 7d       	andi	r24, 0xDF	; 223
- 23a:	80 83       	st	Z, r24
+ 23a:	80 81       	ld	r24, Z
+ 23c:	8f 7d       	andi	r24, 0xDF	; 223
+ 23e:	80 83       	st	Z, r24
 
 	//set_sleep_mode(SLEEP_MODE_IDLE);
 	//enable global interrupt
 	sei();
- 23c:	78 94       	sei
- 23e:	08 95       	ret
+ 240:	78 94       	sei
+ 242:	08 95       	ret
 
-00000240 <_Z15uart0_send_buffPhh>:
+00000244 <_Z15uart0_send_buffPhh>:
 }
 
 // send buffer
 int8_t uart0_send_buff(uint8_t* buffer, uint8_t num){
- 240:	9c 01       	movw	r18, r24
+ 244:	9c 01       	movw	r18, r24
 	
 	if(send_num0){
- 242:	90 91 0f 01 	lds	r25, 0x010F	; 0x80010f <_ZL9send_num0>
- 246:	91 11       	cpse	r25, r1
- 248:	0f c0       	rjmp	.+30     	; 0x268 <_Z15uart0_send_buffPhh+0x28>
+ 246:	90 91 0f 01 	lds	r25, 0x010F	; 0x80010f <_ZL9send_num0>
+ 24a:	91 11       	cpse	r25, r1
+ 24c:	0f c0       	rjmp	.+30     	; 0x26c <_Z15uart0_send_buffPhh+0x28>
 		//fail because we are already sending something
 		return -1;
 	} else {
 		send_num0 = num;
- 24a:	60 93 0f 01 	sts	0x010F, r22	; 0x80010f <_ZL9send_num0>
+ 24e:	60 93 0f 01 	sts	0x010F, r22	; 0x80010f <_ZL9send_num0>
 		send_pos0 = 0;
- 24e:	10 92 10 01 	sts	0x0110, r1	; 0x800110 <_ZL9send_pos0>
+ 252:	10 92 10 01 	sts	0x0110, r1	; 0x800110 <_ZL9send_pos0>
 		send_buf0 = buffer;
- 252:	30 93 0e 01 	sts	0x010E, r19	; 0x80010e <_ZL9send_buf0+0x1>
- 256:	20 93 0d 01 	sts	0x010D, r18	; 0x80010d <_ZL9send_buf0>
+ 256:	30 93 0e 01 	sts	0x010E, r19	; 0x80010e <_ZL9send_buf0+0x1>
+ 25a:	20 93 0d 01 	sts	0x010D, r18	; 0x80010d <_ZL9send_buf0>
 		//enable UART interrupt
 		UCSR0B |= (1 << UDRIE0); //enable sending
- 25a:	e1 ec       	ldi	r30, 0xC1	; 193
- 25c:	f0 e0       	ldi	r31, 0x00	; 0
- 25e:	80 81       	ld	r24, Z
- 260:	80 62       	ori	r24, 0x20	; 32
- 262:	80 83       	st	Z, r24
+ 25e:	e1 ec       	ldi	r30, 0xC1	; 193
+ 260:	f0 e0       	ldi	r31, 0x00	; 0
+ 262:	80 81       	ld	r24, Z
+ 264:	80 62       	ori	r24, 0x20	; 32
+ 266:	80 83       	st	Z, r24
 
 		return 0;
- 264:	80 e0       	ldi	r24, 0x00	; 0
- 266:	08 95       	ret
+ 268:	80 e0       	ldi	r24, 0x00	; 0
+ 26a:	08 95       	ret
 // send buffer
 int8_t uart0_send_buff(uint8_t* buffer, uint8_t num){
 	
 	if(send_num0){
 		//fail because we are already sending something
 		return -1;
- 268:	8f ef       	ldi	r24, 0xFF	; 255
+ 26c:	8f ef       	ldi	r24, 0xFF	; 255
 		//enable UART interrupt
 		UCSR0B |= (1 << UDRIE0); //enable sending
 
 		return 0;
 	}
 }
- 26a:	08 95       	ret
+ 26e:	08 95       	ret
 
-0000026c <__vector_33>:
+00000270 <_Z22j1708_rx_isr_receivingv>:
+
+
+void j1708_rx_isr_receiving(){
+	
+	// reset end idle time
+	count_times = 0;
+ 270:	10 92 1a 01 	sts	0x011A, r1	; 0x80011a <count_times>
+	bit_times = 10; //reset the end-of-packet
+ 274:	8a e0       	ldi	r24, 0x0A	; 10
+ 276:	80 93 07 01 	sts	0x0107, r24	; 0x800107 <bit_times>
+	TCNT0=47; //104 us overflow   1 bit tim
+ 27a:	8f e2       	ldi	r24, 0x2F	; 47
+ 27c:	86 bd       	out	0x26, r24	; 38
+	TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+ 27e:	ee e6       	ldi	r30, 0x6E	; 110
+ 280:	f0 e0       	ldi	r31, 0x00	; 0
+ 282:	80 81       	ld	r24, Z
+ 284:	81 60       	ori	r24, 0x01	; 1
+ 286:	80 83       	st	Z, r24
+	
+	bus_status.j1708_busy = 1; // the receiver is now busy
+ 288:	e1 e1       	ldi	r30, 0x11	; 17
+ 28a:	f1 e0       	ldi	r31, 0x01	; 1
+ 28c:	81 e0       	ldi	r24, 0x01	; 1
+ 28e:	84 83       	std	Z+4, r24	; 0x04
+
+	if (bus_status.j1708_active_buffer){ // so use buffer1
+ 290:	83 81       	ldd	r24, Z+3	; 0x03
+ 292:	88 23       	and	r24, r24
+ 294:	21 f1       	breq	.+72     	; 0x2de <_Z22j1708_rx_isr_receivingv+0x6e>
+		
+		// no limit of bytes to received
+		j1708_rx_buffer1[j1708_rx_buffer1_ptr] = j1708_rx_temp;
+ 296:	80 91 1f 01 	lds	r24, 0x011F	; 0x80011f <j1708_rx_buffer1_ptr>
+ 29a:	e0 91 21 01 	lds	r30, 0x0121	; 0x800121 <j1708_rx_buffer1>
+ 29e:	f0 91 22 01 	lds	r31, 0x0122	; 0x800122 <j1708_rx_buffer1+0x1>
+ 2a2:	e8 0f       	add	r30, r24
+ 2a4:	f1 1d       	adc	r31, r1
+ 2a6:	80 91 1d 01 	lds	r24, 0x011D	; 0x80011d <j1708_rx_temp>
+ 2aa:	80 83       	st	Z, r24
+		j1708_rx_buffer1_count++; //count number of bytes on buffer
+ 2ac:	80 91 20 01 	lds	r24, 0x0120	; 0x800120 <j1708_rx_buffer1_count>
+ 2b0:	8f 5f       	subi	r24, 0xFF	; 255
+ 2b2:	80 93 20 01 	sts	0x0120, r24	; 0x800120 <j1708_rx_buffer1_count>
+		j1708_rx_buffer1_ptr++;
+ 2b6:	80 91 1f 01 	lds	r24, 0x011F	; 0x80011f <j1708_rx_buffer1_ptr>
+ 2ba:	8f 5f       	subi	r24, 0xFF	; 255
+ 2bc:	80 93 1f 01 	sts	0x011F, r24	; 0x80011f <j1708_rx_buffer1_ptr>
+		// add to checksum
+		j1708_checksum += j1708_rx_temp;
+ 2c0:	90 91 1d 01 	lds	r25, 0x011D	; 0x80011d <j1708_rx_temp>
+ 2c4:	80 91 1e 01 	lds	r24, 0x011E	; 0x80011e <j1708_checksum>
+ 2c8:	89 0f       	add	r24, r25
+ 2ca:	80 93 1e 01 	sts	0x011E, r24	; 0x80011e <j1708_checksum>
+		//limit of bytes
+		if(j1708_rx_buffer1_count == 21){// max 21 bytes
+ 2ce:	80 91 20 01 	lds	r24, 0x0120	; 0x800120 <j1708_rx_buffer1_count>
+ 2d2:	85 31       	cpi	r24, 0x15	; 21
+ 2d4:	39 f5       	brne	.+78     	; 0x324 <_Z22j1708_rx_isr_receivingv+0xb4>
+			bus_status.j1708_rx_overflow = 1;
+ 2d6:	81 e0       	ldi	r24, 0x01	; 1
+ 2d8:	80 93 17 01 	sts	0x0117, r24	; 0x800117 <bus_status+0x6>
+ 2dc:	08 95       	ret
+		}
+		
+		
+	}else{ // so use buffer0
+		// no limit of bytes to received
+		j1708_rx_buffer0[j1708_rx_buffer0_ptr] = j1708_rx_temp;
+ 2de:	80 91 23 01 	lds	r24, 0x0123	; 0x800123 <j1708_rx_buffer0_ptr>
+ 2e2:	e0 91 25 01 	lds	r30, 0x0125	; 0x800125 <j1708_rx_buffer0>
+ 2e6:	f0 91 26 01 	lds	r31, 0x0126	; 0x800126 <j1708_rx_buffer0+0x1>
+ 2ea:	e8 0f       	add	r30, r24
+ 2ec:	f1 1d       	adc	r31, r1
+ 2ee:	80 91 1d 01 	lds	r24, 0x011D	; 0x80011d <j1708_rx_temp>
+ 2f2:	80 83       	st	Z, r24
+		j1708_rx_buffer0_count++; //count number of bytes on buffer
+ 2f4:	80 91 24 01 	lds	r24, 0x0124	; 0x800124 <j1708_rx_buffer0_count>
+ 2f8:	8f 5f       	subi	r24, 0xFF	; 255
+ 2fa:	80 93 24 01 	sts	0x0124, r24	; 0x800124 <j1708_rx_buffer0_count>
+		j1708_rx_buffer0_ptr++;
+ 2fe:	80 91 23 01 	lds	r24, 0x0123	; 0x800123 <j1708_rx_buffer0_ptr>
+ 302:	8f 5f       	subi	r24, 0xFF	; 255
+ 304:	80 93 23 01 	sts	0x0123, r24	; 0x800123 <j1708_rx_buffer0_ptr>
+		// add to checksum
+		j1708_checksum += j1708_rx_temp;
+ 308:	90 91 1d 01 	lds	r25, 0x011D	; 0x80011d <j1708_rx_temp>
+ 30c:	80 91 1e 01 	lds	r24, 0x011E	; 0x80011e <j1708_checksum>
+ 310:	89 0f       	add	r24, r25
+ 312:	80 93 1e 01 	sts	0x011E, r24	; 0x80011e <j1708_checksum>
+		//limit of bytes
+		if(j1708_rx_buffer0_count == 21){// max 21 bytes
+ 316:	80 91 24 01 	lds	r24, 0x0124	; 0x800124 <j1708_rx_buffer0_count>
+ 31a:	85 31       	cpi	r24, 0x15	; 21
+ 31c:	19 f4       	brne	.+6      	; 0x324 <_Z22j1708_rx_isr_receivingv+0xb4>
+			bus_status.j1708_rx_overflow = 1;
+ 31e:	81 e0       	ldi	r24, 0x01	; 1
+ 320:	80 93 17 01 	sts	0x0117, r24	; 0x800117 <bus_status+0x6>
+ 324:	08 95       	ret
+
+00000326 <_Z13send_checksumv>:
+
+
+
+void send_checksum(){
+	uint8_t cs;
+	cs = ~(j1708_checksum);
+ 326:	80 91 1e 01 	lds	r24, 0x011E	; 0x80011e <j1708_checksum>
+	cs += 1;
+ 32a:	81 95       	neg	r24
+	UDR1 = cs; // send checksum
+ 32c:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
+	
+	//UCSR1B &= ~(1 << UDRIE1);  //disable TX isr 
+	//UCSR1B &= ~(1 << RXEN1);  //enable RX isr
+	
+	bus_status.j1708_tx_busy = 0; // tx queue is now empty
+ 330:	e1 e1       	ldi	r30, 0x11	; 17
+ 332:	f1 e0       	ldi	r31, 0x01	; 1
+ 334:	12 82       	std	Z+2, r1	; 0x02
+	//bus_status.j1708_transmitting = 0;
+	bus_status.j1708_tx_sent_checksum = 1;
+ 336:	81 e0       	ldi	r24, 0x01	; 1
+ 338:	87 83       	std	Z+7, r24	; 0x07
+ 33a:	08 95       	ret
+
+0000033c <__vector_33>:
  *
  * This handler is called each time the UART data register is available for
  * sending data.
  */
 ISR(USART1_UDRE_vect)
 {
- 26c:	1f 92       	push	r1
- 26e:	0f 92       	push	r0
- 270:	0f b6       	in	r0, 0x3f	; 63
- 272:	0f 92       	push	r0
- 274:	11 24       	eor	r1, r1
- 276:	8f 93       	push	r24
- 278:	9f 93       	push	r25
- 27a:	ef 93       	push	r30
- 27c:	ff 93       	push	r31
-	if(send_num1 > send_pos1){
- 27e:	80 91 14 01 	lds	r24, 0x0114	; 0x800114 <_ZL9send_pos1>
- 282:	90 91 13 01 	lds	r25, 0x0113	; 0x800113 <_ZL9send_num1>
- 286:	89 17       	cp	r24, r25
- 288:	78 f4       	brcc	.+30     	; 0x2a8 <__vector_33+0x3c>
-		UDR1= send_buf1[send_pos1];
- 28a:	e0 91 11 01 	lds	r30, 0x0111	; 0x800111 <_ZL9send_buf1>
- 28e:	f0 91 12 01 	lds	r31, 0x0112	; 0x800112 <_ZL9send_buf1+0x1>
- 292:	e8 0f       	add	r30, r24
- 294:	f1 1d       	adc	r31, r1
- 296:	80 81       	ld	r24, Z
- 298:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
-		send_pos1++;
- 29c:	80 91 14 01 	lds	r24, 0x0114	; 0x800114 <_ZL9send_pos1>
- 2a0:	8f 5f       	subi	r24, 0xFF	; 255
- 2a2:	80 93 14 01 	sts	0x0114, r24	; 0x800114 <_ZL9send_pos1>
- 2a6:	07 c0       	rjmp	.+14     	; 0x2b6 <__vector_33+0x4a>
+ 33c:	1f 92       	push	r1
+ 33e:	0f 92       	push	r0
+ 340:	0f b6       	in	r0, 0x3f	; 63
+ 342:	0f 92       	push	r0
+ 344:	11 24       	eor	r1, r1
+ 346:	2f 93       	push	r18
+ 348:	3f 93       	push	r19
+ 34a:	4f 93       	push	r20
+ 34c:	5f 93       	push	r21
+ 34e:	6f 93       	push	r22
+ 350:	7f 93       	push	r23
+ 352:	8f 93       	push	r24
+ 354:	9f 93       	push	r25
+ 356:	af 93       	push	r26
+ 358:	bf 93       	push	r27
+ 35a:	ef 93       	push	r30
+ 35c:	ff 93       	push	r31
+	if(j1708_tx_length > j1708_tx_ptr){
+ 35e:	80 91 27 01 	lds	r24, 0x0127	; 0x800127 <_ZL12j1708_tx_ptr>
+ 362:	90 91 28 01 	lds	r25, 0x0128	; 0x800128 <_ZL15j1708_tx_length>
+ 366:	89 17       	cp	r24, r25
+ 368:	d8 f4       	brcc	.+54     	; 0x3a0 <__vector_33+0x64>
+		UDR1= j1708_tx_buffer[j1708_tx_ptr];
+ 36a:	e0 91 29 01 	lds	r30, 0x0129	; 0x800129 <_ZL15j1708_tx_buffer>
+ 36e:	f0 91 2a 01 	lds	r31, 0x012A	; 0x80012a <_ZL15j1708_tx_buffer+0x1>
+ 372:	e8 0f       	add	r30, r24
+ 374:	f1 1d       	adc	r31, r1
+ 376:	80 81       	ld	r24, Z
+ 378:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
+		j1708_checksum += j1708_tx_buffer[j1708_tx_ptr]; // add to checksum
+ 37c:	80 91 27 01 	lds	r24, 0x0127	; 0x800127 <_ZL12j1708_tx_ptr>
+ 380:	20 91 1e 01 	lds	r18, 0x011E	; 0x80011e <j1708_checksum>
+ 384:	e0 91 29 01 	lds	r30, 0x0129	; 0x800129 <_ZL15j1708_tx_buffer>
+ 388:	f0 91 2a 01 	lds	r31, 0x012A	; 0x80012a <_ZL15j1708_tx_buffer+0x1>
+ 38c:	e8 0f       	add	r30, r24
+ 38e:	f1 1d       	adc	r31, r1
+ 390:	90 81       	ld	r25, Z
+ 392:	92 0f       	add	r25, r18
+ 394:	90 93 1e 01 	sts	0x011E, r25	; 0x80011e <j1708_checksum>
+		j1708_tx_ptr++;
+ 398:	8f 5f       	subi	r24, 0xFF	; 255
+ 39a:	80 93 27 01 	sts	0x0127, r24	; 0x800127 <_ZL12j1708_tx_ptr>
+ 39e:	09 c0       	rjmp	.+18     	; 0x3b2 <__vector_33+0x76>
 	} else {
-		send_num1= 0;
- 2a8:	10 92 13 01 	sts	0x0113, r1	; 0x800113 <_ZL9send_num1>
+		j1708_tx_length = 0;
+ 3a0:	10 92 28 01 	sts	0x0128, r1	; 0x800128 <_ZL15j1708_tx_length>
 		//disable sending interrupt
 		UCSR1B &= ~(1 << UDRIE1); //Disable sending
- 2ac:	e9 ec       	ldi	r30, 0xC9	; 201
- 2ae:	f0 e0       	ldi	r31, 0x00	; 0
- 2b0:	80 81       	ld	r24, Z
- 2b2:	8f 7d       	andi	r24, 0xDF	; 223
- 2b4:	80 83       	st	Z, r24
+ 3a4:	e9 ec       	ldi	r30, 0xC9	; 201
+ 3a6:	f0 e0       	ldi	r31, 0x00	; 0
+ 3a8:	80 81       	ld	r24, Z
+ 3aa:	8f 7d       	andi	r24, 0xDF	; 223
+ 3ac:	80 83       	st	Z, r24
+		send_checksum();
+ 3ae:	0e 94 93 01 	call	0x326	; 0x326 <_Z13send_checksumv>
 	}
+	
 }
- 2b6:	ff 91       	pop	r31
- 2b8:	ef 91       	pop	r30
- 2ba:	9f 91       	pop	r25
- 2bc:	8f 91       	pop	r24
- 2be:	0f 90       	pop	r0
- 2c0:	0f be       	out	0x3f, r0	; 63
- 2c2:	0f 90       	pop	r0
- 2c4:	1f 90       	pop	r1
- 2c6:	18 95       	reti
+ 3b2:	ff 91       	pop	r31
+ 3b4:	ef 91       	pop	r30
+ 3b6:	bf 91       	pop	r27
+ 3b8:	af 91       	pop	r26
+ 3ba:	9f 91       	pop	r25
+ 3bc:	8f 91       	pop	r24
+ 3be:	7f 91       	pop	r23
+ 3c0:	6f 91       	pop	r22
+ 3c2:	5f 91       	pop	r21
+ 3c4:	4f 91       	pop	r20
+ 3c6:	3f 91       	pop	r19
+ 3c8:	2f 91       	pop	r18
+ 3ca:	0f 90       	pop	r0
+ 3cc:	0f be       	out	0x3f, r0	; 63
+ 3ce:	0f 90       	pop	r0
+ 3d0:	1f 90       	pop	r1
+ 3d2:	18 95       	reti
 
-000002c8 <__vector_32>:
+000003d4 <_Z22rx_collision_detectionv>:
+
+
+
+void rx_collision_detection(){
+	
+	j1708_collision_counter ++; // count # collisions
+ 3d4:	80 91 1c 01 	lds	r24, 0x011C	; 0x80011c <j1708_collision_counter>
+ 3d8:	8f 5f       	subi	r24, 0xFF	; 255
+ 3da:	80 93 1c 01 	sts	0x011C, r24	; 0x80011c <j1708_collision_counter>
+	//random number generate ;
+	bit_times = j1708_collision_counter & 0x07; //random time from 1 - 7 
+ 3de:	80 91 1c 01 	lds	r24, 0x011C	; 0x80011c <j1708_collision_counter>
+ 3e2:	87 70       	andi	r24, 0x07	; 7
+ 3e4:	80 93 07 01 	sts	0x0107, r24	; 0x800107 <bit_times>
+	
+	TCNT0=47; //104 us overflow   1 bit time
+ 3e8:	8f e2       	ldi	r24, 0x2F	; 47
+ 3ea:	86 bd       	out	0x26, r24	; 38
+	TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+ 3ec:	ee e6       	ldi	r30, 0x6E	; 110
+ 3ee:	f0 e0       	ldi	r31, 0x00	; 0
+ 3f0:	80 81       	ld	r24, Z
+ 3f2:	81 60       	ori	r24, 0x01	; 1
+ 3f4:	80 83       	st	Z, r24
+ 3f6:	08 95       	ret
+
+000003f8 <__vector_32>:
  * \brief Data RX interrupt handler
  *
  * This is the handler for UART receive data
  */
 ISR(USART1_RX_vect)
 {
- 2c8:	1f 92       	push	r1
- 2ca:	0f 92       	push	r0
- 2cc:	0f b6       	in	r0, 0x3f	; 63
- 2ce:	0f 92       	push	r0
- 2d0:	11 24       	eor	r1, r1
- 2d2:	8f 93       	push	r24
-	//ring_buffer_put(&ring_buffer_in, UDR0);
+ 3f8:	1f 92       	push	r1
+ 3fa:	0f 92       	push	r0
+ 3fc:	0f b6       	in	r0, 0x3f	; 63
+ 3fe:	0f 92       	push	r0
+ 400:	11 24       	eor	r1, r1
+ 402:	2f 93       	push	r18
+ 404:	3f 93       	push	r19
+ 406:	4f 93       	push	r20
+ 408:	5f 93       	push	r21
+ 40a:	6f 93       	push	r22
+ 40c:	7f 93       	push	r23
+ 40e:	8f 93       	push	r24
+ 410:	9f 93       	push	r25
+ 412:	af 93       	push	r26
+ 414:	bf 93       	push	r27
+ 416:	ef 93       	push	r30
+ 418:	ff 93       	push	r31
+	
 	uint8_t temp;
-	
-	
 	temp = UDR1; // read buffer
- 2d4:	80 91 ce 00 	lds	r24, 0x00CE	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
+ 41a:	80 91 ce 00 	lds	r24, 0x00CE	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
+	j1708_rx_temp = temp; // save on temp
+ 41e:	80 93 1d 01 	sts	0x011D, r24	; 0x80011d <j1708_rx_temp>
 	
-	//UDR1 = temp;
+	// transmitting indicate idle bus has reached end we are tx MID+data
+	if (bus_status.j1708_transmitting){ //  yes, so we must..
+ 422:	80 91 12 01 	lds	r24, 0x0112	; 0x800112 <bus_status+0x1>
+ 426:	88 23       	and	r24, r24
+ 428:	49 f0       	breq	.+18     	; 0x43c <__LOCK_REGION_LENGTH__+0x3c>
+		
+		if(bus_status.j1708_tx_sent_checksum){
+ 42a:	80 91 18 01 	lds	r24, 0x0118	; 0x800118 <bus_status+0x7>
+ 42e:	88 23       	and	r24, r24
+ 430:	39 f0       	breq	.+14     	; 0x440 <__LOCK_REGION_LENGTH__+0x40>
+			bus_status.j1708_transmitting = 0; // clear flag tx
+ 432:	e1 e1       	ldi	r30, 0x11	; 17
+ 434:	f1 e0       	ldi	r31, 0x01	; 1
+ 436:	11 82       	std	Z+1, r1	; 0x01
+			bus_status.j1708_tx_sent_checksum = 0; // clear flag checksum
+ 438:	17 82       	std	Z+7, r1	; 0x07
+ 43a:	02 c0       	rjmp	.+4      	; 0x440 <__LOCK_REGION_LENGTH__+0x40>
+		}
+		
+	}else{ // no, so go receive this data
+		j1708_rx_isr_receiving();
+ 43c:	0e 94 38 01 	call	0x270	; 0x270 <_Z22j1708_rx_isr_receivingv>
+	}
 	
-	//flag_rx = true;
-	
+	if(bus_status.j1708_tx_busy && bus_status.j1708_MID_sent){ // MID was sent for j1708_tx_data()
+ 440:	80 91 13 01 	lds	r24, 0x0113	; 0x800113 <bus_status+0x2>
+ 444:	88 23       	and	r24, r24
+ 446:	d1 f0       	breq	.+52     	; 0x47c <__LOCK_REGION_LENGTH__+0x7c>
+ 448:	80 91 19 01 	lds	r24, 0x0119	; 0x800119 <bus_status+0x8>
+ 44c:	81 11       	cpse	r24, r1
+ 44e:	11 c0       	rjmp	.+34     	; 0x472 <__LOCK_REGION_LENGTH__+0x72>
+ 450:	15 c0       	rjmp	.+42     	; 0x47c <__LOCK_REGION_LENGTH__+0x7c>
+		//need to check if is correct
+		if(j1708_rx_temp == j1708_my_mid){ // then we are trasnmitting, check if MID is the same
+			bus_status.j1708_transmitting = 1;
+ 452:	e1 e1       	ldi	r30, 0x11	; 17
+ 454:	f1 e0       	ldi	r31, 0x01	; 1
+ 456:	81 e0       	ldi	r24, 0x01	; 1
+ 458:	81 83       	std	Z+1, r24	; 0x01
+			bus_status.j1708_MID_sent = 0; 
+ 45a:	10 86       	std	Z+8, r1	; 0x08
+			UCSR1B |= (1 << UDRIE1); //enable Tx interrupt, enable sending
+ 45c:	e9 ec       	ldi	r30, 0xC9	; 201
+ 45e:	f0 e0       	ldi	r31, 0x00	; 0
+ 460:	80 81       	ld	r24, Z
+ 462:	80 62       	ori	r24, 0x20	; 32
+ 464:	80 83       	st	Z, r24
+ 466:	0a c0       	rjmp	.+20     	; 0x47c <__LOCK_REGION_LENGTH__+0x7c>
+		}else{
+			bus_status.j1708_MID_sent = 0; 
+ 468:	10 92 19 01 	sts	0x0119, r1	; 0x800119 <bus_status+0x8>
+			rx_collision_detection();
+ 46c:	0e 94 ea 01 	call	0x3d4	; 0x3d4 <_Z22rx_collision_detectionv>
+		}
+	}
+
 }
- 2d8:	8f 91       	pop	r24
- 2da:	0f 90       	pop	r0
- 2dc:	0f be       	out	0x3f, r0	; 63
- 2de:	0f 90       	pop	r0
- 2e0:	1f 90       	pop	r1
- 2e2:	18 95       	reti
-
-000002e4 <_Z10uart1_initv>:
-
-
-void uart1_init(void) {
-	UBRR1H = UBRRH_VALUE;
- 2e4:	10 92 cd 00 	sts	0x00CD, r1	; 0x8000cd <__TEXT_REGION_LENGTH__+0x7e00cd>
-	UBRR1L = UBRRL_VALUE;
- 2e8:	87 e6       	ldi	r24, 0x67	; 103
- 2ea:	80 93 cc 00 	sts	0x00CC, r24	; 0x8000cc <__TEXT_REGION_LENGTH__+0x7e00cc>
+ 470:	05 c0       	rjmp	.+10     	; 0x47c <__LOCK_REGION_LENGTH__+0x7c>
+		j1708_rx_isr_receiving();
+	}
 	
-	send_pos1= 0;
- 2ee:	10 92 14 01 	sts	0x0114, r1	; 0x800114 <_ZL9send_pos1>
-	send_num1= 0;
- 2f2:	10 92 13 01 	sts	0x0113, r1	; 0x800113 <_ZL9send_num1>
+	if(bus_status.j1708_tx_busy && bus_status.j1708_MID_sent){ // MID was sent for j1708_tx_data()
+		//need to check if is correct
+		if(j1708_rx_temp == j1708_my_mid){ // then we are trasnmitting, check if MID is the same
+ 472:	80 91 1d 01 	lds	r24, 0x011D	; 0x80011d <j1708_rx_temp>
+ 476:	80 38       	cpi	r24, 0x80	; 128
+ 478:	b9 f7       	brne	.-18     	; 0x468 <__LOCK_REGION_LENGTH__+0x68>
+ 47a:	eb cf       	rjmp	.-42     	; 0x452 <__LOCK_REGION_LENGTH__+0x52>
+			bus_status.j1708_MID_sent = 0; 
+			rx_collision_detection();
+		}
+	}
+
+}
+ 47c:	ff 91       	pop	r31
+ 47e:	ef 91       	pop	r30
+ 480:	bf 91       	pop	r27
+ 482:	af 91       	pop	r26
+ 484:	9f 91       	pop	r25
+ 486:	8f 91       	pop	r24
+ 488:	7f 91       	pop	r23
+ 48a:	6f 91       	pop	r22
+ 48c:	5f 91       	pop	r21
+ 48e:	4f 91       	pop	r20
+ 490:	3f 91       	pop	r19
+ 492:	2f 91       	pop	r18
+ 494:	0f 90       	pop	r0
+ 496:	0f be       	out	0x3f, r0	; 63
+ 498:	0f 90       	pop	r0
+ 49a:	1f 90       	pop	r1
+ 49c:	18 95       	reti
+
+0000049e <_Z10j1708_initv>:
+
+
+
+void j1708_init(void) { // init uart1, rx interrupt enable and tx interrupt disable
+	
+	j1708_tx_ptr = 0;
+ 49e:	10 92 27 01 	sts	0x0127, r1	; 0x800127 <_ZL12j1708_tx_ptr>
+	j1708_tx_length = 0;
+ 4a2:	10 92 28 01 	sts	0x0128, r1	; 0x800128 <_ZL15j1708_tx_length>
+	j1708_rx_buffer0_ptr = 0;
+ 4a6:	10 92 23 01 	sts	0x0123, r1	; 0x800123 <j1708_rx_buffer0_ptr>
+	j1708_rx_buffer1_ptr = 0;
+ 4aa:	10 92 1f 01 	sts	0x011F, r1	; 0x80011f <j1708_rx_buffer1_ptr>
+	j1708_checksum = 0;
+ 4ae:	10 92 1e 01 	sts	0x011E, r1	; 0x80011e <j1708_checksum>
+	j1708_rx_temp = 0;
+ 4b2:	10 92 1d 01 	sts	0x011D, r1	; 0x80011d <j1708_rx_temp>
+	j1708_collision_counter = 0;
+ 4b6:	10 92 1c 01 	sts	0x011C, r1	; 0x80011c <j1708_collision_counter>
+	j1708_rx_limit = 0;
+ 4ba:	10 92 1b 01 	sts	0x011B, r1	; 0x80011b <j1708_rx_limit>
+	
+	//init uart1 
+	UBRR1H = UBRRH_VALUE;
+ 4be:	10 92 cd 00 	sts	0x00CD, r1	; 0x8000cd <__TEXT_REGION_LENGTH__+0x7e00cd>
+	UBRR1L = UBRRL_VALUE;
+ 4c2:	87 e6       	ldi	r24, 0x67	; 103
+ 4c4:	80 93 cc 00 	sts	0x00CC, r24	; 0x8000cc <__TEXT_REGION_LENGTH__+0x7e00cc>
+	
 
 	#if USE_2X
 	UCSR1A |= _BV(U2X1);
 	#else
 	UCSR1A &= ~(_BV(U2X1));
- 2f6:	e8 ec       	ldi	r30, 0xC8	; 200
- 2f8:	f0 e0       	ldi	r31, 0x00	; 0
- 2fa:	80 81       	ld	r24, Z
- 2fc:	8d 7f       	andi	r24, 0xFD	; 253
- 2fe:	80 83       	st	Z, r24
+ 4c8:	e8 ec       	ldi	r30, 0xC8	; 200
+ 4ca:	f0 e0       	ldi	r31, 0x00	; 0
+ 4cc:	80 81       	ld	r24, Z
+ 4ce:	8d 7f       	andi	r24, 0xFD	; 253
+ 4d0:	80 83       	st	Z, r24
 	#endif
 
 	
 	UCSR1B = _BV(RXEN1) | _BV(TXEN1) | _BV(RXCIE1);   /* Enable RX and TX, RX complete ISR */
- 300:	e9 ec       	ldi	r30, 0xC9	; 201
- 302:	f0 e0       	ldi	r31, 0x00	; 0
- 304:	88 e9       	ldi	r24, 0x98	; 152
- 306:	80 83       	st	Z, r24
+ 4d2:	e9 ec       	ldi	r30, 0xC9	; 201
+ 4d4:	f0 e0       	ldi	r31, 0x00	; 0
+ 4d6:	88 e9       	ldi	r24, 0x98	; 152
+ 4d8:	80 83       	st	Z, r24
 	UCSR1C = _BV(UCSZ11) | _BV(UCSZ10); /* 8-bit data, 1 stop bit, no parity, asynchronous UART*/
- 308:	86 e0       	ldi	r24, 0x06	; 6
- 30a:	80 93 ca 00 	sts	0x00CA, r24	; 0x8000ca <__TEXT_REGION_LENGTH__+0x7e00ca>
+ 4da:	86 e0       	ldi	r24, 0x06	; 6
+ 4dc:	80 93 ca 00 	sts	0x00CA, r24	; 0x8000ca <__TEXT_REGION_LENGTH__+0x7e00ca>
 
 	UCSR1B &= ~(1 << UDRIE1); //Disable sending, ready TX buffer
- 30e:	80 81       	ld	r24, Z
- 310:	8f 7d       	andi	r24, 0xDF	; 223
- 312:	80 83       	st	Z, r24
+ 4e0:	80 81       	ld	r24, Z
+ 4e2:	8f 7d       	andi	r24, 0xDF	; 223
+ 4e4:	80 83       	st	Z, r24
+
 
 	//set_sleep_mode(SLEEP_MODE_IDLE);
 	//enable global interrupt
 	sei();
- 314:	78 94       	sei
- 316:	08 95       	ret
+ 4e6:	78 94       	sei
+ 4e8:	08 95       	ret
 
-00000318 <_Z15uart1_send_buffPhh>:
+000004ea <_Z13j1708_tx_datav>:
+/*
+	try to send data packet, if failed just return without sending nothing
+*/
+void j1708_tx_data(){
+	
+	bus_status.j1708_tx_busy = 1; // Now tx is busy
+ 4ea:	e1 e1       	ldi	r30, 0x11	; 17
+ 4ec:	f1 e0       	ldi	r31, 0x01	; 1
+ 4ee:	81 e0       	ldi	r24, 0x01	; 1
+ 4f0:	82 83       	std	Z+2, r24	; 0x02
+	
+	// if the receiver is receiving.. or the idle timer is running... the bus is busy
+	if(bus_status.j1708_busy || (UCSR1A>>RXC1)&0x01 ){ // we can't bus busy, // unread data in the receive buffer set
+ 4f2:	84 81       	ldd	r24, Z+4	; 0x04
+ 4f4:	81 11       	cpse	r24, r1
+ 4f6:	0c c0       	rjmp	.+24     	; 0x510 <_Z13j1708_tx_datav+0x26>
+ 4f8:	80 91 c8 00 	lds	r24, 0x00C8	; 0x8000c8 <__TEXT_REGION_LENGTH__+0x7e00c8>
+ 4fc:	88 23       	and	r24, r24
+ 4fe:	44 f0       	brlt	.+16     	; 0x510 <_Z13j1708_tx_datav+0x26>
+		return;		
+	}else{
+		UDR1 = j1708_my_mid; // send first MID
+ 500:	80 e8       	ldi	r24, 0x80	; 128
+ 502:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
+		j1708_checksum = j1708_my_mid; // start checksum calculation 
+ 506:	80 93 1e 01 	sts	0x011E, r24	; 0x80011e <j1708_checksum>
+		bus_status.j1708_rx_check_mid = 1;
+ 50a:	81 e0       	ldi	r24, 0x01	; 1
+ 50c:	80 83       	st	Z, r24
+		
+		bus_status.j1708_MID_sent = 1;
+ 50e:	80 87       	std	Z+8, r24	; 0x08
+ 510:	08 95       	ret
+
+00000512 <_Z16handle_times_isrv>:
+
+//used to generate an interrupt on the end of a packet AND as a transmit collision retry timer
+void handle_times_isr(){
+
+	
+	bus_status.j1708_busy = 0; // not busy reach idle time, so end of packet
+ 512:	e1 e1       	ldi	r30, 0x11	; 17
+ 514:	f1 e0       	ldi	r31, 0x01	; 1
+ 516:	14 82       	std	Z+4, r1	; 0x04
+	
+	if (bus_status.j1708_transmitting){ // to tx
+ 518:	81 81       	ldd	r24, Z+1	; 0x01
+ 51a:	88 23       	and	r24, r24
+ 51c:	19 f0       	breq	.+6      	; 0x524 <_Z16handle_times_isrv+0x12>
+		j1708_tx_data();
+ 51e:	0e 94 75 02 	call	0x4ea	; 0x4ea <_Z13j1708_tx_datav>
+ 522:	08 95       	ret
+	}else{  //we are not transmitting so this must be the end of a received packet...time to cleanup
+		j1708_rx_limit = 21; // limit 21 bytes
+ 524:	85 e1       	ldi	r24, 0x15	; 21
+ 526:	80 93 1b 01 	sts	0x011B, r24	; 0x80011b <j1708_rx_limit>
+		bus_status.j1708_rx_overflow = 0;
+ 52a:	10 92 17 01 	sts	0x0117, r1	; 0x800117 <bus_status+0x6>
+		
+		if(j1708_checksum==0){ //valid
+ 52e:	80 91 1e 01 	lds	r24, 0x011E	; 0x80011e <j1708_checksum>
+ 532:	88 23       	and	r24, r24
+ 534:	19 f0       	breq	.+6      	; 0x53c <_Z16handle_times_isrv+0x2a>
+			;
+		}else{//invalid
+			bus_status.j1708_checksum_error = 1;
+ 536:	81 e0       	ldi	r24, 0x01	; 1
+ 538:	80 93 16 01 	sts	0x0116, r24	; 0x800116 <bus_status+0x5>
+		}
+			
+		
+		if(bus_status.j1708_active_buffer){// change buffer active 
+ 53c:	80 91 14 01 	lds	r24, 0x0114	; 0x800114 <bus_status+0x3>
+ 540:	88 23       	and	r24, r24
+ 542:	69 f0       	breq	.+26     	; 0x55e <_Z16handle_times_isrv+0x4c>
+			
+			bus_status.j1708_active_buffer = 0;
+ 544:	e1 e1       	ldi	r30, 0x11	; 17
+ 546:	f1 e0       	ldi	r31, 0x01	; 1
+ 548:	13 82       	std	Z+3, r1	; 0x03
+			j1708_rx_buffer0_ptr = 0;
+ 54a:	10 92 23 01 	sts	0x0123, r1	; 0x800123 <j1708_rx_buffer0_ptr>
+			j1708_rx_buffer0_count = 0;
+ 54e:	10 92 24 01 	sts	0x0124, r1	; 0x800124 <j1708_rx_buffer0_count>
+			if (bus_status.j1708_tx_busy){
+ 552:	82 81       	ldd	r24, Z+2	; 0x02
+ 554:	88 23       	and	r24, r24
+ 556:	79 f0       	breq	.+30     	; 0x576 <_Z16handle_times_isrv+0x64>
+				// need to add priority time + recheck time
+				j1708_tx_data(); // try again
+ 558:	0e 94 75 02 	call	0x4ea	; 0x4ea <_Z13j1708_tx_datav>
+ 55c:	08 95       	ret
+			}
+				
+		}else{
+				
+			bus_status.j1708_active_buffer = 1;
+ 55e:	e1 e1       	ldi	r30, 0x11	; 17
+ 560:	f1 e0       	ldi	r31, 0x01	; 1
+ 562:	81 e0       	ldi	r24, 0x01	; 1
+ 564:	83 83       	std	Z+3, r24	; 0x03
+			j1708_rx_buffer1_ptr = 0;
+ 566:	10 92 1f 01 	sts	0x011F, r1	; 0x80011f <j1708_rx_buffer1_ptr>
+			j1708_rx_buffer1_count = 0;
+ 56a:	10 92 20 01 	sts	0x0120, r1	; 0x800120 <j1708_rx_buffer1_count>
+			if (bus_status.j1708_tx_busy){
+ 56e:	82 81       	ldd	r24, Z+2	; 0x02
+ 570:	81 11       	cpse	r24, r1
+				j1708_tx_data();
+ 572:	0e 94 75 02 	call	0x4ea	; 0x4ea <_Z13j1708_tx_datav>
+ 576:	08 95       	ret
+
+00000578 <__vector_17>:
+	TCNT0=47; //104 us overflow   1 bit time
 }
 
-// send buffer
-int8_t uart1_send_buff(uint8_t* buffer, uint8_t num){
- 318:	9c 01       	movw	r18, r24
-	
-	if(send_num1){
- 31a:	90 91 13 01 	lds	r25, 0x0113	; 0x800113 <_ZL9send_num1>
- 31e:	91 11       	cpse	r25, r1
- 320:	0f c0       	rjmp	.+30     	; 0x340 <_Z15uart1_send_buffPhh+0x28>
-		//fail because we are already sending something
-		return -1;
-	} else {
-		send_num1= num;
- 322:	60 93 13 01 	sts	0x0113, r22	; 0x800113 <_ZL9send_num1>
-		send_pos1= 0;
- 326:	10 92 14 01 	sts	0x0114, r1	; 0x800114 <_ZL9send_pos1>
-		send_buf1= buffer;
- 32a:	30 93 12 01 	sts	0x0112, r19	; 0x800112 <_ZL9send_buf1+0x1>
- 32e:	20 93 11 01 	sts	0x0111, r18	; 0x800111 <_ZL9send_buf1>
-		//enable UART interrupt
-		UCSR1B |= (1 << UDRIE1); //enable sending
- 332:	e9 ec       	ldi	r30, 0xC9	; 201
- 334:	f0 e0       	ldi	r31, 0x00	; 0
- 336:	80 81       	ld	r24, Z
- 338:	80 62       	ori	r24, 0x20	; 32
- 33a:	80 83       	st	Z, r24
 
-		return 0;
- 33c:	80 e0       	ldi	r24, 0x00	; 0
- 33e:	08 95       	ret
-// send buffer
-int8_t uart1_send_buff(uint8_t* buffer, uint8_t num){
+ISR(TIMER0_OVF_vect)
+{
+ 578:	1f 92       	push	r1
+ 57a:	0f 92       	push	r0
+ 57c:	0f b6       	in	r0, 0x3f	; 63
+ 57e:	0f 92       	push	r0
+ 580:	11 24       	eor	r1, r1
+ 582:	2f 93       	push	r18
+ 584:	3f 93       	push	r19
+ 586:	4f 93       	push	r20
+ 588:	5f 93       	push	r21
+ 58a:	6f 93       	push	r22
+ 58c:	7f 93       	push	r23
+ 58e:	8f 93       	push	r24
+ 590:	9f 93       	push	r25
+ 592:	af 93       	push	r26
+ 594:	bf 93       	push	r27
+ 596:	ef 93       	push	r30
+ 598:	ff 93       	push	r31
+	//This is the interrupt service routine for TIMER0 OVERFLOW Interrupt.
+	//CPU automatically call this when TIMER0 overflows.
+	//Increment our variable
+	TCNT0=47; //104 us overflow   1 bit time
+ 59a:	8f e2       	ldi	r24, 0x2F	; 47
+ 59c:	86 bd       	out	0x26, r24	; 38
 	
-	if(send_num1){
-		//fail because we are already sending something
-		return -1;
- 340:	8f ef       	ldi	r24, 0xFF	; 255
-		//enable UART interrupt
-		UCSR1B |= (1 << UDRIE1); //enable sending
-
-		return 0;
+	count_times++;
+ 59e:	80 91 1a 01 	lds	r24, 0x011A	; 0x80011a <count_times>
+ 5a2:	8f 5f       	subi	r24, 0xFF	; 255
+ 5a4:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <count_times>
+	if(count_times==bit_times) //reach n bit times
+ 5a8:	90 91 1a 01 	lds	r25, 0x011A	; 0x80011a <count_times>
+ 5ac:	80 91 07 01 	lds	r24, 0x0107	; 0x800107 <bit_times>
+ 5b0:	98 13       	cpse	r25, r24
+ 5b2:	09 c0       	rjmp	.+18     	; 0x5c6 <__vector_17+0x4e>
+	{
+		
+		TIMSK0 &= ~(1<<TOIE0); // disable timer isr
+ 5b4:	ee e6       	ldi	r30, 0x6E	; 110
+ 5b6:	f0 e0       	ldi	r31, 0x00	; 0
+ 5b8:	80 81       	ld	r24, Z
+ 5ba:	8e 7f       	andi	r24, 0xFE	; 254
+ 5bc:	80 83       	st	Z, r24
+		count_times = 0;
+ 5be:	10 92 1a 01 	sts	0x011A, r1	; 0x80011a <count_times>
+		handle_times_isr(); // then reach 10 bit time idle time
+ 5c2:	0e 94 89 02 	call	0x512	; 0x512 <_Z16handle_times_isrv>
 	}
 }
- 342:	08 95       	ret
+ 5c6:	ff 91       	pop	r31
+ 5c8:	ef 91       	pop	r30
+ 5ca:	bf 91       	pop	r27
+ 5cc:	af 91       	pop	r26
+ 5ce:	9f 91       	pop	r25
+ 5d0:	8f 91       	pop	r24
+ 5d2:	7f 91       	pop	r23
+ 5d4:	6f 91       	pop	r22
+ 5d6:	5f 91       	pop	r21
+ 5d8:	4f 91       	pop	r20
+ 5da:	3f 91       	pop	r19
+ 5dc:	2f 91       	pop	r18
+ 5de:	0f 90       	pop	r0
+ 5e0:	0f be       	out	0x3f, r0	; 63
+ 5e2:	0f 90       	pop	r0
+ 5e4:	1f 90       	pop	r1
+ 5e6:	18 95       	reti
 
-00000344 <_exit>:
- 344:	f8 94       	cli
+000005e8 <_exit>:
+ 5e8:	f8 94       	cli
 
-00000346 <__stop_program>:
- 346:	ff cf       	rjmp	.-2      	; 0x346 <__stop_program>
+000005ea <__stop_program>:
+ 5ea:	ff cf       	rjmp	.-2      	; 0x5ea <__stop_program>
