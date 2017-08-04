@@ -112,8 +112,8 @@ Disassembly of section .text:
   ce:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 000000d2 <_Z13config_timer2v>:
-volatile uint32_t count;
 volatile bool flag_count = false;
+
 
 void config_timer2(void){
 	// Prescaler = FCPU/8

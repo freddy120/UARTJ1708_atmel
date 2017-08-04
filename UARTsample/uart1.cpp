@@ -18,6 +18,7 @@
 #include "uart1.h"
 
 #define j1708_my_mid 128 // change this value to change the MID of the module , all modules on the bus should have a different MID
+#define j1708_priority 8 // change priority of my packets 1-8, 7-8 for all other messages
 
 static uint8_t* j1708_tx_buffer; // max [20] bytes;
 static uint8_t j1708_tx_length; // bytes to tx
@@ -50,25 +51,20 @@ struct j1708_status {
 	volatile uint8_t j1708_rx_overflow;			//j1708_status,6
 	volatile uint8_t j1708_tx_sent_checksum;	//j1708_status,7
 	volatile uint8_t j1708_MID_sent;
+	
+	volatile uint8_t j1708_first_connection;
+	volatile uint8_t j1708_priority_check_flag;
 } bus_status;
 
 
 
 
-void config_timer1(void){
+void config_timer0(void){
 	// Prescaler = FCPU/8
 	TCCR0A |= (1<<CS01);//(1<<CS02) | (1<<CS00);
 	
-	// not enable interrupt 
-	
-	//Enable Overflow Interrupt Enable
-	//TIMSK0|=(1<<TOIE0);
-	
-	//enable global interrupt
 	sei();
 	
-	//Initialize Counter
-	//TCNT0=0; //127.5 us overflow
 	TCNT0=47; //104 us overflow   1 bit time
 }
 
@@ -96,8 +92,14 @@ void handle_times_isr(){
 	
 	bus_status.j1708_busy = 0; // not busy reach idle time, so end of packet
 	
-	if (bus_status.j1708_transmitting){ // to tx
+	if(bus_status.j1708_priority_check_flag){// reach priority delay
 		j1708_tx_data();
+		bus_status.j1708_priority_check_flag = 0;
+	}
+	
+	
+	if (bus_status.j1708_transmitting){ // to tx
+		//j1708_tx_data();
 	}else{  //we are not transmitting so this must be the end of a received packet...time to cleanup
 		j1708_rx_limit = 21; // limit 21 bytes
 		bus_status.j1708_rx_overflow = 0;
@@ -116,7 +118,12 @@ void handle_times_isr(){
 			j1708_rx_buffer0_count = 0;
 			if (bus_status.j1708_tx_busy){
 				// need to add priority time + recheck time
-				j1708_tx_data(); // try again
+				//j1708_tx_data(); // try again
+				count_times = 0;
+				bit_times = j1708_priority; //priority delay
+				TCNT0=47; //104 us overflow   1 bit tim
+				TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+				bus_status.j1708_priority_check_flag = 1;
 			}
 				
 		}else{
@@ -125,7 +132,12 @@ void handle_times_isr(){
 			j1708_rx_buffer1_ptr = 0;
 			j1708_rx_buffer1_count = 0;
 			if (bus_status.j1708_tx_busy){
-				j1708_tx_data();
+				//j1708_tx_data();
+				count_times = 0;
+				bit_times = j1708_priority; //priority delay
+				TCNT0=47; //104 us overflow   1 bit tim
+				TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+				bus_status.j1708_priority_check_flag = 1;
 			}
 				
 		}
@@ -167,6 +179,7 @@ ISR(USART1_RX_vect)
 	uint8_t temp;
 	temp = UDR1; // read buffer
 	j1708_rx_temp = temp; // save on temp
+	
 	
 	// transmitting indicate idle bus has reached end we are tx MID+data
 	if (bus_status.j1708_transmitting){ //  yes, so we must..
@@ -282,8 +295,6 @@ void j1708_init(void) { // init uart1, rx interrupt enable and tx interrupt disa
 	//init uart1 
 	UBRR1H = UBRRH_VALUE;
 	UBRR1L = UBRRL_VALUE;
-	
-	
 
 	#if USE_2X
 	UCSR1A |= _BV(U2X1);
@@ -301,11 +312,12 @@ void j1708_init(void) { // init uart1, rx interrupt enable and tx interrupt disa
 	//set_sleep_mode(SLEEP_MODE_IDLE);
 	//enable global interrupt
 	sei();
+	config_timer0();
 }
 
 /*
 *	j1708_send_packet
-*	load data into j1708_tx_buffer, and length of data not include MID byte
+*	load data into j1708_tx_buffer, and length of data not include MID byte, scheduled
 */
 void j1708_send_packet(uint8_t* buffer, uint8_t len){ // load data into j1708_tx_buffer
 	
@@ -313,8 +325,19 @@ void j1708_send_packet(uint8_t* buffer, uint8_t len){ // load data into j1708_tx
 	j1708_tx_length = len;  // 0 - 19 are valid
 	j1708_tx_ptr = 0;
 	j1708_tx_buffer = buffer;
+	
+	if (bus_status.j1708_first_connection == 0){
 		
-	j1708_tx_data(); 
+		count_times = 0;
+		bit_times = 10; //10 bit times reset the end-of-packet
+		TCNT0=47; //104 us overflow   1 bit tim
+		TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+		
+		bus_status.j1708_first_connection = 1;
+	}
+	
+	bus_status.j1708_tx_busy = 1;
+	//j1708_tx_data(); 
 		
 }
 
