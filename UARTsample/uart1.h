@@ -9,7 +9,6 @@
 #ifndef UART1_H_
 #define UART1_H_
 
-
 void j1708_init(void);
 void config_timer0(void);
 void handle_times_isr();
