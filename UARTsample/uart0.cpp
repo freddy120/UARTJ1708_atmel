@@ -17,19 +17,23 @@
 
 #include "uart0.h"
 
+#define BUFFER_IN_SIZE 30
+
 volatile uint8_t uart0_ptr_out;
 volatile uint8_t uart0_len_out;
 volatile  uint8_t* uart0_buffer_out; 
 
-volatile uint8_t* uart0_buffer_in;
+volatile uint8_t uart0_buffer_in[BUFFER_IN_SIZE];
 volatile uint8_t uart0_ptr_in;
 volatile uint8_t uart0_count_in;
 
-volatile uint8_t* uart0_rx_save;
+volatile uint8_t  uart0_rx_save[BUFFER_IN_SIZE];
 volatile uint8_t uart0_rx_len_save;
 
 volatile uint8_t flag_finish_rx_packet = false;
-//receiving
+
+//TIMER2
+volatile uint8_t count_tmr2;
 
 /**
  * \brief UART data register empty interrupt handler
@@ -70,8 +74,7 @@ ISR(USART0_RX_vect)
 	
 }
 
-//TIMER2
-volatile uint32_t count_tmr2;
+
 
 // timer2 ISR
 ISR(TIMER2_OVF_vect)
@@ -91,7 +94,11 @@ void uart0_rx_packet_timeout(){
 	flag_finish_rx_packet = 1; // clear when read rx buffer
 	
 	TIMSK2 &= ~(1<<TOIE2); // disable timer isr
-	uart0_rx_save = uart0_buffer_in;
+	int i;
+	for(i=0;i<uart0_ptr_in;i++){
+		uart0_rx_save[i] = uart0_buffer_in[i];
+	}
+	
 	uart0_count_in = uart0_ptr_in; // save count rx bytes
 	uart0_rx_len_save = uart0_count_in;
 	uart0_ptr_in = 0; // reset ptr in
@@ -159,8 +166,7 @@ int8_t uart0_rx_buff(uint8_t* buff_rx, uint8_t* len_rx){ // receive from serial 
 		for(i=0;i<uart0_rx_len_save;i++){
 			buff_rx[i]=uart0_rx_save[i]; //transfer buffer
 		}
-		//buff_rx = uart0_rx_save; // transfer buffer 
-		len_rx = uart0_rx_len_save; // transfer len of buffer
+		*len_rx = uart0_rx_len_save; // transfer len of buffer
 		return 0;
 	}else{ // cant read buff try again later;
 		return -1;

@@ -20,45 +20,47 @@
 #define j1708_my_mid 128 // change this value to change the MID of the module , all modules on the bus should have a different MID
 #define j1708_priority 8 // change priority of my packets 1-8, 7-8 for all other messages
 
+#define BUFFER_IN_SIZE 30
 
 
-static uint8_t* j1708_tx_buffer; // max [20] bytes;
-static uint8_t j1708_tx_length; // bytes to tx
+static uint8_t* j1708_tx_buffer;
+static uint8_t j1708_tx_length;
 static uint8_t j1708_tx_ptr;
 
-volatile uint8_t* j1708_rx_buffer0;//[21];
+volatile uint8_t j1708_rx_buffer0[BUFFER_IN_SIZE];
 volatile uint8_t j1708_rx_buffer0_count;
 volatile uint8_t j1708_rx_buffer0_ptr;
 
+//volatile uint8_t j1708_rx_buffer1[BUFFER_IN_SIZE];
+//volatile uint8_t j1708_rx_buffer1_count;
+//volatile uint8_t j1708_rx_buffer1_ptr;
+
+volatile uint8_t j1708_rx_buff_save[BUFFER_IN_SIZE];
 volatile uint8_t len_rx_save;
-volatile uint8_t* j1708_rx_buff_save;
 
 
-volatile uint8_t* j1708_rx_buffer1;//[21];
-volatile uint8_t j1708_rx_buffer1_count;
-volatile uint8_t j1708_rx_buffer1_ptr;
 
 volatile uint8_t j1708_checksum;
 volatile uint8_t j1708_rx_temp;
 volatile uint8_t j1708_collision_counter;
-volatile uint8_t j1708_rx_limit;
+volatile uint8_t j1708_rx_limit; //BUFFER_IN_SIZE
 
 volatile uint8_t bit_times = 1;  // values from 1-10
 volatile uint8_t count_times;
 
 
 struct j1708_status {
-	volatile uint8_t j1708_rx_check_mid;		//j1708_status,0
-	volatile uint8_t j1708_transmitting;		//j1708_status,1
-	volatile uint8_t j1708_tx_busy;   			//j1708_status,2
-	volatile uint8_t j1708_active_buffer;		//j1708_status,3
-	volatile uint8_t j1708_busy;				//j1708_status,4
-	volatile uint8_t j1708_checksum_error;		//j1708_status,5
-	volatile uint8_t j1708_rx_overflow;			//j1708_status,6
-	volatile uint8_t j1708_tx_sent_checksum;	//j1708_status,7
-	volatile uint8_t j1708_MID_sent;
 	
-	volatile uint8_t j1708_first_connection;
+	volatile uint8_t j1708_transmitting;		
+	volatile uint8_t j1708_tx_busy;   			
+	volatile uint8_t j1708_active_buffer;		
+	volatile uint8_t j1708_busy;				
+	volatile uint8_t j1708_checksum_error;				
+	volatile uint8_t j1708_tx_sent_checksum;	
+	volatile uint8_t j1708_MID_sent;
+	volatile uint8_t j1708_random_collision_times;
+	
+	volatile uint8_t j1708_wait_idle_time;
 	volatile uint8_t j1708_priority_check_flag;
 	volatile uint8_t j1708_finish_read_packet;
 
@@ -70,9 +72,7 @@ struct j1708_status {
 void config_timer0(void){
 	// Prescaler = FCPU/8
 	TCCR0A |= (1<<CS01);//(1<<CS02) | (1<<CS00);
-	
-	sei();
-	
+	//sei();	
 	TCNT0=47; //104 us overflow   1 bit time
 }
 
@@ -87,7 +87,6 @@ ISR(TIMER0_OVF_vect)
 	count_times++;
 	if(count_times==bit_times) //reach n bit times
 	{
-		
 		TIMSK0 &= ~(1<<TOIE0); // disable timer isr
 		count_times = 0;
 		handle_times_isr(); // then reach 10 bit time idle time
@@ -96,59 +95,81 @@ ISR(TIMER0_OVF_vect)
 
 //used to generate an interrupt on the end of a packet AND as a transmit collision retry timer
 void handle_times_isr(){
-
 	
-	bus_status.j1708_busy = 0; // not busy reach idle time, so end of packet
+	bus_status.j1708_busy = 0; // not busy idle time, 10 bit times
 	
+	if(bus_status.j1708_random_collision_times){// wait pseudo random bit times
+		j1708_tx_data();
+		bus_status.j1708_random_collision_times = 0;
+		j1708_collision_counter = 0; // reset collision counter
+		return;
+	}
+		
 	if(bus_status.j1708_priority_check_flag){// reach priority delay
 		j1708_tx_data();
 		bus_status.j1708_priority_check_flag = 0;
+		return;
 	}
 	
-	
-	if (bus_status.j1708_transmitting){ // to tx
-		//j1708_tx_data();
-	}else{  //we are not transmitting so this must be the end of a received packet...time to cleanup
-		j1708_rx_limit = 21; // limit 21 bytes
-		bus_status.j1708_rx_overflow = 0;
-		
+	if(bus_status.j1708_transmitting){ // when are transmitting data bytes
+		// read nothing
+	}else{  // receive packet, end of packet and I can try tx
+		// checksum
 		if(j1708_checksum==0){ //valid
-			;
+			bus_status.j1708_checksum_error = 0;
 		}else{//invalid
 			bus_status.j1708_checksum_error = 1;
 		}
-			
 		
-		if(bus_status.j1708_active_buffer){// change buffer active 
-			
-			bus_status.j1708_active_buffer = 0;
-			j1708_rx_buffer0_ptr = 0;
-			j1708_rx_buffer0_count = 0;
-			if (bus_status.j1708_tx_busy){
-				// need to add priority time + recheck time
-				//j1708_tx_data(); // try again
-				count_times = 0;
-				bit_times = j1708_priority; //priority delay
-				TCNT0=47; //104 us overflow   1 bit tim
-				TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
-				bus_status.j1708_priority_check_flag = 1;
-			}
-				
-		}else{
-				
-			bus_status.j1708_active_buffer = 1;
-			j1708_rx_buffer1_ptr = 0;
-			j1708_rx_buffer1_count = 0;
-			if (bus_status.j1708_tx_busy){
-				//j1708_tx_data();
-				count_times = 0;
-				bit_times = j1708_priority; //priority delay
-				TCNT0=47; //104 us overflow   1 bit tim
-				TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
-				bus_status.j1708_priority_check_flag = 1;
-			}
-				
+		// save buffer;
+		int i;
+		for(i=0;i<j1708_rx_buffer0_count;i++){
+			j1708_rx_buff_save[i] = j1708_rx_buffer0[i];
 		}
+		len_rx_save = j1708_rx_buffer0_count;
+		j1708_rx_buffer0_ptr = 0;
+		j1708_rx_buffer0_count = 0;
+		
+		if (bus_status.j1708_tx_busy){
+			//// need to add priority time + recheck time
+			count_times = 0;
+			bit_times = j1708_priority; //priority delay
+			TCNT0=47; //104 us overflow   1 bit tim
+			TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+			bus_status.j1708_priority_check_flag = 1;
+		}
+		
+		
+		//if(bus_status.j1708_active_buffer){// change buffer active 
+			//
+			//bus_status.j1708_active_buffer = 0;
+			//j1708_rx_buffer0_ptr = 0;
+			//j1708_rx_buffer0_count = 0;
+			//if (bus_status.j1708_tx_busy){
+				//// need to add priority time + recheck time
+				////j1708_tx_data(); // try again
+				//count_times = 0;
+				//bit_times = j1708_priority; //priority delay
+				//TCNT0=47; //104 us overflow   1 bit tim
+				//TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+				//bus_status.j1708_priority_check_flag = 1;
+			//}
+				//
+		//}else{
+				//
+			//bus_status.j1708_active_buffer = 1;
+			//j1708_rx_buffer1_ptr = 0;
+			//j1708_rx_buffer1_count = 0;
+			//if (bus_status.j1708_tx_busy){
+				////j1708_tx_data();
+				//count_times = 0;
+				//bit_times = j1708_priority; //priority delay
+				//TCNT0=47; //104 us overflow   1 bit tim
+				//TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+				//bus_status.j1708_priority_check_flag = 1;
+			//}
+				//
+		//}
 		
 		
 	}
@@ -188,6 +209,9 @@ ISR(USART1_RX_vect)
 	temp = UDR1; // read buffer
 	j1708_rx_temp = temp; // save on temp
 	
+	bus_status.j1708_priority_check_flag = 0; // clear priority check
+	bus_status.j1708_random_collision_times = 0;//clear collision flag
+	j1708_collision_counter = 0; // reset collision counter
 	
 	// transmitting indicate idle bus has reached end we are tx MID+data
 	if (bus_status.j1708_transmitting){ //  yes, so we must..
@@ -195,10 +219,14 @@ ISR(USART1_RX_vect)
 		if(bus_status.j1708_tx_sent_checksum){
 			bus_status.j1708_transmitting = 0; // clear flag tx
 			bus_status.j1708_tx_sent_checksum = 0; // clear flag checksum
+			
+			bus_status.j1708_wait_idle_time = 0;
 		}
 		
 	}else{ // no, so go receive this data
-		j1708_rx_isr_receiving();
+		if(bus_status.j1708_MID_sent==0){
+			j1708_rx_isr_receiving();
+		}
 	}
 	
 	if(bus_status.j1708_tx_busy && bus_status.j1708_MID_sent){ // MID was sent for j1708_tx_data()
@@ -215,45 +243,52 @@ ISR(USART1_RX_vect)
 
 }
 
-
-
 void j1708_rx_isr_receiving(){
 	
+	
+	bus_status.j1708_busy = 1; // the receiver is now busy
+
 	// reset end idle time
 	count_times = 0;
 	bit_times = 10; //reset the end-of-packet
 	TCNT0=47; //104 us overflow   1 bit tim
 	TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
 	
-	bus_status.j1708_busy = 1; // the receiver is now busy
+	
+	// no limit of bytes to received
+	j1708_rx_buffer0[j1708_rx_buffer0_ptr] = j1708_rx_temp;
+	j1708_rx_buffer0_count++; //count number of bytes on buffer
+	j1708_rx_buffer0_ptr++;
+	// add to checksum
+	j1708_checksum += j1708_rx_temp;
 
-	if (bus_status.j1708_active_buffer){ // so use buffer1
-		
-		// no limit of bytes to received
-		j1708_rx_buffer1[j1708_rx_buffer1_ptr] = j1708_rx_temp;
-		j1708_rx_buffer1_count++; //count number of bytes on buffer
-		j1708_rx_buffer1_ptr++;
-		// add to checksum
-		j1708_checksum += j1708_rx_temp;
-		//limit of bytes
-		if(j1708_rx_buffer1_count == 21){// max 21 bytes
-			bus_status.j1708_rx_overflow = 1;
-		}
-		
-		
-	}else{ // so use buffer0
-		// no limit of bytes to received
-		j1708_rx_buffer0[j1708_rx_buffer0_ptr] = j1708_rx_temp;
-		j1708_rx_buffer0_count++; //count number of bytes on buffer
-		j1708_rx_buffer0_ptr++;
-		// add to checksum
-		j1708_checksum += j1708_rx_temp;
-		//limit of bytes
-		if(j1708_rx_buffer0_count == 21){// max 21 bytes
-			bus_status.j1708_rx_overflow = 1;
-		}
-		
-	}
+	//if (bus_status.j1708_active_buffer){ // so use buffer1
+		//
+		//// no limit of bytes to received
+		//j1708_rx_buffer1[j1708_rx_buffer1_ptr] = j1708_rx_temp;
+		//j1708_rx_buffer1_count++; //count number of bytes on buffer
+		//j1708_rx_buffer1_ptr++;
+		//// add to checksum
+		//j1708_checksum += j1708_rx_temp;
+		////limit of bytes
+		//if(j1708_rx_buffer1_count == 21){// max 21 bytes
+			//bus_status.j1708_rx_overflow = 1;
+		//}
+		//
+		//
+	//}else{ // so use buffer0
+		//// no limit of bytes to received
+		//j1708_rx_buffer0[j1708_rx_buffer0_ptr] = j1708_rx_temp;
+		//j1708_rx_buffer0_count++; //count number of bytes on buffer
+		//j1708_rx_buffer0_ptr++;
+		//// add to checksum
+		//j1708_checksum += j1708_rx_temp;
+		////limit of bytes
+		//if(j1708_rx_buffer0_count == 21){// max 21 bytes
+			//bus_status.j1708_rx_overflow = 1;
+		//}
+		//
+	//}
 
 }
 
@@ -270,7 +305,6 @@ void send_checksum(){
 	//UCSR1B &= ~(1 << RXEN1);  //enable RX isr
 	
 	bus_status.j1708_tx_busy = 0; // tx queue is now empty
-	//bus_status.j1708_transmitting = 0;
 	bus_status.j1708_tx_sent_checksum = 1;
 	
 }
@@ -280,11 +314,22 @@ void send_checksum(){
 void rx_collision_detection(){
 	
 	j1708_collision_counter ++; // count # collisions
-	//random number generate ;
-	bit_times = j1708_collision_counter & 0x07; //random time from 1 - 7 
 	
-	TCNT0=47; //104 us overflow   1 bit time
-	TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+	if(j1708_collision_counter==1){//first collision then wait 10 bit times again + priority bit times
+		bit_times = 10;
+		count_times = 0;
+		TCNT0=47; //104 us overflow   1 bit time
+		TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+	}else{
+		//random number generate ;
+		bit_times = j1708_collision_counter & 0x07; //random time from 1 - 7
+		count_times = 0;
+		TCNT0=47; //104 us overflow   1 bit time
+		TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+		
+		bus_status.j1708_random_collision_times = 1;
+	}
+	
 }
 
 
@@ -294,11 +339,10 @@ void j1708_init(void) { // init uart1, rx interrupt enable and tx interrupt disa
 	j1708_tx_ptr = 0;
 	j1708_tx_length = 0;
 	j1708_rx_buffer0_ptr = 0;
-	j1708_rx_buffer1_ptr = 0;
+	j1708_rx_buffer0_count = 0;
 	j1708_checksum = 0;
 	j1708_rx_temp = 0;
 	j1708_collision_counter = 0;
-	j1708_rx_limit = 0;
 	
 	//init uart1 
 	UBRR1H = UBRRH_VALUE;
@@ -317,7 +361,6 @@ void j1708_init(void) { // init uart1, rx interrupt enable and tx interrupt disa
 	UCSR1B &= ~(1 << UDRIE1); //Disable sending, ready TX buffer
 
 
-	//set_sleep_mode(SLEEP_MODE_IDLE);
 	//enable global interrupt
 	sei();
 	config_timer0();
@@ -329,23 +372,25 @@ void j1708_init(void) { // init uart1, rx interrupt enable and tx interrupt disa
 */
 void j1708_send_packet(uint8_t* buffer, uint8_t len){ // load data into j1708_tx_buffer
 	
+	if(bus_status.j1708_tx_busy == 0){ // not busy
 		
-	j1708_tx_length = len;  // 0 - 19 are valid
-	j1708_tx_ptr = 0;
-	j1708_tx_buffer = buffer;
-	
-	if (bus_status.j1708_first_connection == 0){
+		j1708_tx_length = len;
+		j1708_tx_ptr = 0;
+		j1708_tx_buffer = buffer;
 		
-		count_times = 0;
-		bit_times = 10; //10 bit times reset the end-of-packet
-		TCNT0=47; //104 us overflow   1 bit tim
-		TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+		if ((bus_status.j1708_wait_idle_time==0) && (bus_status.j1708_busy==0)){
+			
+			count_times = 0;
+			bit_times = 10; //10 bit times reset the end-of-packet
+			TCNT0=47; //104 us overflow   1 bit tim
+			TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+			
+			bus_status.j1708_wait_idle_time = 1;
+		}
 		
-		bus_status.j1708_first_connection = 1;
+		bus_status.j1708_tx_busy = 1; // we are busy now
+		
 	}
-	
-	bus_status.j1708_tx_busy = 1;
-	//j1708_tx_data(); 
 		
 }
 
@@ -354,16 +399,14 @@ void j1708_send_packet(uint8_t* buffer, uint8_t len){ // load data into j1708_tx
 */
 void j1708_tx_data(){
 	
-	bus_status.j1708_tx_busy = 1; // Now tx is busy
+	//bus_status.j1708_tx_busy = 1; // Now tx is busy
 	
 	// if the receiver is receiving.. or the idle timer is running... the bus is busy
 	if(bus_status.j1708_busy || (UCSR1A>>RXC1)&0x01 ){ // we can't bus busy, // unread data in the receive buffer set
-		return;		
+		return;
 	}else{
 		UDR1 = j1708_my_mid; // send first MID
-		j1708_checksum = j1708_my_mid; // start checksum calculation 
-		bus_status.j1708_rx_check_mid = 1;
-		
+		j1708_checksum = j1708_my_mid; // start checksum calculation 		
 		bus_status.j1708_MID_sent = 1;
 	}
 	

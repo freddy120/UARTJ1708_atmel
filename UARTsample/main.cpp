@@ -18,16 +18,14 @@
 #include "uart1.h"
 #include "uart0.h"
 
+#define BUFFER_IN_SIZE 30
+
 // buffers j1708 rx and tx
-static uint8_t* j1708_out_buffer;
-static uint8_t j1708_out_len;
-static uint8_t* j1708_in_buffer;
+static uint8_t j1708_in_buffer[BUFFER_IN_SIZE];
 static uint8_t j1708_in_len;
 
 //buffers uart0 for PC com
-static uint8_t* uart0_out_buffer;
-static uint8_t uart0_out_len;
-static uint8_t* uart0_in_buffer;
+static uint8_t uart0_in_buffer[BUFFER_IN_SIZE];
 static uint8_t uart0_in_len;
 
 
@@ -55,7 +53,7 @@ int main(void)
 		if (res_rx_j1708 < 0){
 			//error we dont have a complete rx packet from j1708 bus yet
 		}else{
-			 uart0_tx_buff(j1708_in_buffer, j1708_in_len); //send to serial port
+			uart0_tx_buff(j1708_in_buffer,j1708_in_len); //send to serial port
 		}
 		
     }
