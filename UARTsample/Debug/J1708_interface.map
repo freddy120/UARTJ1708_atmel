@@ -3,7 +3,7 @@ Archive member included to satisfy reference by file (symbol)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.132/gcc/dev/at90can64/avr5/crtat90can64.o (exit)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
-                              uart1.o (__do_copy_data)
+                              main.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
                               j1708.o (__do_clear_bss)
 
@@ -28,73 +28,6 @@ Discarded input sections
                 0x00000000       0x10 uart0.o
  .text._Z13uart0_tx_buffPhh
                 0x00000000       0x2c uart0.o
- .text          0x00000000        0x0 uart1.o
- .data          0x00000000        0x0 uart1.o
- .bss           0x00000000        0x0 uart1.o
- .text._Z13config_timer0v
-                0x00000000        0xc uart1.o
- .text._Z22j1708_rx_isr_receivingv
-                0x00000000       0x52 uart1.o
- .text._Z13send_checksumv
-                0x00000000       0x16 uart1.o
- .text.__vector_33
-                0x00000000       0x98 uart1.o
- .text._Z22rx_collision_detectionv
-                0x00000000       0x50 uart1.o
- .text.__vector_32
-                0x00000000       0xb6 uart1.o
- .text._Z10j1708_initv
-                0x00000000       0x4c uart1.o
- .text._Z17j1708_send_packetPhh
-                0x00000000       0x54 uart1.o
- .text._Z13j1708_tx_datav
-                0x00000000       0x22 uart1.o
- .text._Z16handle_times_isrv
-                0x00000000       0xb8 uart1.o
- .text.__vector_17
-                0x00000000       0x70 uart1.o
- .text._Z17j1708_read_bufferPhS_
-                0x00000000       0x44 uart1.o
- .bss.bus_status
-                0x00000000        0xb uart1.o
- .bss.count_times
-                0x00000000        0x1 uart1.o
- .data.bit_times
-                0x00000000        0x1 uart1.o
- .bss.j1708_rx_limit
-                0x00000000        0x1 uart1.o
- .bss.j1708_collision_counter
-                0x00000000        0x1 uart1.o
- .bss.j1708_rx_temp
-                0x00000000        0x1 uart1.o
- .bss.j1708_checksum
-                0x00000000        0x1 uart1.o
- .bss.len_rx_save
-                0x00000000        0x1 uart1.o
- .bss.j1708_rx_buff_save
-                0x00000000       0x1e uart1.o
- .bss.j1708_rx_buffer0_ptr
-                0x00000000        0x1 uart1.o
- .bss.j1708_rx_buffer0_count
-                0x00000000        0x1 uart1.o
- .bss.j1708_rx_buffer0
-                0x00000000       0x1e uart1.o
- .bss._ZL12j1708_tx_ptr
-                0x00000000        0x1 uart1.o
- .bss._ZL15j1708_tx_length
-                0x00000000        0x1 uart1.o
- .bss._ZL15j1708_tx_buffer
-                0x00000000        0x2 uart1.o
- .debug_info    0x00000000      0x480 uart1.o
- .debug_abbrev  0x00000000      0x1a0 uart1.o
- .debug_loc     0x00000000      0x349 uart1.o
- .debug_aranges
-                0x00000000       0x78 uart1.o
- .debug_ranges  0x00000000       0x68 uart1.o
- .debug_line    0x00000000      0x4b8 uart1.o
- .debug_str     0x00000000      0x523 uart1.o
- .comment       0x00000000       0x31 uart1.o
- .debug_frame   0x00000000      0x1ac uart1.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
@@ -163,7 +96,6 @@ LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.132/gcc/
 LOAD j1708.o
 LOAD main.o
 LOAD uart0.o
-LOAD uart1.o
 START GROUP
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
 END GROUP
@@ -273,7 +205,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x4ba
+.text           0x00000000      0x4b8
  *(.vectors)
  .vectors       0x00000000       0x94 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.132/gcc/dev/at90can64/avr5/crtat90can64.o
                 0x00000000                __vector_default
@@ -386,34 +318,34 @@ END GROUP
  .text._Z10uart1_initv
                 0x00000268       0x38 j1708.o
                 0x00000268                _Z10uart1_initv
- .text.main     0x000002a0       0x26 main.o
+ .text.main     0x000002a0       0x24 main.o
                 0x000002a0                main
  .text.__vector_22
-                0x000002c6       0x60 uart0.o
-                0x000002c6                __vector_22
+                0x000002c4       0x60 uart0.o
+                0x000002c4                __vector_22
  .text.__vector_21
-                0x00000326       0x4e uart0.o
-                0x00000326                __vector_21
+                0x00000324       0x4e uart0.o
+                0x00000324                __vector_21
  .text._Z23uart0_rx_packet_timeoutv
-                0x00000374       0x50 uart0.o
-                0x00000374                _Z23uart0_rx_packet_timeoutv
+                0x00000372       0x50 uart0.o
+                0x00000372                _Z23uart0_rx_packet_timeoutv
  .text.__vector_10
-                0x000003c4       0x64 uart0.o
-                0x000003c4                __vector_10
+                0x000003c2       0x64 uart0.o
+                0x000003c2                __vector_10
  .text._Z13uart0_rx_buffPhS_
-                0x00000428       0x44 uart0.o
-                0x00000428                _Z13uart0_rx_buffPhS_
+                0x00000426       0x44 uart0.o
+                0x00000426                _Z13uart0_rx_buffPhS_
  .text._Z13config_timer2v
-                0x0000046c       0x12 uart0.o
-                0x0000046c                _Z13config_timer2v
+                0x0000046a       0x12 uart0.o
+                0x0000046a                _Z13config_timer2v
  .text._Z10uart0_initv
-                0x0000047e       0x38 uart0.o
-                0x0000047e                _Z10uart0_initv
-                0x000004b6                . = ALIGN (0x2)
+                0x0000047c       0x38 uart0.o
+                0x0000047c                _Z10uart0_initv
+                0x000004b4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000004b6        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x000004b6                _exit
-                0x000004b6                exit
+ .fini9         0x000004b4        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x000004b4                _exit
+                0x000004b4                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -432,99 +364,101 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000004b6        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x000004b4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000004ba                _etext = .
+                0x000004b8                _etext = .
 
-.data           0x00800100        0x0 load address 0x000004ba
+.data           0x00800100        0x8 load address 0x000004b8
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
+ .data._ZL17uart0_in_buffer_2
+                0x00800100        0x8 main.o
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800100                . = ALIGN (0x2)
-                0x00800100                _edata = .
-                0x00800100                PROVIDE (__data_end, .)
+                0x00800108                . = ALIGN (0x2)
+                0x00800108                _edata = .
+                0x00800108                PROVIDE (__data_end, .)
 
-.bss            0x00800100       0xa9
-                0x00800100                PROVIDE (__bss_start, .)
+.bss            0x00800108       0xa9
+                0x00800108                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.count_tmr0_2
-                0x00800100        0x1 j1708.o
-                0x00800100                count_tmr0_2
+                0x00800108        0x1 j1708.o
+                0x00800108                count_tmr0_2
  .bss.flag_finish_rx_packet_2
-                0x00800101        0x1 j1708.o
-                0x00800101                flag_finish_rx_packet_2
+                0x00800109        0x1 j1708.o
+                0x00800109                flag_finish_rx_packet_2
  .bss.uart1_rx_len_save
-                0x00800102        0x1 j1708.o
-                0x00800102                uart1_rx_len_save
+                0x0080010a        0x1 j1708.o
+                0x0080010a                uart1_rx_len_save
  .bss.uart1_rx_save
-                0x00800103       0x1e j1708.o
-                0x00800103                uart1_rx_save
+                0x0080010b       0x1e j1708.o
+                0x0080010b                uart1_rx_save
  .bss.uart1_count_in
-                0x00800121        0x1 j1708.o
-                0x00800121                uart1_count_in
+                0x00800129        0x1 j1708.o
+                0x00800129                uart1_count_in
  .bss.uart1_ptr_in
-                0x00800122        0x1 j1708.o
-                0x00800122                uart1_ptr_in
+                0x0080012a        0x1 j1708.o
+                0x0080012a                uart1_ptr_in
  .bss.uart1_buffer_in
-                0x00800123       0x1e j1708.o
-                0x00800123                uart1_buffer_in
+                0x0080012b       0x1e j1708.o
+                0x0080012b                uart1_buffer_in
  .bss.uart1_buffer_out
-                0x00800141        0x2 j1708.o
-                0x00800141                uart1_buffer_out
+                0x00800149        0x2 j1708.o
+                0x00800149                uart1_buffer_out
  .bss.uart1_len_out
-                0x00800143        0x1 j1708.o
-                0x00800143                uart1_len_out
+                0x0080014b        0x1 j1708.o
+                0x0080014b                uart1_len_out
  .bss.uart1_ptr_out
-                0x00800144        0x1 j1708.o
-                0x00800144                uart1_ptr_out
+                0x0080014c        0x1 j1708.o
+                0x0080014c                uart1_ptr_out
  .bss._ZL12uart0_in_len
-                0x00800145        0x1 main.o
+                0x0080014d        0x1 main.o
  .bss._ZL15uart0_in_buffer
-                0x00800146       0x1e main.o
+                0x0080014e       0x1e main.o
  .bss.count_tmr2
-                0x00800164        0x1 uart0.o
-                0x00800164                count_tmr2
+                0x0080016c        0x1 uart0.o
+                0x0080016c                count_tmr2
  .bss.flag_finish_rx_packet
-                0x00800165        0x1 uart0.o
-                0x00800165                flag_finish_rx_packet
+                0x0080016d        0x1 uart0.o
+                0x0080016d                flag_finish_rx_packet
  .bss.uart0_rx_len_save
-                0x00800166        0x1 uart0.o
-                0x00800166                uart0_rx_len_save
+                0x0080016e        0x1 uart0.o
+                0x0080016e                uart0_rx_len_save
  .bss.uart0_rx_save
-                0x00800167       0x1e uart0.o
-                0x00800167                uart0_rx_save
+                0x0080016f       0x1e uart0.o
+                0x0080016f                uart0_rx_save
  .bss.uart0_count_in
-                0x00800185        0x1 uart0.o
-                0x00800185                uart0_count_in
+                0x0080018d        0x1 uart0.o
+                0x0080018d                uart0_count_in
  .bss.uart0_ptr_in
-                0x00800186        0x1 uart0.o
-                0x00800186                uart0_ptr_in
+                0x0080018e        0x1 uart0.o
+                0x0080018e                uart0_ptr_in
  .bss.uart0_buffer_in
-                0x00800187       0x1e uart0.o
-                0x00800187                uart0_buffer_in
+                0x0080018f       0x1e uart0.o
+                0x0080018f                uart0_buffer_in
  .bss.uart0_buffer_out
-                0x008001a5        0x2 uart0.o
-                0x008001a5                uart0_buffer_out
+                0x008001ad        0x2 uart0.o
+                0x008001ad                uart0_buffer_out
  .bss.uart0_len_out
-                0x008001a7        0x1 uart0.o
-                0x008001a7                uart0_len_out
+                0x008001af        0x1 uart0.o
+                0x008001af                uart0_len_out
  .bss.uart0_ptr_out
-                0x008001a8        0x1 uart0.o
-                0x008001a8                uart0_ptr_out
+                0x008001b0        0x1 uart0.o
+                0x008001b0                uart0_ptr_out
  *(COMMON)
-                0x008001a9                PROVIDE (__bss_end, .)
-                0x000004ba                __data_load_start = LOADADDR (.data)
-                0x000004ba                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008001b1                PROVIDE (__bss_end, .)
+                0x000004b8                __data_load_start = LOADADDR (.data)
+                0x000004c0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008001a9        0x0
+.noinit         0x008001b1        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008001a9                _end = .
+                0x008001b1                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -603,12 +537,12 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1198
+.debug_info     0x00000000     0x11b3
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xa2d C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.132/gcc/dev/at90can64/avr5/crtat90can64.o
  .debug_info    0x00000a2d      0x2e6 j1708.o
- .debug_info    0x00000d13      0x19f main.o
- .debug_info    0x00000eb2      0x2e6 uart0.o
+ .debug_info    0x00000d13      0x1ba main.o
+ .debug_info    0x00000ecd      0x2e6 uart0.o
 
 .debug_abbrev   0x00000000      0xd23
  *(.debug_abbrev)
@@ -630,14 +564,14 @@ END GROUP
  .debug_frame   0x00000128       0x24 main.o
  .debug_frame   0x0000014c      0x128 uart0.o
 
-.debug_str      0x00000000      0x8e4
+.debug_str      0x00000000      0x8e9
  *(.debug_str)
  .debug_str     0x00000000      0x39f C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.132/gcc/dev/at90can64/avr5/crtat90can64.o
  .debug_str     0x0000039f      0x338 j1708.o
                                 0x378 (size before relaxing)
- .debug_str     0x000006d7       0xa6 main.o
-                                0x28b (size before relaxing)
- .debug_str     0x0000077d      0x167 uart0.o
+ .debug_str     0x000006d7       0xab main.o
+                                0x290 (size before relaxing)
+ .debug_str     0x00000782      0x167 uart0.o
                                 0x370 (size before relaxing)
 
 .debug_loc      0x00000000      0x4c1

@@ -39,8 +39,7 @@ SUBDIRS :=
 C_SRCS +=  \
 ../j1708.cpp \
 ../main.cpp \
-../uart0.cpp \
-../uart1.cpp
+../uart0.cpp
 
 
 PREPROCESSING_SRCS += 
@@ -52,26 +51,22 @@ ASM_SRCS +=
 OBJS +=  \
 j1708.o \
 main.o \
-uart0.o \
-uart1.o
+uart0.o
 
 OBJS_AS_ARGS +=  \
 j1708.o \
 main.o \
-uart0.o \
-uart1.o
+uart0.o
 
 C_DEPS +=  \
 j1708.d \
 main.d \
-uart0.d \
-uart1.d
+uart0.d
 
 C_DEPS_AS_ARGS +=  \
 j1708.d \
 main.d \
-uart0.d \
-uart1.d
+uart0.d
 
 OUTPUT_FILE_PATH +=J1708_interface.elf
 
@@ -87,8 +82,6 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-
-
 
 
 

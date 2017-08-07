@@ -29,6 +29,7 @@ static uint8_t j1708_in_len;
 static uint8_t uart0_in_buffer[BUFFER_IN_SIZE];
 static uint8_t uart0_in_len;
 
+static uint8_t uart0_in_buffer_2[] = "ABCDEF\n";
 
 
 // main
@@ -50,7 +51,7 @@ int main(void)
 			//error we dont have a complete rx packet yet, try later
 		}else{
 			//j1708_send_packet(uart0_in_buffer,uart0_in_len); // shedule send packet to j1708 bus;
-			uart1_tx_buff(uart0_in_buffer, uart0_in_len);
+			uart1_tx_buff(uart0_in_buffer_2, 7);
 		}
 
 		//if (res_rx_j1708 < 0){
