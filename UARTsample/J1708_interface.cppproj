@@ -182,12 +182,6 @@
     <Compile Include="uart0.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="uart1.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="uart1.h">
-      <SubType>compile</SubType>
-    </Compile>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

@@ -9,16 +9,17 @@
 #ifndef J1708_H_
 #define J1708_H_
 
-void uart1_init(void);
-int8_t uart1_tx_busy(void);
 
-int8_t uart1_tx_buff(uint8_t* buff_tx, uint8_t len_tx); // send to serial port
-int8_t uart1_rx_buff(uint8_t* buff_rx, uint8_t* len_rx); // receive from serial port
+void j1708_init(void);
+void config_timer0(void);
+void handle_times_isr();
+void j1708_rx_isr_receiving();
+void rx_collision_detection();
+void send_checksum();
 
-void uart1_rx_packet_timeout();
-
-void config_timer0_2(void);
-
+void j1708_send_packet(uint8_t* buffer, uint8_t len); // send bytes, and number of bytes to sent
+void j1708_tx_data();
+int8_t j1708_read_buffer(uint8_t* buffer, uint8_t* len); // red buffer and len of buffer
 
 
 #endif /* J1708_H_ */
