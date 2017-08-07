@@ -15,8 +15,9 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-#include "uart1.h"
+//#include "uart1.h"
 #include "uart0.h"
+#include "j1708.h"
 
 #define BUFFER_IN_SIZE 30
 
@@ -33,28 +34,30 @@ static uint8_t uart0_in_len;
 // main
 int main(void)
 {
-	j1708_init();
+	//j1708_init();
 	uart0_init();
+	uart1_init();
 	
 	int8_t res_rx_uart0;
-	int8_t res_rx_j1708;
+	//int8_t res_rx_j1708;
     /* Replace with your application code */
     while (1) 
     {
 		res_rx_uart0 = uart0_rx_buff(uart0_in_buffer,&uart0_in_len);
-		res_rx_j1708 = j1708_read_buffer(j1708_in_buffer,&j1708_in_len);
+		//res_rx_j1708 = j1708_read_buffer(j1708_in_buffer,&j1708_in_len);
 	  
 		if(res_rx_uart0 < 0){
 			//error we dont have a complete rx packet yet, try later
 		}else{
-			j1708_send_packet(uart0_in_buffer,uart0_in_len); // shedule send packet to j1708 bus;
+			//j1708_send_packet(uart0_in_buffer,uart0_in_len); // shedule send packet to j1708 bus;
+			uart1_tx_buff(uart0_in_buffer, uart0_in_len);
 		}
 
-		if (res_rx_j1708 < 0){
+		//if (res_rx_j1708 < 0){
 			//error we dont have a complete rx packet from j1708 bus yet
-		}else{
-			uart0_tx_buff(j1708_in_buffer,j1708_in_len); //send to serial port
-		}
+		//}else{
+		//	uart0_tx_buff(j1708_in_buffer,j1708_in_len); //send to serial port
+		//}
 		
     }
 }

@@ -127,6 +127,11 @@ void handle_times_isr(){
 			j1708_rx_buff_save[i] = j1708_rx_buffer0[i];
 		}
 		len_rx_save = j1708_rx_buffer0_count;
+		
+		if(len_rx_save!=0){ // we have a read packet
+			bus_status.j1708_finish_read_packet = 1;
+		}
+		
 		j1708_rx_buffer0_ptr = 0;
 		j1708_rx_buffer0_count = 0;
 		
@@ -389,7 +394,6 @@ void j1708_send_packet(uint8_t* buffer, uint8_t len){ // load data into j1708_tx
 		}
 		
 		bus_status.j1708_tx_busy = 1; // we are busy now
-		
 	}
 		
 }

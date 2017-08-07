@@ -37,6 +37,7 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../j1708.cpp \
 ../main.cpp \
 ../uart0.cpp \
 ../uart1.cpp
@@ -49,21 +50,25 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+j1708.o \
 main.o \
 uart0.o \
 uart1.o
 
 OBJS_AS_ARGS +=  \
+j1708.o \
 main.o \
 uart0.o \
 uart1.o
 
 C_DEPS +=  \
+j1708.d \
 main.d \
 uart0.d \
 uart1.d
 
 C_DEPS_AS_ARGS +=  \
+j1708.d \
 main.d \
 uart0.d \
 uart1.d
@@ -82,6 +87,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
