@@ -20,6 +20,8 @@
 #define j1708_my_mid 128 // change this value to change the MID of the module , all modules on the bus should have a different MID
 #define j1708_priority 8 // change priority of my packets 1-8, 7-8 for all other messages
 
+
+
 static uint8_t* j1708_tx_buffer; // max [20] bytes;
 static uint8_t j1708_tx_length; // bytes to tx
 static uint8_t j1708_tx_ptr;
@@ -27,6 +29,10 @@ static uint8_t j1708_tx_ptr;
 volatile uint8_t* j1708_rx_buffer0;//[21];
 volatile uint8_t j1708_rx_buffer0_count;
 volatile uint8_t j1708_rx_buffer0_ptr;
+
+volatile uint8_t len_rx_save;
+volatile uint8_t* j1708_rx_buff_save;
+
 
 volatile uint8_t* j1708_rx_buffer1;//[21];
 volatile uint8_t j1708_rx_buffer1_count;
@@ -54,6 +60,8 @@ struct j1708_status {
 	
 	volatile uint8_t j1708_first_connection;
 	volatile uint8_t j1708_priority_check_flag;
+	volatile uint8_t j1708_finish_read_packet;
+
 } bus_status;
 
 
@@ -362,8 +370,20 @@ void j1708_tx_data(){
 }
 
 
+int8_t j1708_read_buffer(uint8_t* buffer, uint8_t* len){
 
-
+	if(bus_status.j1708_finish_read_packet){
+		int i;
+		for(i=0;i<len_rx_save;i++){
+			buffer[i] = j1708_rx_buff_save[i];
+		}
+		*len = len_rx_save;
+		bus_status.j1708_finish_read_packet = 0;
+		return 0;
+	}else{
+		return -1;
+	}
+}
 
 
 

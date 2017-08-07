@@ -19,6 +19,7 @@ void send_checksum();
 
 void j1708_send_packet(uint8_t* buffer, uint8_t len); // send bytes, and number of bytes to sent
 void j1708_tx_data();
+int8_t j1708_read_buffer(uint8_t* buffer, uint8_t* len); // red buffer and len of buffer
 
 
 #endif /* UART1_H_ */

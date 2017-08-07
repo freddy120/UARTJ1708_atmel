@@ -17,12 +17,19 @@
 
 #include "uart0.h"
 
+volatile uint8_t uart0_ptr_out;
+volatile uint8_t uart0_len_out;
+volatile  uint8_t* uart0_buffer_out; 
 
-//Variables for USART1, J1708 bus.
-static uint8_t send_pos0;
-static uint8_t send_num0;
-static uint8_t* send_buf0;
+volatile uint8_t* uart0_buffer_in;
+volatile uint8_t uart0_ptr_in;
+volatile uint8_t uart0_count_in;
 
+volatile uint8_t* uart0_rx_save;
+volatile uint8_t uart0_rx_len_save;
+
+volatile uint8_t flag_finish_rx_packet = false;
+//receiving
 
 /**
  * \brief UART data register empty interrupt handler
@@ -32,11 +39,11 @@ static uint8_t* send_buf0;
  */
 ISR(USART0_UDRE_vect)
 {
-	if(send_num0 > send_pos0){
-		UDR0= send_buf0[send_pos0];
-		send_pos0++;
+	if(uart0_len_out > uart0_ptr_out){
+		UDR0= uart0_buffer_out[uart0_ptr_out];
+		uart0_ptr_out++;
 	} else {
-		send_num0= 0;
+		uart0_len_out = 0; // reset
 		//disable sending interrupt
 		UCSR0B &= ~(1 << UDRIE0); //Disable sending
 	}
@@ -52,15 +59,43 @@ ISR(USART0_RX_vect)
 	//ring_buffer_put(&ring_buffer_in, UDR0);
 	uint8_t temp;
 	
-	
 	temp = UDR0; // read buffer
 	
-	//UDR1=temp; //tx byte
+	uart0_buffer_in[uart0_ptr_in] = temp;
+	uart0_ptr_in++;
+
+	TCNT2 = 47;
+	count_tmr2 = 0;
+	TIMSK2 |= (1<<TOIE2); // enable timer isr
 	
-	//UDR0 = temp;
+}
+
+//TIMER2
+volatile uint32_t count_tmr2;
+
+// timer2 ISR
+ISR(TIMER2_OVF_vect)
+{
+	TCNT2=47; //104 us overflow   1 bit time
 	
-	//flag_rx = true;
+	count_tmr2++;
+	if(count_tmr2==10) // when reach 1ms, timeout 1ms
+	{
+		count_tmr2=0;
+		uart0_rx_packet_timeout();
+
+	}
+}
+
+void uart0_rx_packet_timeout(){
+	flag_finish_rx_packet = 1; // clear when read rx buffer
 	
+	TIMSK2 &= ~(1<<TOIE2); // disable timer isr
+	uart0_rx_save = uart0_buffer_in;
+	uart0_count_in = uart0_ptr_in; // save count rx bytes
+	uart0_rx_len_save = uart0_count_in;
+	uart0_ptr_in = 0; // reset ptr in
+
 }
 
 
@@ -68,8 +103,8 @@ void uart0_init(void) {
 	UBRR0H = UBRRH_VALUE;
 	UBRR0L = UBRRL_VALUE;
 	
-	send_pos0= 0;
-	send_num0= 0;
+	uart0_len_out = 0;
+	uart0_ptr_out = 0;
 
 	#if USE_2X
 	UCSR0A |= _BV(U2X0);
@@ -85,28 +120,14 @@ void uart0_init(void) {
 
 	//set_sleep_mode(SLEEP_MODE_IDLE);
 	//enable global interrupt
+	config_timer2();
 	sei();
+
 }
 
-// send buffer
-int8_t uart0_send_buff(uint8_t* buffer, uint8_t num){
-	
-	if(send_num0){
-		//fail because we are already sending something
-		return -1;
-	} else {
-		send_num0 = num;
-		send_pos0 = 0;
-		send_buf0 = buffer;
-		//enable UART interrupt
-		UCSR0B |= (1 << UDRIE0); //enable sending
 
-		return 0;
-	}
-}
-
-int8_t uart0_busy(void){
-	if(send_num0 > 0){
+int8_t uart0_tx_busy(void){
+	if(uart0_len_out > 0){
 		return -1; // busy
 	} else {
 		return 0; //not busy
@@ -115,3 +136,45 @@ int8_t uart0_busy(void){
 
 
 
+int8_t uart0_tx_buff(uint8_t* buff_tx, uint8_t len_tx){ // send to serial port
+	if(uart0_len_out){
+		//fail because we are already sending something
+		return -1;
+	} else {
+		uart0_len_out = len_tx;
+		uart0_ptr_out = 0;
+		uart0_buffer_out = buff_tx;
+		//enable UART interrupt
+		UCSR0B |= (1 << UDRIE0); //enable sending
+
+		return 0;
+	}
+}
+
+
+int8_t uart0_rx_buff(uint8_t* buff_rx, uint8_t* len_rx){ // receive from serial port
+	if(flag_finish_rx_packet){ //packet complete
+		flag_finish_rx_packet = 0; // just clear flag
+		int i;
+		for(i=0;i<uart0_rx_len_save;i++){
+			buff_rx[i]=uart0_rx_save[i]; //transfer buffer
+		}
+		//buff_rx = uart0_rx_save; // transfer buffer 
+		len_rx = uart0_rx_len_save; // transfer len of buffer
+		return 0;
+	}else{ // cant read buff try again later;
+		return -1;
+	}
+}
+
+
+// config timer2
+void config_timer2(void){
+	// Pre scaler = FCPU/8
+	TCCR2A |= (1<<CS21);
+	//Enable Overflow Interrupt Enable
+	//TIMSK2|=(1<<TOIE2);
+	
+	//Initialize Counter
+	TCNT2=47; //104 us overflow   1 bit time
+}
