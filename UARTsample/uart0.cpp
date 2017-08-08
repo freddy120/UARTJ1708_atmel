@@ -30,7 +30,7 @@ volatile uint8_t uart0_count_in;
 volatile uint8_t  uart0_rx_save[BUFFER_IN_SIZE];
 volatile uint8_t uart0_rx_len_save;
 
-volatile uint8_t flag_finish_rx_packet = false;
+volatile uint8_t flag_finish_rx_packet = 0;
 
 //TIMER2
 volatile uint8_t count_tmr2;
@@ -85,15 +85,17 @@ ISR(TIMER2_OVF_vect)
 	if(count_tmr2==10) // when reach 1ms, timeout 1ms
 	{
 		count_tmr2=0;
+		TIMSK2 &= ~(1<<TOIE2); // disable timer isr
 		uart0_rx_packet_timeout();
 
 	}
 }
 
 void uart0_rx_packet_timeout(){
+	
 	flag_finish_rx_packet = 1; // clear when read rx buffer
 	
-	TIMSK2 &= ~(1<<TOIE2); // disable timer isr
+	
 	int i;
 	for(i=0;i<uart0_ptr_in;i++){
 		uart0_rx_save[i] = uart0_buffer_in[i];

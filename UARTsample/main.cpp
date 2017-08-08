@@ -21,13 +21,14 @@
 #define BUFFER_IN_SIZE 30
 
 // buffers j1708 rx and tx
-static uint8_t j1708_in_buffer[BUFFER_IN_SIZE];
-static uint8_t j1708_in_len;
+uint8_t j1708_in_buffer[BUFFER_IN_SIZE];
+uint8_t j1708_in_len;
 
 //buffers uart0 for PC com
-static uint8_t uart0_in_buffer[BUFFER_IN_SIZE];
-static uint8_t uart0_in_len;
+uint8_t uart0_in_buffer[BUFFER_IN_SIZE];
+uint8_t uart0_in_len;
 
+static uint8_t packet1[] = "ABCD";
 
 
 // main
@@ -45,10 +46,10 @@ int main(void)
 		res_rx_uart0 = uart0_rx_buff(uart0_in_buffer,&uart0_in_len);
 		//res_rx_j1708 = j1708_read_buffer(j1708_in_buffer,&j1708_in_len);
 	  
-		if(res_rx_uart0 < 0){
-			//error we dont have a complete rx packet yet, try later
-		}else{
-			j1708_send_packet(uart0_in_buffer,uart0_in_len); // shedule send packet to j1708 bus;
+		if(res_rx_uart0==0){
+			j1708_send_packet(packet1,4); // shedule send packet to j1708 bus;
+			//j1708_send_packet(packet1,6); // shedule send packet to j1708 bus;
+			//j1708_send_packet(uart0_in_len,1);
 		}
 
 		//if (res_rx_j1708 < 0){
