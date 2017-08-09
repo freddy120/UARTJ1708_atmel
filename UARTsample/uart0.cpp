@@ -46,11 +46,18 @@ ISR(USART0_UDRE_vect)
 	if(uart0_len_out > uart0_ptr_out){
 		UDR0= uart0_buffer_out[uart0_ptr_out];
 		uart0_ptr_out++;
-	} else {
-		uart0_len_out = 0; // reset
-		//disable sending interrupt
-		UCSR0B &= ~(1 << UDRIE0); //Disable sending
+		if(uart0_ptr_out==uart0_len_out){
+			uart0_len_out = 0;
+			////disable sending interrupt
+			UCSR0B &= ~(1 << UDRIE0); //Disable sending
+		}
+		
 	}
+	//} else {
+		//uart0_len_out = 0; // reset
+		////disable sending interrupt
+		//UCSR0B &= ~(1 << UDRIE0); //Disable sending
+	//}
 }
 
 /**
@@ -93,10 +100,7 @@ ISR(TIMER2_OVF_vect)
 
 void uart0_rx_packet_timeout(){
 	
-	flag_finish_rx_packet = 1; // clear when read rx buffer
-	
-	
-	int i;
+	uint8_t i;
 	for(i=0;i<uart0_ptr_in;i++){
 		uart0_rx_save[i] = uart0_buffer_in[i];
 	}
@@ -104,6 +108,8 @@ void uart0_rx_packet_timeout(){
 	uart0_count_in = uart0_ptr_in; // save count rx bytes
 	uart0_rx_len_save = uart0_count_in;
 	uart0_ptr_in = 0; // reset ptr in
+	
+	flag_finish_rx_packet = 1; // clear when read rx buffer
 
 }
 
@@ -114,6 +120,7 @@ void uart0_init(void) {
 	
 	uart0_len_out = 0;
 	uart0_ptr_out = 0;
+	uart0_rx_len_save = 0;
 
 	#if USE_2X
 	UCSR0A |= _BV(U2X0);
@@ -164,9 +171,9 @@ int8_t uart0_tx_buff(uint8_t* buff_tx, uint8_t len_tx){ // send to serial port
 int8_t uart0_rx_buff(uint8_t* buff_rx, uint8_t* len_rx){ // receive from serial port
 	if(flag_finish_rx_packet){ //packet complete
 		flag_finish_rx_packet = 0; // just clear flag
-		int i;
-		for(i=0;i<uart0_rx_len_save;i++){
-			buff_rx[i]=uart0_rx_save[i]; //transfer buffer
+		uint8_t kk;
+		for(kk=0;kk<uart0_rx_len_save;kk++){
+			buff_rx[kk]=uart0_rx_save[kk]; //transfer buffer
 		}
 		*len_rx = uart0_rx_len_save; // transfer len of buffer
 		return 0;
