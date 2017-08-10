@@ -33,7 +33,9 @@ volatile uint8_t uart0_rx_len_save;
 volatile uint8_t flag_finish_rx_packet = 0;
 
 //TIMER2
-volatile uint8_t count_tmr2;
+volatile uint32_t count_tmr2;
+
+
 
 /**
  * \brief UART data register empty interrupt handler
@@ -67,7 +69,7 @@ ISR(USART0_UDRE_vect)
  */
 ISR(USART0_RX_vect)
 {
-	//ring_buffer_put(&ring_buffer_in, UDR0);
+
 	uint8_t temp;
 	
 	temp = UDR0; // read buffer
@@ -75,28 +77,14 @@ ISR(USART0_RX_vect)
 	uart0_buffer_in[uart0_ptr_in] = temp;
 	uart0_ptr_in++;
 
-	TCNT2 = 47;
+    //UDR0 = 'B';
+	
 	count_tmr2 = 0;
+	TCNT2 = 47;
 	TIMSK2 |= (1<<TOIE2); // enable timer isr
 	
 }
 
-
-
-// timer2 ISR
-ISR(TIMER2_OVF_vect)
-{
-	TCNT2=47; //104 us overflow   1 bit time
-	
-	count_tmr2++;
-	if(count_tmr2==10) // when reach 1ms, timeout 1ms
-	{
-		count_tmr2=0;
-		TIMSK2 &= ~(1<<TOIE2); // disable timer isr
-		uart0_rx_packet_timeout();
-
-	}
-}
 
 void uart0_rx_packet_timeout(){
 	
@@ -111,6 +99,34 @@ void uart0_rx_packet_timeout(){
 	
 	flag_finish_rx_packet = 1; // clear when read rx buffer
 
+}
+
+// timer2 ISR
+ISR(TIMER2_OVF_vect)
+{
+	TCNT2=47; //104 us overflow   1 bit time aprox
+	
+	count_tmr2++;
+	if(count_tmr2==11) // when reach 1ms, timeout 1ms like 11bit times
+	{
+		count_tmr2=0;
+		TIMSK2 &= ~(1<<TOIE2); // disable timer isr
+		
+		uart0_rx_packet_timeout();
+		
+
+	}
+}
+
+
+
+// config timer2
+void config_timer2(void){
+	// Pre scaler = FCPU/8
+	TCCR2A |= (1<<CS21);
+	
+	//Initialize Counter
+	TCNT2 = 47;
 }
 
 
@@ -132,7 +148,7 @@ void uart0_init(void) {
 	UCSR0B = _BV(RXEN0) | _BV(TXEN0) | _BV(RXCIE0);   /* Enable RX and TX, RX complete ISR */
 	UCSR0C = _BV(UCSZ01) | _BV(UCSZ00); /* 8-bit data, 1 stop bit, no parity, asynchronous UART*/
 
-	UCSR0B &= ~(1 << UDRIE0); //Disable sending, ready TX buffer
+	//UCSR0B &= ~(1 << UDRIE0); //Disable sending, ready TX buffer
 
 	//set_sleep_mode(SLEEP_MODE_IDLE);
 	//enable global interrupt
@@ -140,6 +156,25 @@ void uart0_init(void) {
 	sei();
 
 }
+
+
+
+int8_t uart0_rx_buff(uint8_t* buff_rx, uint8_t* len_rx){ // receive from serial port
+	if(flag_finish_rx_packet){ //packet complete
+		flag_finish_rx_packet = 0; // just clear flag
+		uint8_t kk;
+		for(kk=0;kk<uart0_rx_len_save;kk++){
+			buff_rx[kk]=uart0_rx_save[kk]; //transfer buffer
+		}
+		*len_rx = uart0_rx_len_save; // transfer len of buffer
+		
+		return 0;
+	
+	}else{ // cant read buff try again later;
+		return -1;
+	}
+}
+
 
 
 int8_t uart0_tx_busy(void){
@@ -167,29 +202,3 @@ int8_t uart0_tx_buff(uint8_t* buff_tx, uint8_t len_tx){ // send to serial port
 	}
 }
 
-
-int8_t uart0_rx_buff(uint8_t* buff_rx, uint8_t* len_rx){ // receive from serial port
-	if(flag_finish_rx_packet){ //packet complete
-		flag_finish_rx_packet = 0; // just clear flag
-		uint8_t kk;
-		for(kk=0;kk<uart0_rx_len_save;kk++){
-			buff_rx[kk]=uart0_rx_save[kk]; //transfer buffer
-		}
-		*len_rx = uart0_rx_len_save; // transfer len of buffer
-		return 0;
-	}else{ // cant read buff try again later;
-		return -1;
-	}
-}
-
-
-// config timer2
-void config_timer2(void){
-	// Pre scaler = FCPU/8
-	TCCR2A |= (1<<CS21);
-	//Enable Overflow Interrupt Enable
-	//TIMSK2|=(1<<TOIE2);
-	
-	//Initialize Counter
-	TCNT2=47; //104 us overflow   1 bit time
-}

@@ -21,6 +21,7 @@
 #define j1708_priority 8 // change priority of my packets 1-8, 7-8 for all other messages
 
 #define BUFFER_IN_SIZE 30
+#define BIT_TIMES_10 11
 
 
 static uint8_t* j1708_tx_buffer;
@@ -258,7 +259,7 @@ void j1708_rx_isr_receiving(){
 
 	// reset end idle time
 	count_times = 0;
-	bit_times = 10; //reset the end-of-packet
+	bit_times = BIT_TIMES_10;//10; //reset the end-of-packet
 	TCNT0=47; //104 us overflow   1 bit tim
 	TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
 	
@@ -324,7 +325,7 @@ void rx_collision_detection(){
 	j1708_collision_counter ++; // count # collisions
 	
 	if(j1708_collision_counter==1){//first collision then wait 10 bit times again + priority bit times
-		bit_times = 10;
+		bit_times = BIT_TIMES_10;//10;
 		count_times = 0;
 		TCNT0=47; //104 us overflow   1 bit time
 		TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
@@ -400,7 +401,7 @@ void j1708_send_packet(uint8_t* buffer, uint8_t len){ // load data into j1708_tx
 		if ((bus_status.j1708_wait_idle_time==0) && (bus_status.j1708_busy==0)){
 			
 			count_times = 0;
-			bit_times = 10; //10 bit times reset the end-of-packet
+			bit_times = BIT_TIMES_10;//10; //10 bit times reset the end-of-packet
 			TCNT0=47; //104 us overflow   1 bit times
 			TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
 			

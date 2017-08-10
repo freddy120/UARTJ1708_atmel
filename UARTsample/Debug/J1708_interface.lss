@@ -3,73 +3,73 @@ J1708_interface.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00000746  2**0
+  0 .data         00000000  00800100  00800100  00000840  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000006d2  00000000  00000000  00000074  2**1
+  1 .text         000007cc  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          000000b9  00800100  00800100  00000746  2**0
+  2 .bss          000000d9  00800100  00800100  00000840  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000746  2**0
+  3 .comment      00000030  00000000  00000000  00000840  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000778  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000870  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000000f8  00000000  00000000  000007b4  2**0
+  5 .debug_aranges 000000f8  00000000  00000000  000008ac  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00001368  00000000  00000000  000008ac  2**0
+  6 .debug_info   000013c1  00000000  00000000  000009a4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000d71  00000000  00000000  00001c14  2**0
+  7 .debug_abbrev 00000d62  00000000  00000000  00001d65  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000009ea  00000000  00000000  00002985  2**0
+  8 .debug_line   000009d8  00000000  00000000  00002ac7  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000002f8  00000000  00000000  00003370  2**2
+  9 .debug_frame  000002f8  00000000  00000000  000034a0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000ac0  00000000  00000000  00003668  2**0
+ 10 .debug_str    00000aaa  00000000  00000000  00003798  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000059a  00000000  00000000  00004128  2**0
+ 11 .debug_loc    000005b6  00000000  00000000  00004242  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000c8  00000000  00000000  000046c2  2**0
+ 12 .debug_ranges 000000c8  00000000  00000000  000047f8  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	0c 94 4a 00 	jmp	0x94	; 0x94 <__ctors_end>
-   4:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-   8:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-   c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  10:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  14:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  18:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  1c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  20:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  24:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  28:	0c 94 e6 02 	jmp	0x5cc	; 0x5cc <__vector_10>
-  2c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  30:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  34:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  38:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  3c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  40:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  44:	0c 94 15 02 	jmp	0x42a	; 0x42a <__vector_17>
-  48:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  4c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  50:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  54:	0c 94 9d 02 	jmp	0x53a	; 0x53a <__vector_21>
-  58:	0c 94 68 02 	jmp	0x4d0	; 0x4d0 <__vector_22>
-  5c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  60:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  64:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  68:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  6c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  70:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  74:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  78:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  7c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  80:	0c 94 20 01 	jmp	0x240	; 0x240 <__vector_32>
-  84:	0c 94 a8 00 	jmp	0x150	; 0x150 <__vector_33>
-  88:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  8c:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
-  90:	0c 94 67 00 	jmp	0xce	; 0xce <__bad_interrupt>
+   4:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+   8:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+   c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  10:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  14:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  18:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  1c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  20:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  24:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  28:	0c 94 35 03 	jmp	0x66a	; 0x66a <__vector_10>
+  2c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  30:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  34:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  38:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  3c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  40:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  44:	0c 94 34 02 	jmp	0x468	; 0x468 <__vector_17>
+  48:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  4c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  50:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  54:	0c 94 e6 02 	jmp	0x5cc	; 0x5cc <__vector_21>
+  58:	0c 94 b1 02 	jmp	0x562	; 0x562 <__vector_22>
+  5c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  60:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  64:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  68:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  6c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  70:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  74:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  78:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  7c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  80:	0c 94 15 01 	jmp	0x22a	; 0x22a <__vector_32>
+  84:	0c 94 9d 00 	jmp	0x13a	; 0x13a <__vector_33>
+  88:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  8c:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
+  90:	0c 94 5c 00 	jmp	0xb8	; 0xb8 <__bad_interrupt>
 
 00000094 <__ctors_end>:
   94:	11 24       	eor	r1, r1
@@ -79,892 +79,1172 @@ Disassembly of section .text:
   9c:	de bf       	out	0x3e, r29	; 62
   9e:	cd bf       	out	0x3d, r28	; 61
 
-000000a0 <__do_copy_data>:
-  a0:	11 e0       	ldi	r17, 0x01	; 1
+000000a0 <__do_clear_bss>:
+  a0:	21 e0       	ldi	r18, 0x01	; 1
   a2:	a0 e0       	ldi	r26, 0x00	; 0
   a4:	b1 e0       	ldi	r27, 0x01	; 1
-  a6:	e2 ed       	ldi	r30, 0xD2	; 210
-  a8:	f6 e0       	ldi	r31, 0x06	; 6
-  aa:	02 c0       	rjmp	.+4      	; 0xb0 <__do_copy_data+0x10>
-  ac:	05 90       	lpm	r0, Z+
-  ae:	0d 92       	st	X+, r0
-  b0:	a0 30       	cpi	r26, 0x00	; 0
-  b2:	b1 07       	cpc	r27, r17
-  b4:	d9 f7       	brne	.-10     	; 0xac <__do_copy_data+0xc>
+  a6:	01 c0       	rjmp	.+2      	; 0xaa <.do_clear_bss_start>
 
-000000b6 <__do_clear_bss>:
-  b6:	21 e0       	ldi	r18, 0x01	; 1
-  b8:	a0 e0       	ldi	r26, 0x00	; 0
-  ba:	b1 e0       	ldi	r27, 0x01	; 1
-  bc:	01 c0       	rjmp	.+2      	; 0xc0 <.do_clear_bss_start>
+000000a8 <.do_clear_bss_loop>:
+  a8:	1d 92       	st	X+, r1
 
-000000be <.do_clear_bss_loop>:
-  be:	1d 92       	st	X+, r1
+000000aa <.do_clear_bss_start>:
+  aa:	a9 3d       	cpi	r26, 0xD9	; 217
+  ac:	b2 07       	cpc	r27, r18
+  ae:	e1 f7       	brne	.-8      	; 0xa8 <.do_clear_bss_loop>
+  b0:	0e 94 8e 02 	call	0x51c	; 0x51c <main>
+  b4:	0c 94 e4 03 	jmp	0x7c8	; 0x7c8 <_exit>
 
-000000c0 <.do_clear_bss_start>:
-  c0:	a9 3b       	cpi	r26, 0xB9	; 185
-  c2:	b2 07       	cpc	r27, r18
-  c4:	e1 f7       	brne	.-8      	; 0xbe <.do_clear_bss_loop>
-  c6:	0e 94 4d 02 	call	0x49a	; 0x49a <main>
-  ca:	0c 94 67 03 	jmp	0x6ce	; 0x6ce <_exit>
+000000b8 <__bad_interrupt>:
+  b8:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-000000ce <__bad_interrupt>:
-  ce:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+000000bc <_Z13config_timer0v>:
 
-000000d2 <_Z13config_timer0v>:
-			count_times = 0;
-			bit_times = 10; //10 bit times reset the end-of-packet
-			TCNT0=47; //104 us overflow   1 bit times
+
+
+void config_timer0(void){
+	// Prescaler = FCPU/8
+	TCCR0A |= (1<<CS01);//(1<<CS02) | (1<<CS00);
+  bc:	84 b5       	in	r24, 0x24	; 36
+  be:	82 60       	ori	r24, 0x02	; 2
+  c0:	84 bd       	out	0x24, r24	; 36
+	//sei();	
+	TIMSK0 &= ~(1<<TOIE0);
+  c2:	ee e6       	ldi	r30, 0x6E	; 110
+  c4:	f0 e0       	ldi	r31, 0x00	; 0
+  c6:	80 81       	ld	r24, Z
+  c8:	8e 7f       	andi	r24, 0xFE	; 254
+  ca:	80 83       	st	Z, r24
+	TCNT0=47; //104 us overflow   1 bit time
+  cc:	8f e2       	ldi	r24, 0x2F	; 47
+  ce:	86 bd       	out	0x26, r24	; 38
+  d0:	08 95       	ret
+
+000000d2 <_Z22j1708_rx_isr_receivingv>:
+}
+
+void j1708_rx_isr_receiving(){
+	
+	
+	bus_status.j1708_busy = 1; // the receiver is now busy
+  d2:	81 e0       	ldi	r24, 0x01	; 1
+  d4:	80 93 03 01 	sts	0x0103, r24	; 0x800103 <_edata+0x3>
+
+	// reset end idle time
+	count_times = 0;
+  d8:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <count_times>
+	bit_times = BIT_TIMES_10;//10; //reset the end-of-packet
+  dc:	8b e0       	ldi	r24, 0x0B	; 11
+  de:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <bit_times>
+	TCNT0=47; //104 us overflow   1 bit tim
+  e2:	8f e2       	ldi	r24, 0x2F	; 47
+  e4:	86 bd       	out	0x26, r24	; 38
+	TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+  e6:	ee e6       	ldi	r30, 0x6E	; 110
+  e8:	f0 e0       	ldi	r31, 0x00	; 0
+  ea:	80 81       	ld	r24, Z
+  ec:	81 60       	ori	r24, 0x01	; 1
+  ee:	80 83       	st	Z, r24
+	
+	
+	// no limit of bytes to received
+	j1708_rx_buffer0[j1708_rx_buffer0_ptr] = j1708_rx_temp;
+  f0:	e0 91 2f 01 	lds	r30, 0x012F	; 0x80012f <j1708_rx_buffer0_ptr>
+  f4:	f0 e0       	ldi	r31, 0x00	; 0
+  f6:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <j1708_rx_temp>
+  fa:	ef 5c       	subi	r30, 0xCF	; 207
+  fc:	fe 4f       	sbci	r31, 0xFE	; 254
+  fe:	80 83       	st	Z, r24
+	j1708_rx_buffer0_count++; //count number of bytes on buffer
+ 100:	80 91 30 01 	lds	r24, 0x0130	; 0x800130 <j1708_rx_buffer0_count>
+ 104:	8f 5f       	subi	r24, 0xFF	; 255
+ 106:	80 93 30 01 	sts	0x0130, r24	; 0x800130 <j1708_rx_buffer0_count>
+	j1708_rx_buffer0_ptr++;
+ 10a:	80 91 2f 01 	lds	r24, 0x012F	; 0x80012f <j1708_rx_buffer0_ptr>
+ 10e:	8f 5f       	subi	r24, 0xFF	; 255
+ 110:	80 93 2f 01 	sts	0x012F, r24	; 0x80012f <j1708_rx_buffer0_ptr>
+	// add to checksum
+	j1708_checksum += j1708_rx_temp;
+ 114:	90 91 0e 01 	lds	r25, 0x010E	; 0x80010e <j1708_rx_temp>
+ 118:	80 91 0f 01 	lds	r24, 0x010F	; 0x80010f <j1708_checksum>
+ 11c:	89 0f       	add	r24, r25
+ 11e:	80 93 0f 01 	sts	0x010F, r24	; 0x80010f <j1708_checksum>
+ 122:	08 95       	ret
+
+00000124 <_Z13send_checksumv>:
+
+
+
+void send_checksum(){
+	uint8_t cs;
+	cs = ~(j1708_checksum);
+ 124:	80 91 0f 01 	lds	r24, 0x010F	; 0x80010f <j1708_checksum>
+	cs += 1;
+ 128:	81 95       	neg	r24
+	UDR1 = cs; // send checksum
+ 12a:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
+	
+	//UCSR1B &= ~(1 << UDRIE1);  //disable TX isr 
+	//UCSR1B &= ~(1 << RXEN1);  //enable RX isr
+	
+	bus_status.j1708_tx_busy = 0; // tx queue is now empty
+ 12e:	e0 e0       	ldi	r30, 0x00	; 0
+ 130:	f1 e0       	ldi	r31, 0x01	; 1
+ 132:	11 82       	std	Z+1, r1	; 0x01
+	bus_status.j1708_tx_sent_checksum = 1;
+ 134:	81 e0       	ldi	r24, 0x01	; 1
+ 136:	85 83       	std	Z+5, r24	; 0x05
+ 138:	08 95       	ret
+
+0000013a <__vector_33>:
+ *
+ * This handler is called each time the UART data register is available for
+ * sending data.
+ */
+ISR(USART1_UDRE_vect)
+{
+ 13a:	1f 92       	push	r1
+ 13c:	0f 92       	push	r0
+ 13e:	0f b6       	in	r0, 0x3f	; 63
+ 140:	0f 92       	push	r0
+ 142:	11 24       	eor	r1, r1
+ 144:	2f 93       	push	r18
+ 146:	3f 93       	push	r19
+ 148:	4f 93       	push	r20
+ 14a:	5f 93       	push	r21
+ 14c:	6f 93       	push	r22
+ 14e:	7f 93       	push	r23
+ 150:	8f 93       	push	r24
+ 152:	9f 93       	push	r25
+ 154:	af 93       	push	r26
+ 156:	bf 93       	push	r27
+ 158:	ef 93       	push	r30
+ 15a:	ff 93       	push	r31
+	if(j1708_tx_length > j1708_tx_ptr){
+ 15c:	90 91 50 01 	lds	r25, 0x0150	; 0x800150 <j1708_tx_length>
+ 160:	80 91 4f 01 	lds	r24, 0x014F	; 0x80014f <j1708_tx_ptr>
+ 164:	89 17       	cp	r24, r25
+ 166:	f8 f4       	brcc	.+62     	; 0x1a6 <__vector_33+0x6c>
+		UDR1 = j1708_tx_buffer[j1708_tx_ptr];
+ 168:	80 91 4f 01 	lds	r24, 0x014F	; 0x80014f <j1708_tx_ptr>
+ 16c:	e0 91 51 01 	lds	r30, 0x0151	; 0x800151 <_ZL15j1708_tx_buffer>
+ 170:	f0 91 52 01 	lds	r31, 0x0152	; 0x800152 <_ZL15j1708_tx_buffer+0x1>
+ 174:	e8 0f       	add	r30, r24
+ 176:	f1 1d       	adc	r31, r1
+ 178:	80 81       	ld	r24, Z
+ 17a:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
+		j1708_checksum += j1708_tx_buffer[j1708_tx_ptr]; // add to checksum
+ 17e:	80 91 4f 01 	lds	r24, 0x014F	; 0x80014f <j1708_tx_ptr>
+ 182:	90 91 0f 01 	lds	r25, 0x010F	; 0x80010f <j1708_checksum>
+ 186:	e0 91 51 01 	lds	r30, 0x0151	; 0x800151 <_ZL15j1708_tx_buffer>
+ 18a:	f0 91 52 01 	lds	r31, 0x0152	; 0x800152 <_ZL15j1708_tx_buffer+0x1>
+ 18e:	e8 0f       	add	r30, r24
+ 190:	f1 1d       	adc	r31, r1
+ 192:	80 81       	ld	r24, Z
+ 194:	89 0f       	add	r24, r25
+ 196:	80 93 0f 01 	sts	0x010F, r24	; 0x80010f <j1708_checksum>
+		j1708_tx_ptr++;
+ 19a:	80 91 4f 01 	lds	r24, 0x014F	; 0x80014f <j1708_tx_ptr>
+ 19e:	8f 5f       	subi	r24, 0xFF	; 255
+ 1a0:	80 93 4f 01 	sts	0x014F, r24	; 0x80014f <j1708_tx_ptr>
+ 1a4:	09 c0       	rjmp	.+18     	; 0x1b8 <__vector_33+0x7e>
+	} else {
+		j1708_tx_length = 0;
+ 1a6:	10 92 50 01 	sts	0x0150, r1	; 0x800150 <j1708_tx_length>
+		//disable sending interrupt
+		UCSR1B &= ~(1 << UDRIE1); //Disable sending
+ 1aa:	e9 ec       	ldi	r30, 0xC9	; 201
+ 1ac:	f0 e0       	ldi	r31, 0x00	; 0
+ 1ae:	80 81       	ld	r24, Z
+ 1b0:	8f 7d       	andi	r24, 0xDF	; 223
+ 1b2:	80 83       	st	Z, r24
+		
+		send_checksum();
+ 1b4:	0e 94 92 00 	call	0x124	; 0x124 <_Z13send_checksumv>
+	}
+	
+}
+ 1b8:	ff 91       	pop	r31
+ 1ba:	ef 91       	pop	r30
+ 1bc:	bf 91       	pop	r27
+ 1be:	af 91       	pop	r26
+ 1c0:	9f 91       	pop	r25
+ 1c2:	8f 91       	pop	r24
+ 1c4:	7f 91       	pop	r23
+ 1c6:	6f 91       	pop	r22
+ 1c8:	5f 91       	pop	r21
+ 1ca:	4f 91       	pop	r20
+ 1cc:	3f 91       	pop	r19
+ 1ce:	2f 91       	pop	r18
+ 1d0:	0f 90       	pop	r0
+ 1d2:	0f be       	out	0x3f, r0	; 63
+ 1d4:	0f 90       	pop	r0
+ 1d6:	1f 90       	pop	r1
+ 1d8:	18 95       	reti
+
+000001da <_Z22rx_collision_detectionv>:
+
+
+
+void rx_collision_detection(){
+	
+	j1708_collision_counter ++; // count # collisions
+ 1da:	80 91 0d 01 	lds	r24, 0x010D	; 0x80010d <j1708_collision_counter>
+ 1de:	8f 5f       	subi	r24, 0xFF	; 255
+ 1e0:	80 93 0d 01 	sts	0x010D, r24	; 0x80010d <j1708_collision_counter>
+	
+	if(j1708_collision_counter==1){//first collision then wait 10 bit times again + priority bit times
+ 1e4:	80 91 0d 01 	lds	r24, 0x010D	; 0x80010d <j1708_collision_counter>
+ 1e8:	81 30       	cpi	r24, 0x01	; 1
+ 1ea:	69 f4       	brne	.+26     	; 0x206 <_Z22rx_collision_detectionv+0x2c>
+		bit_times = BIT_TIMES_10;//10;
+ 1ec:	8b e0       	ldi	r24, 0x0B	; 11
+ 1ee:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <bit_times>
+		count_times = 0;
+ 1f2:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <count_times>
+		TCNT0=47; //104 us overflow   1 bit time
+ 1f6:	8f e2       	ldi	r24, 0x2F	; 47
+ 1f8:	86 bd       	out	0x26, r24	; 38
+		TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+ 1fa:	ee e6       	ldi	r30, 0x6E	; 110
+ 1fc:	f0 e0       	ldi	r31, 0x00	; 0
+ 1fe:	80 81       	ld	r24, Z
+ 200:	81 60       	ori	r24, 0x01	; 1
+ 202:	80 83       	st	Z, r24
+ 204:	08 95       	ret
+	}else{
+		//random number generate ;
+		bit_times = j1708_collision_counter & 0x07; //random time from 1 - 7
+ 206:	80 91 0d 01 	lds	r24, 0x010D	; 0x80010d <j1708_collision_counter>
+ 20a:	87 70       	andi	r24, 0x07	; 7
+ 20c:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <bit_times>
+		count_times = 0;
+ 210:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <count_times>
+		TCNT0=47; //104 us overflow   1 bit time
+ 214:	8f e2       	ldi	r24, 0x2F	; 47
+ 216:	86 bd       	out	0x26, r24	; 38
+		TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+ 218:	ee e6       	ldi	r30, 0x6E	; 110
+ 21a:	f0 e0       	ldi	r31, 0x00	; 0
+ 21c:	80 81       	ld	r24, Z
+ 21e:	81 60       	ori	r24, 0x01	; 1
+ 220:	80 83       	st	Z, r24
+		
+		bus_status.j1708_random_collision_times = 1;
+ 222:	81 e0       	ldi	r24, 0x01	; 1
+ 224:	80 93 07 01 	sts	0x0107, r24	; 0x800107 <_edata+0x7>
+ 228:	08 95       	ret
+
+0000022a <__vector_32>:
+ * \brief Data RX interrupt handler
+ *
+ * This is the handler for UART receive data
+ */
+ISR(USART1_RX_vect)
+{
+ 22a:	1f 92       	push	r1
+ 22c:	0f 92       	push	r0
+ 22e:	0f b6       	in	r0, 0x3f	; 63
+ 230:	0f 92       	push	r0
+ 232:	11 24       	eor	r1, r1
+ 234:	2f 93       	push	r18
+ 236:	3f 93       	push	r19
+ 238:	4f 93       	push	r20
+ 23a:	5f 93       	push	r21
+ 23c:	6f 93       	push	r22
+ 23e:	7f 93       	push	r23
+ 240:	8f 93       	push	r24
+ 242:	9f 93       	push	r25
+ 244:	af 93       	push	r26
+ 246:	bf 93       	push	r27
+ 248:	ef 93       	push	r30
+ 24a:	ff 93       	push	r31
+	
+	uint8_t temp;
+	temp = UDR1; // read buffer
+ 24c:	80 91 ce 00 	lds	r24, 0x00CE	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
+	j1708_rx_temp = temp; // save on temp
+ 250:	80 93 0e 01 	sts	0x010E, r24	; 0x80010e <j1708_rx_temp>
+
+	
+	bus_status.j1708_priority_check_flag = 0; // clear priority check
+ 254:	e0 e0       	ldi	r30, 0x00	; 0
+ 256:	f1 e0       	ldi	r31, 0x01	; 1
+ 258:	11 86       	std	Z+9, r1	; 0x09
+	bus_status.j1708_random_collision_times = 0;//clear collision flag
+ 25a:	17 82       	std	Z+7, r1	; 0x07
+	j1708_collision_counter = 0; // reset collision counter
+ 25c:	10 92 0d 01 	sts	0x010D, r1	; 0x80010d <j1708_collision_counter>
+	
+	// transmitting indicate idle bus has reached end we are tx MID+data
+	if (bus_status.j1708_transmitting){ //  yes, so we must..
+ 260:	80 81       	ld	r24, Z
+ 262:	88 23       	and	r24, r24
+ 264:	41 f0       	breq	.+16     	; 0x276 <__vector_32+0x4c>
+		
+		if(bus_status.j1708_tx_sent_checksum){
+ 266:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <_edata+0x5>
+ 26a:	88 23       	and	r24, r24
+ 26c:	51 f0       	breq	.+20     	; 0x282 <__vector_32+0x58>
+			bus_status.j1708_transmitting = 0; // clear flag tx
+ 26e:	10 82       	st	Z, r1
+			bus_status.j1708_tx_sent_checksum = 0; // clear flag checksum
+ 270:	15 82       	std	Z+5, r1	; 0x05
+			
+			bus_status.j1708_wait_idle_time = 0;
+ 272:	10 86       	std	Z+8, r1	; 0x08
+ 274:	06 c0       	rjmp	.+12     	; 0x282 <__vector_32+0x58>
+		}
+		
+	}else{ // no, so go receive this data
+		if(bus_status.j1708_MID_sent==0){
+ 276:	80 91 06 01 	lds	r24, 0x0106	; 0x800106 <_edata+0x6>
+ 27a:	81 11       	cpse	r24, r1
+ 27c:	02 c0       	rjmp	.+4      	; 0x282 <__vector_32+0x58>
+			j1708_rx_isr_receiving();
+ 27e:	0e 94 69 00 	call	0xd2	; 0xd2 <_Z22j1708_rx_isr_receivingv>
+		}
+	}
+	
+	if(bus_status.j1708_tx_busy && bus_status.j1708_MID_sent){ // MID was sent for j1708_tx_data()
+ 282:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <_edata+0x1>
+ 286:	88 23       	and	r24, r24
+ 288:	d1 f0       	breq	.+52     	; 0x2be <__vector_32+0x94>
+ 28a:	80 91 06 01 	lds	r24, 0x0106	; 0x800106 <_edata+0x6>
+ 28e:	81 11       	cpse	r24, r1
+ 290:	11 c0       	rjmp	.+34     	; 0x2b4 <__vector_32+0x8a>
+ 292:	15 c0       	rjmp	.+42     	; 0x2be <__vector_32+0x94>
+		//need to check if is correct
+		if(j1708_rx_temp == j1708_my_mid){ // then we are trasnmitting, check if MID is the same
+			bus_status.j1708_transmitting = 1;
+ 294:	e0 e0       	ldi	r30, 0x00	; 0
+ 296:	f1 e0       	ldi	r31, 0x01	; 1
+ 298:	81 e0       	ldi	r24, 0x01	; 1
+ 29a:	80 83       	st	Z, r24
+			bus_status.j1708_MID_sent = 0; 
+ 29c:	16 82       	std	Z+6, r1	; 0x06
+			UCSR1B |= (1 << UDRIE1); //enable Tx interrupt, enable sending
+ 29e:	e9 ec       	ldi	r30, 0xC9	; 201
+ 2a0:	f0 e0       	ldi	r31, 0x00	; 0
+ 2a2:	80 81       	ld	r24, Z
+ 2a4:	80 62       	ori	r24, 0x20	; 32
+ 2a6:	80 83       	st	Z, r24
+ 2a8:	0a c0       	rjmp	.+20     	; 0x2be <__vector_32+0x94>
+		}else{
+			bus_status.j1708_MID_sent = 0; 
+ 2aa:	10 92 06 01 	sts	0x0106, r1	; 0x800106 <_edata+0x6>
+			rx_collision_detection();
+ 2ae:	0e 94 ed 00 	call	0x1da	; 0x1da <_Z22rx_collision_detectionv>
+		}
+	}
+
+}
+ 2b2:	05 c0       	rjmp	.+10     	; 0x2be <__vector_32+0x94>
+		}
+	}
+	
+	if(bus_status.j1708_tx_busy && bus_status.j1708_MID_sent){ // MID was sent for j1708_tx_data()
+		//need to check if is correct
+		if(j1708_rx_temp == j1708_my_mid){ // then we are trasnmitting, check if MID is the same
+ 2b4:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <j1708_rx_temp>
+ 2b8:	80 38       	cpi	r24, 0x80	; 128
+ 2ba:	b9 f7       	brne	.-18     	; 0x2aa <__vector_32+0x80>
+ 2bc:	eb cf       	rjmp	.-42     	; 0x294 <__vector_32+0x6a>
+			bus_status.j1708_MID_sent = 0; 
+			rx_collision_detection();
+		}
+	}
+
+}
+ 2be:	ff 91       	pop	r31
+ 2c0:	ef 91       	pop	r30
+ 2c2:	bf 91       	pop	r27
+ 2c4:	af 91       	pop	r26
+ 2c6:	9f 91       	pop	r25
+ 2c8:	8f 91       	pop	r24
+ 2ca:	7f 91       	pop	r23
+ 2cc:	6f 91       	pop	r22
+ 2ce:	5f 91       	pop	r21
+ 2d0:	4f 91       	pop	r20
+ 2d2:	3f 91       	pop	r19
+ 2d4:	2f 91       	pop	r18
+ 2d6:	0f 90       	pop	r0
+ 2d8:	0f be       	out	0x3f, r0	; 63
+ 2da:	0f 90       	pop	r0
+ 2dc:	1f 90       	pop	r1
+ 2de:	18 95       	reti
+
+000002e0 <_Z10j1708_initv>:
+
+
+
+void j1708_init(void) { // init uart1, rx interrupt enable and tx interrupt disable
+	
+	j1708_tx_ptr = 0;
+ 2e0:	10 92 4f 01 	sts	0x014F, r1	; 0x80014f <j1708_tx_ptr>
+	j1708_tx_length = 0;
+ 2e4:	10 92 50 01 	sts	0x0150, r1	; 0x800150 <j1708_tx_length>
+	j1708_rx_buffer0_ptr = 0;
+ 2e8:	10 92 2f 01 	sts	0x012F, r1	; 0x80012f <j1708_rx_buffer0_ptr>
+	j1708_rx_buffer0_count = 0;
+ 2ec:	10 92 30 01 	sts	0x0130, r1	; 0x800130 <j1708_rx_buffer0_count>
+	j1708_checksum = 0;
+ 2f0:	10 92 0f 01 	sts	0x010F, r1	; 0x80010f <j1708_checksum>
+	j1708_rx_temp = 0;
+ 2f4:	10 92 0e 01 	sts	0x010E, r1	; 0x80010e <j1708_rx_temp>
+	j1708_collision_counter = 0;
+ 2f8:	10 92 0d 01 	sts	0x010D, r1	; 0x80010d <j1708_collision_counter>
+	
+	bus_status.j1708_busy = 0;
+ 2fc:	e0 e0       	ldi	r30, 0x00	; 0
+ 2fe:	f1 e0       	ldi	r31, 0x01	; 1
+ 300:	13 82       	std	Z+3, r1	; 0x03
+	bus_status.j1708_tx_busy = 0;
+ 302:	11 82       	std	Z+1, r1	; 0x01
+	bus_status.j1708_MID_sent = 0;
+ 304:	16 82       	std	Z+6, r1	; 0x06
+	bus_status.j1708_finish_read_packet = 0;
+ 306:	12 86       	std	Z+10, r1	; 0x0a
+	bus_status.j1708_priority_check_flag = 0;
+ 308:	11 86       	std	Z+9, r1	; 0x09
+	bus_status.j1708_random_collision_times = 0;
+ 30a:	17 82       	std	Z+7, r1	; 0x07
+	bus_status.j1708_transmitting = 0;
+ 30c:	10 82       	st	Z, r1
+	bus_status.j1708_wait_idle_time = 0;
+ 30e:	10 86       	std	Z+8, r1	; 0x08
+	bus_status.j1708_tx_sent_checksum = 0;
+ 310:	15 82       	std	Z+5, r1	; 0x05
+	
+	//init uart1 
+	UBRR1H = UBRRH_VALUE;
+ 312:	10 92 cd 00 	sts	0x00CD, r1	; 0x8000cd <__TEXT_REGION_LENGTH__+0x7e00cd>
+	UBRR1L = UBRRL_VALUE;
+ 316:	87 e6       	ldi	r24, 0x67	; 103
+ 318:	80 93 cc 00 	sts	0x00CC, r24	; 0x8000cc <__TEXT_REGION_LENGTH__+0x7e00cc>
+
+	#if USE_2X
+	UCSR1A |= _BV(U2X1);
+	#else
+	UCSR1A &= ~(_BV(U2X1));
+ 31c:	e8 ec       	ldi	r30, 0xC8	; 200
+ 31e:	f0 e0       	ldi	r31, 0x00	; 0
+ 320:	80 81       	ld	r24, Z
+ 322:	8d 7f       	andi	r24, 0xFD	; 253
+ 324:	80 83       	st	Z, r24
+	#endif
+
+	
+	UCSR1B = _BV(RXEN1) | _BV(TXEN1) | _BV(RXCIE1);   /* Enable RX and TX, RX complete ISR */
+ 326:	e9 ec       	ldi	r30, 0xC9	; 201
+ 328:	f0 e0       	ldi	r31, 0x00	; 0
+ 32a:	88 e9       	ldi	r24, 0x98	; 152
+ 32c:	80 83       	st	Z, r24
+	UCSR1C = _BV(UCSZ11) | _BV(UCSZ10); /* 8-bit data, 1 stop bit, no parity, asynchronous UART*/
+ 32e:	86 e0       	ldi	r24, 0x06	; 6
+ 330:	80 93 ca 00 	sts	0x00CA, r24	; 0x8000ca <__TEXT_REGION_LENGTH__+0x7e00ca>
+
+	UCSR1B &= ~(1 << UDRIE1); //Disable sending, ready TX buffer
+ 334:	80 81       	ld	r24, Z
+ 336:	8f 7d       	andi	r24, 0xDF	; 223
+ 338:	80 83       	st	Z, r24
+
+
+	config_timer0();
+ 33a:	0e 94 5e 00 	call	0xbc	; 0xbc <_Z13config_timer0v>
+	//enable global interrupt
+	sei();
+ 33e:	78 94       	sei
+ 340:	08 95       	ret
+
+00000342 <_Z17j1708_send_packetPhh>:
+
+/*
+*	j1708_send_packet
+*	load data into j1708_tx_buffer, and length of data not include MID byte, scheduled
+*/
+void j1708_send_packet(uint8_t* buffer, uint8_t len){ // load data into j1708_tx_buffer
+ 342:	9c 01       	movw	r18, r24
+	
+	if(bus_status.j1708_tx_busy == 0){ // not busy tx 
+ 344:	90 91 01 01 	lds	r25, 0x0101	; 0x800101 <_edata+0x1>
+ 348:	91 11       	cpse	r25, r1
+ 34a:	24 c0       	rjmp	.+72     	; 0x394 <_Z17j1708_send_packetPhh+0x52>
+		
+		j1708_tx_length = len;
+ 34c:	60 93 50 01 	sts	0x0150, r22	; 0x800150 <j1708_tx_length>
+		j1708_tx_ptr = 0;
+ 350:	10 92 4f 01 	sts	0x014F, r1	; 0x80014f <j1708_tx_ptr>
+		j1708_tx_buffer = buffer;
+ 354:	30 93 52 01 	sts	0x0152, r19	; 0x800152 <_ZL15j1708_tx_buffer+0x1>
+ 358:	20 93 51 01 	sts	0x0151, r18	; 0x800151 <_ZL15j1708_tx_buffer>
+		
+		if ((bus_status.j1708_wait_idle_time==0) && (bus_status.j1708_busy==0)){
+ 35c:	80 91 08 01 	lds	r24, 0x0108	; 0x800108 <_edata+0x8>
+ 360:	81 11       	cpse	r24, r1
+ 362:	04 c0       	rjmp	.+8      	; 0x36c <_Z17j1708_send_packetPhh+0x2a>
+ 364:	80 91 03 01 	lds	r24, 0x0103	; 0x800103 <_edata+0x3>
+ 368:	88 23       	and	r24, r24
+ 36a:	21 f0       	breq	.+8      	; 0x374 <_Z17j1708_send_packetPhh+0x32>
 			TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
 			
 			bus_status.j1708_wait_idle_time = 1;
-  d2:	84 b5       	in	r24, 0x24	; 36
-  d4:	82 60       	ori	r24, 0x02	; 2
-  d6:	84 bd       	out	0x24, r24	; 36
-  d8:	ee e6       	ldi	r30, 0x6E	; 110
-  da:	f0 e0       	ldi	r31, 0x00	; 0
-  dc:	80 81       	ld	r24, Z
-  de:	8e 7f       	andi	r24, 0xFE	; 254
-  e0:	80 83       	st	Z, r24
-  e2:	8f e2       	ldi	r24, 0x2F	; 47
-  e4:	86 bd       	out	0x26, r24	; 38
-  e6:	08 95       	ret
+		}
+		
+		bus_status.j1708_tx_busy = 1; // we are busy now
+ 36c:	81 e0       	ldi	r24, 0x01	; 1
+ 36e:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <_edata+0x1>
+	}
+		
+}
+ 372:	08 95       	ret
+		j1708_tx_ptr = 0;
+		j1708_tx_buffer = buffer;
+		
+		if ((bus_status.j1708_wait_idle_time==0) && (bus_status.j1708_busy==0)){
+			
+			count_times = 0;
+ 374:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <count_times>
+			bit_times = BIT_TIMES_10;//10; //10 bit times reset the end-of-packet
+ 378:	8b e0       	ldi	r24, 0x0B	; 11
+ 37a:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <bit_times>
+			TCNT0=47; //104 us overflow   1 bit times
+ 37e:	8f e2       	ldi	r24, 0x2F	; 47
+ 380:	86 bd       	out	0x26, r24	; 38
+			TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
+ 382:	ee e6       	ldi	r30, 0x6E	; 110
+ 384:	f0 e0       	ldi	r31, 0x00	; 0
+ 386:	80 81       	ld	r24, Z
+ 388:	81 60       	ori	r24, 0x01	; 1
+ 38a:	80 83       	st	Z, r24
+			
+			bus_status.j1708_wait_idle_time = 1;
+ 38c:	81 e0       	ldi	r24, 0x01	; 1
+ 38e:	80 93 08 01 	sts	0x0108, r24	; 0x800108 <_edata+0x8>
+ 392:	ec cf       	rjmp	.-40     	; 0x36c <_Z17j1708_send_packetPhh+0x2a>
+ 394:	08 95       	ret
 
-000000e8 <_Z22j1708_rx_isr_receivingv>:
-  e8:	81 e0       	ldi	r24, 0x01	; 1
-  ea:	80 93 03 01 	sts	0x0103, r24	; 0x800103 <__data_end+0x3>
-  ee:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <count_times>
-  f2:	8a e0       	ldi	r24, 0x0A	; 10
-  f4:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <bit_times>
-  f8:	8f e2       	ldi	r24, 0x2F	; 47
-  fa:	86 bd       	out	0x26, r24	; 38
-  fc:	ee e6       	ldi	r30, 0x6E	; 110
-  fe:	f0 e0       	ldi	r31, 0x00	; 0
- 100:	80 81       	ld	r24, Z
- 102:	81 60       	ori	r24, 0x01	; 1
- 104:	80 83       	st	Z, r24
- 106:	e0 91 2f 01 	lds	r30, 0x012F	; 0x80012f <j1708_rx_buffer0_ptr>
- 10a:	f0 e0       	ldi	r31, 0x00	; 0
- 10c:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <j1708_rx_temp>
- 110:	ef 5c       	subi	r30, 0xCF	; 207
- 112:	fe 4f       	sbci	r31, 0xFE	; 254
- 114:	80 83       	st	Z, r24
- 116:	80 91 30 01 	lds	r24, 0x0130	; 0x800130 <j1708_rx_buffer0_count>
- 11a:	8f 5f       	subi	r24, 0xFF	; 255
- 11c:	80 93 30 01 	sts	0x0130, r24	; 0x800130 <j1708_rx_buffer0_count>
- 120:	80 91 2f 01 	lds	r24, 0x012F	; 0x80012f <j1708_rx_buffer0_ptr>
- 124:	8f 5f       	subi	r24, 0xFF	; 255
- 126:	80 93 2f 01 	sts	0x012F, r24	; 0x80012f <j1708_rx_buffer0_ptr>
- 12a:	90 91 0e 01 	lds	r25, 0x010E	; 0x80010e <j1708_rx_temp>
- 12e:	80 91 0f 01 	lds	r24, 0x010F	; 0x80010f <j1708_checksum>
- 132:	89 0f       	add	r24, r25
- 134:	80 93 0f 01 	sts	0x010F, r24	; 0x80010f <j1708_checksum>
- 138:	08 95       	ret
-
-0000013a <_Z13send_checksumv>:
- 13a:	80 91 0f 01 	lds	r24, 0x010F	; 0x80010f <j1708_checksum>
- 13e:	81 95       	neg	r24
- 140:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
- 144:	e0 e0       	ldi	r30, 0x00	; 0
- 146:	f1 e0       	ldi	r31, 0x01	; 1
- 148:	11 82       	std	Z+1, r1	; 0x01
- 14a:	81 e0       	ldi	r24, 0x01	; 1
- 14c:	85 83       	std	Z+5, r24	; 0x05
- 14e:	08 95       	ret
-
-00000150 <__vector_33>:
- 150:	1f 92       	push	r1
- 152:	0f 92       	push	r0
- 154:	0f b6       	in	r0, 0x3f	; 63
- 156:	0f 92       	push	r0
- 158:	11 24       	eor	r1, r1
- 15a:	2f 93       	push	r18
- 15c:	3f 93       	push	r19
- 15e:	4f 93       	push	r20
- 160:	5f 93       	push	r21
- 162:	6f 93       	push	r22
- 164:	7f 93       	push	r23
- 166:	8f 93       	push	r24
- 168:	9f 93       	push	r25
- 16a:	af 93       	push	r26
- 16c:	bf 93       	push	r27
- 16e:	ef 93       	push	r30
- 170:	ff 93       	push	r31
- 172:	90 91 50 01 	lds	r25, 0x0150	; 0x800150 <j1708_tx_length>
- 176:	80 91 4f 01 	lds	r24, 0x014F	; 0x80014f <j1708_tx_ptr>
- 17a:	89 17       	cp	r24, r25
- 17c:	f8 f4       	brcc	.+62     	; 0x1bc <__vector_33+0x6c>
- 17e:	80 91 4f 01 	lds	r24, 0x014F	; 0x80014f <j1708_tx_ptr>
- 182:	e0 91 51 01 	lds	r30, 0x0151	; 0x800151 <_ZL15j1708_tx_buffer>
- 186:	f0 91 52 01 	lds	r31, 0x0152	; 0x800152 <_ZL15j1708_tx_buffer+0x1>
- 18a:	e8 0f       	add	r30, r24
- 18c:	f1 1d       	adc	r31, r1
- 18e:	80 81       	ld	r24, Z
- 190:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
- 194:	80 91 4f 01 	lds	r24, 0x014F	; 0x80014f <j1708_tx_ptr>
- 198:	90 91 0f 01 	lds	r25, 0x010F	; 0x80010f <j1708_checksum>
- 19c:	e0 91 51 01 	lds	r30, 0x0151	; 0x800151 <_ZL15j1708_tx_buffer>
- 1a0:	f0 91 52 01 	lds	r31, 0x0152	; 0x800152 <_ZL15j1708_tx_buffer+0x1>
- 1a4:	e8 0f       	add	r30, r24
- 1a6:	f1 1d       	adc	r31, r1
- 1a8:	80 81       	ld	r24, Z
- 1aa:	89 0f       	add	r24, r25
- 1ac:	80 93 0f 01 	sts	0x010F, r24	; 0x80010f <j1708_checksum>
- 1b0:	80 91 4f 01 	lds	r24, 0x014F	; 0x80014f <j1708_tx_ptr>
- 1b4:	8f 5f       	subi	r24, 0xFF	; 255
- 1b6:	80 93 4f 01 	sts	0x014F, r24	; 0x80014f <j1708_tx_ptr>
- 1ba:	09 c0       	rjmp	.+18     	; 0x1ce <__vector_33+0x7e>
- 1bc:	10 92 50 01 	sts	0x0150, r1	; 0x800150 <j1708_tx_length>
- 1c0:	e9 ec       	ldi	r30, 0xC9	; 201
- 1c2:	f0 e0       	ldi	r31, 0x00	; 0
- 1c4:	80 81       	ld	r24, Z
- 1c6:	8f 7d       	andi	r24, 0xDF	; 223
- 1c8:	80 83       	st	Z, r24
- 1ca:	0e 94 9d 00 	call	0x13a	; 0x13a <_Z13send_checksumv>
- 1ce:	ff 91       	pop	r31
- 1d0:	ef 91       	pop	r30
- 1d2:	bf 91       	pop	r27
- 1d4:	af 91       	pop	r26
- 1d6:	9f 91       	pop	r25
- 1d8:	8f 91       	pop	r24
- 1da:	7f 91       	pop	r23
- 1dc:	6f 91       	pop	r22
- 1de:	5f 91       	pop	r21
- 1e0:	4f 91       	pop	r20
- 1e2:	3f 91       	pop	r19
- 1e4:	2f 91       	pop	r18
- 1e6:	0f 90       	pop	r0
- 1e8:	0f be       	out	0x3f, r0	; 63
- 1ea:	0f 90       	pop	r0
- 1ec:	1f 90       	pop	r1
- 1ee:	18 95       	reti
-
-000001f0 <_Z22rx_collision_detectionv>:
- 1f0:	80 91 0d 01 	lds	r24, 0x010D	; 0x80010d <j1708_collision_counter>
- 1f4:	8f 5f       	subi	r24, 0xFF	; 255
- 1f6:	80 93 0d 01 	sts	0x010D, r24	; 0x80010d <j1708_collision_counter>
- 1fa:	80 91 0d 01 	lds	r24, 0x010D	; 0x80010d <j1708_collision_counter>
- 1fe:	81 30       	cpi	r24, 0x01	; 1
- 200:	69 f4       	brne	.+26     	; 0x21c <_Z22rx_collision_detectionv+0x2c>
- 202:	8a e0       	ldi	r24, 0x0A	; 10
- 204:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <bit_times>
- 208:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <count_times>
- 20c:	8f e2       	ldi	r24, 0x2F	; 47
- 20e:	86 bd       	out	0x26, r24	; 38
- 210:	ee e6       	ldi	r30, 0x6E	; 110
- 212:	f0 e0       	ldi	r31, 0x00	; 0
- 214:	80 81       	ld	r24, Z
- 216:	81 60       	ori	r24, 0x01	; 1
- 218:	80 83       	st	Z, r24
- 21a:	08 95       	ret
- 21c:	80 91 0d 01 	lds	r24, 0x010D	; 0x80010d <j1708_collision_counter>
- 220:	87 70       	andi	r24, 0x07	; 7
- 222:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <bit_times>
- 226:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <count_times>
- 22a:	8f e2       	ldi	r24, 0x2F	; 47
- 22c:	86 bd       	out	0x26, r24	; 38
- 22e:	ee e6       	ldi	r30, 0x6E	; 110
- 230:	f0 e0       	ldi	r31, 0x00	; 0
- 232:	80 81       	ld	r24, Z
- 234:	81 60       	ori	r24, 0x01	; 1
- 236:	80 83       	st	Z, r24
- 238:	81 e0       	ldi	r24, 0x01	; 1
- 23a:	80 93 07 01 	sts	0x0107, r24	; 0x800107 <__data_end+0x7>
- 23e:	08 95       	ret
-
-00000240 <__vector_32>:
- 240:	1f 92       	push	r1
- 242:	0f 92       	push	r0
- 244:	0f b6       	in	r0, 0x3f	; 63
- 246:	0f 92       	push	r0
- 248:	11 24       	eor	r1, r1
- 24a:	2f 93       	push	r18
- 24c:	3f 93       	push	r19
- 24e:	4f 93       	push	r20
- 250:	5f 93       	push	r21
- 252:	6f 93       	push	r22
- 254:	7f 93       	push	r23
- 256:	8f 93       	push	r24
- 258:	9f 93       	push	r25
- 25a:	af 93       	push	r26
- 25c:	bf 93       	push	r27
- 25e:	ef 93       	push	r30
- 260:	ff 93       	push	r31
- 262:	80 91 ce 00 	lds	r24, 0x00CE	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
- 266:	80 93 0e 01 	sts	0x010E, r24	; 0x80010e <j1708_rx_temp>
- 26a:	e0 e0       	ldi	r30, 0x00	; 0
- 26c:	f1 e0       	ldi	r31, 0x01	; 1
- 26e:	11 86       	std	Z+9, r1	; 0x09
- 270:	17 82       	std	Z+7, r1	; 0x07
- 272:	10 92 0d 01 	sts	0x010D, r1	; 0x80010d <j1708_collision_counter>
- 276:	80 81       	ld	r24, Z
- 278:	88 23       	and	r24, r24
- 27a:	41 f0       	breq	.+16     	; 0x28c <__vector_32+0x4c>
- 27c:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <__data_end+0x5>
- 280:	88 23       	and	r24, r24
- 282:	51 f0       	breq	.+20     	; 0x298 <__vector_32+0x58>
- 284:	10 82       	st	Z, r1
- 286:	15 82       	std	Z+5, r1	; 0x05
- 288:	10 86       	std	Z+8, r1	; 0x08
- 28a:	06 c0       	rjmp	.+12     	; 0x298 <__vector_32+0x58>
- 28c:	80 91 06 01 	lds	r24, 0x0106	; 0x800106 <__data_end+0x6>
- 290:	81 11       	cpse	r24, r1
- 292:	02 c0       	rjmp	.+4      	; 0x298 <__vector_32+0x58>
- 294:	0e 94 74 00 	call	0xe8	; 0xe8 <_Z22j1708_rx_isr_receivingv>
- 298:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <__data_end+0x1>
- 29c:	88 23       	and	r24, r24
- 29e:	d1 f0       	breq	.+52     	; 0x2d4 <__vector_32+0x94>
- 2a0:	80 91 06 01 	lds	r24, 0x0106	; 0x800106 <__data_end+0x6>
- 2a4:	81 11       	cpse	r24, r1
- 2a6:	11 c0       	rjmp	.+34     	; 0x2ca <__vector_32+0x8a>
- 2a8:	15 c0       	rjmp	.+42     	; 0x2d4 <__vector_32+0x94>
- 2aa:	e0 e0       	ldi	r30, 0x00	; 0
- 2ac:	f1 e0       	ldi	r31, 0x01	; 1
- 2ae:	81 e0       	ldi	r24, 0x01	; 1
- 2b0:	80 83       	st	Z, r24
- 2b2:	16 82       	std	Z+6, r1	; 0x06
- 2b4:	e9 ec       	ldi	r30, 0xC9	; 201
- 2b6:	f0 e0       	ldi	r31, 0x00	; 0
- 2b8:	80 81       	ld	r24, Z
- 2ba:	80 62       	ori	r24, 0x20	; 32
- 2bc:	80 83       	st	Z, r24
- 2be:	0a c0       	rjmp	.+20     	; 0x2d4 <__vector_32+0x94>
- 2c0:	10 92 06 01 	sts	0x0106, r1	; 0x800106 <__data_end+0x6>
- 2c4:	0e 94 f8 00 	call	0x1f0	; 0x1f0 <_Z22rx_collision_detectionv>
- 2c8:	05 c0       	rjmp	.+10     	; 0x2d4 <__vector_32+0x94>
- 2ca:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <j1708_rx_temp>
- 2ce:	80 38       	cpi	r24, 0x80	; 128
- 2d0:	b9 f7       	brne	.-18     	; 0x2c0 <__vector_32+0x80>
- 2d2:	eb cf       	rjmp	.-42     	; 0x2aa <__vector_32+0x6a>
- 2d4:	ff 91       	pop	r31
- 2d6:	ef 91       	pop	r30
- 2d8:	bf 91       	pop	r27
- 2da:	af 91       	pop	r26
- 2dc:	9f 91       	pop	r25
- 2de:	8f 91       	pop	r24
- 2e0:	7f 91       	pop	r23
- 2e2:	6f 91       	pop	r22
- 2e4:	5f 91       	pop	r21
- 2e6:	4f 91       	pop	r20
- 2e8:	3f 91       	pop	r19
- 2ea:	2f 91       	pop	r18
- 2ec:	0f 90       	pop	r0
- 2ee:	0f be       	out	0x3f, r0	; 63
- 2f0:	0f 90       	pop	r0
- 2f2:	1f 90       	pop	r1
- 2f4:	18 95       	reti
-
-000002f6 <_Z10j1708_initv>:
- 2f6:	10 92 4f 01 	sts	0x014F, r1	; 0x80014f <j1708_tx_ptr>
- 2fa:	10 92 50 01 	sts	0x0150, r1	; 0x800150 <j1708_tx_length>
- 2fe:	10 92 2f 01 	sts	0x012F, r1	; 0x80012f <j1708_rx_buffer0_ptr>
- 302:	10 92 30 01 	sts	0x0130, r1	; 0x800130 <j1708_rx_buffer0_count>
- 306:	10 92 0f 01 	sts	0x010F, r1	; 0x80010f <j1708_checksum>
- 30a:	10 92 0e 01 	sts	0x010E, r1	; 0x80010e <j1708_rx_temp>
- 30e:	10 92 0d 01 	sts	0x010D, r1	; 0x80010d <j1708_collision_counter>
- 312:	e0 e0       	ldi	r30, 0x00	; 0
- 314:	f1 e0       	ldi	r31, 0x01	; 1
- 316:	13 82       	std	Z+3, r1	; 0x03
- 318:	11 82       	std	Z+1, r1	; 0x01
- 31a:	16 82       	std	Z+6, r1	; 0x06
- 31c:	12 86       	std	Z+10, r1	; 0x0a
- 31e:	11 86       	std	Z+9, r1	; 0x09
- 320:	17 82       	std	Z+7, r1	; 0x07
- 322:	10 82       	st	Z, r1
- 324:	10 86       	std	Z+8, r1	; 0x08
- 326:	15 82       	std	Z+5, r1	; 0x05
- 328:	10 92 cd 00 	sts	0x00CD, r1	; 0x8000cd <__TEXT_REGION_LENGTH__+0x7e00cd>
- 32c:	87 e6       	ldi	r24, 0x67	; 103
- 32e:	80 93 cc 00 	sts	0x00CC, r24	; 0x8000cc <__TEXT_REGION_LENGTH__+0x7e00cc>
- 332:	e8 ec       	ldi	r30, 0xC8	; 200
- 334:	f0 e0       	ldi	r31, 0x00	; 0
- 336:	80 81       	ld	r24, Z
- 338:	8d 7f       	andi	r24, 0xFD	; 253
- 33a:	80 83       	st	Z, r24
- 33c:	e9 ec       	ldi	r30, 0xC9	; 201
- 33e:	f0 e0       	ldi	r31, 0x00	; 0
- 340:	88 e9       	ldi	r24, 0x98	; 152
- 342:	80 83       	st	Z, r24
- 344:	86 e0       	ldi	r24, 0x06	; 6
- 346:	80 93 ca 00 	sts	0x00CA, r24	; 0x8000ca <__TEXT_REGION_LENGTH__+0x7e00ca>
- 34a:	80 81       	ld	r24, Z
- 34c:	8f 7d       	andi	r24, 0xDF	; 223
- 34e:	80 83       	st	Z, r24
- 350:	0e 94 69 00 	call	0xd2	; 0xd2 <_Z13config_timer0v>
- 354:	78 94       	sei
- 356:	08 95       	ret
-
-00000358 <_Z13j1708_tx_datav>:
+00000396 <_Z13j1708_tx_datav>:
 void j1708_tx_data(){
 	
 	//bus_status.j1708_tx_busy = 1; // Now tx is busy
 	
 	// if the receiver is receiving.. or the idle timer is running... the bus is busy
 	if(bus_status.j1708_busy){ //|| (UCSR1A>>RXC1)&0x01 ){ // we can't bus busy, // unread data in the receive buffer set
- 358:	80 91 03 01 	lds	r24, 0x0103	; 0x800103 <__data_end+0x3>
- 35c:	81 11       	cpse	r24, r1
- 35e:	08 c0       	rjmp	.+16     	; 0x370 <_Z13j1708_tx_datav+0x18>
+ 396:	80 91 03 01 	lds	r24, 0x0103	; 0x800103 <_edata+0x3>
+ 39a:	81 11       	cpse	r24, r1
+ 39c:	08 c0       	rjmp	.+16     	; 0x3ae <_Z13j1708_tx_datav+0x18>
 		return;
 	}else{
 		UDR1 = j1708_my_mid; // send first MID
- 360:	80 e8       	ldi	r24, 0x80	; 128
- 362:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
+ 39e:	80 e8       	ldi	r24, 0x80	; 128
+ 3a0:	80 93 ce 00 	sts	0x00CE, r24	; 0x8000ce <__TEXT_REGION_LENGTH__+0x7e00ce>
 		j1708_checksum = j1708_my_mid; // start checksum calculation 		
- 366:	80 93 0f 01 	sts	0x010F, r24	; 0x80010f <j1708_checksum>
+ 3a4:	80 93 0f 01 	sts	0x010F, r24	; 0x80010f <j1708_checksum>
 		bus_status.j1708_MID_sent = 1;
- 36a:	81 e0       	ldi	r24, 0x01	; 1
- 36c:	80 93 06 01 	sts	0x0106, r24	; 0x800106 <__data_end+0x6>
- 370:	08 95       	ret
+ 3a8:	81 e0       	ldi	r24, 0x01	; 1
+ 3aa:	80 93 06 01 	sts	0x0106, r24	; 0x800106 <_edata+0x6>
+ 3ae:	08 95       	ret
 
-00000372 <_Z16handle_times_isrv>:
+000003b0 <_Z16handle_times_isrv>:
 }
 
 //used to generate an interrupt on the end of a packet AND as a transmit collision retry timer
 void handle_times_isr(){
 	
 	bus_status.j1708_busy = 0; // not busy idle time, 10 bit times
- 372:	e0 e0       	ldi	r30, 0x00	; 0
- 374:	f1 e0       	ldi	r31, 0x01	; 1
- 376:	13 82       	std	Z+3, r1	; 0x03
+ 3b0:	e0 e0       	ldi	r30, 0x00	; 0
+ 3b2:	f1 e0       	ldi	r31, 0x01	; 1
+ 3b4:	13 82       	std	Z+3, r1	; 0x03
 	
 	if(bus_status.j1708_random_collision_times){// wait pseudo random bit times
- 378:	87 81       	ldd	r24, Z+7	; 0x07
- 37a:	88 23       	and	r24, r24
- 37c:	39 f0       	breq	.+14     	; 0x38c <_Z16handle_times_isrv+0x1a>
+ 3b6:	87 81       	ldd	r24, Z+7	; 0x07
+ 3b8:	88 23       	and	r24, r24
+ 3ba:	39 f0       	breq	.+14     	; 0x3ca <_Z16handle_times_isrv+0x1a>
 		bus_status.j1708_random_collision_times = 0;
- 37e:	10 92 07 01 	sts	0x0107, r1	; 0x800107 <__data_end+0x7>
+ 3bc:	10 92 07 01 	sts	0x0107, r1	; 0x800107 <_edata+0x7>
 		j1708_collision_counter = 0; // reset collision counter
- 382:	10 92 0d 01 	sts	0x010D, r1	; 0x80010d <j1708_collision_counter>
+ 3c0:	10 92 0d 01 	sts	0x010D, r1	; 0x80010d <j1708_collision_counter>
 		j1708_tx_data();
- 386:	0e 94 ac 01 	call	0x358	; 0x358 <_Z13j1708_tx_datav>
+ 3c4:	0e 94 cb 01 	call	0x396	; 0x396 <_Z13j1708_tx_datav>
 		return;
- 38a:	08 95       	ret
+ 3c8:	08 95       	ret
 	}
 		
 	if(bus_status.j1708_priority_check_flag){// reach priority delay
- 38c:	80 91 09 01 	lds	r24, 0x0109	; 0x800109 <__data_end+0x9>
- 390:	88 23       	and	r24, r24
- 392:	29 f0       	breq	.+10     	; 0x39e <_Z16handle_times_isrv+0x2c>
+ 3ca:	80 91 09 01 	lds	r24, 0x0109	; 0x800109 <_edata+0x9>
+ 3ce:	88 23       	and	r24, r24
+ 3d0:	29 f0       	breq	.+10     	; 0x3dc <_Z16handle_times_isrv+0x2c>
 		bus_status.j1708_priority_check_flag = 0;
- 394:	10 92 09 01 	sts	0x0109, r1	; 0x800109 <__data_end+0x9>
+ 3d2:	10 92 09 01 	sts	0x0109, r1	; 0x800109 <_edata+0x9>
 		j1708_tx_data();
- 398:	0e 94 ac 01 	call	0x358	; 0x358 <_Z13j1708_tx_datav>
+ 3d6:	0e 94 cb 01 	call	0x396	; 0x396 <_Z13j1708_tx_datav>
 		return;
- 39c:	08 95       	ret
+ 3da:	08 95       	ret
 	}
 	
 	if(bus_status.j1708_transmitting){ // when are transmitting data bytes
- 39e:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__data_end>
- 3a2:	81 11       	cpse	r24, r1
- 3a4:	41 c0       	rjmp	.+130    	; 0x428 <__LOCK_REGION_LENGTH__+0x28>
+ 3dc:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 3e0:	81 11       	cpse	r24, r1
+ 3e2:	41 c0       	rjmp	.+130    	; 0x466 <__LOCK_REGION_LENGTH__+0x66>
 		// read nothing
 	}else{  // receive packet, end of packet and I can try tx
 		// checksum
 		if(j1708_checksum==0){ //valid
- 3a6:	80 91 0f 01 	lds	r24, 0x010F	; 0x80010f <j1708_checksum>
- 3aa:	81 11       	cpse	r24, r1
- 3ac:	03 c0       	rjmp	.+6      	; 0x3b4 <_Z16handle_times_isrv+0x42>
+ 3e4:	80 91 0f 01 	lds	r24, 0x010F	; 0x80010f <j1708_checksum>
+ 3e8:	81 11       	cpse	r24, r1
+ 3ea:	03 c0       	rjmp	.+6      	; 0x3f2 <_Z16handle_times_isrv+0x42>
 			bus_status.j1708_checksum_error = 0;
- 3ae:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <__data_end+0x4>
- 3b2:	03 c0       	rjmp	.+6      	; 0x3ba <_Z16handle_times_isrv+0x48>
+ 3ec:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <_edata+0x4>
+ 3f0:	03 c0       	rjmp	.+6      	; 0x3f8 <_Z16handle_times_isrv+0x48>
 		}else{//invalid
 			bus_status.j1708_checksum_error = 1;
- 3b4:	81 e0       	ldi	r24, 0x01	; 1
- 3b6:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <__data_end+0x4>
+ 3f2:	81 e0       	ldi	r24, 0x01	; 1
+ 3f4:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <_edata+0x4>
 		}
 		
 		// save buffer;
 		int i;
 		for(i=0;i<j1708_rx_buffer0_count;i++){
- 3ba:	80 91 30 01 	lds	r24, 0x0130	; 0x800130 <j1708_rx_buffer0_count>
- 3be:	88 23       	and	r24, r24
- 3c0:	89 f0       	breq	.+34     	; 0x3e4 <_Z16handle_times_isrv+0x72>
- 3c2:	80 e0       	ldi	r24, 0x00	; 0
- 3c4:	90 e0       	ldi	r25, 0x00	; 0
+ 3f8:	80 91 30 01 	lds	r24, 0x0130	; 0x800130 <j1708_rx_buffer0_count>
+ 3fc:	88 23       	and	r24, r24
+ 3fe:	89 f0       	breq	.+34     	; 0x422 <__LOCK_REGION_LENGTH__+0x22>
+ 400:	80 e0       	ldi	r24, 0x00	; 0
+ 402:	90 e0       	ldi	r25, 0x00	; 0
 			j1708_rx_buff_save[i] = j1708_rx_buffer0[i];
- 3c6:	fc 01       	movw	r30, r24
- 3c8:	ef 5c       	subi	r30, 0xCF	; 207
- 3ca:	fe 4f       	sbci	r31, 0xFE	; 254
- 3cc:	20 81       	ld	r18, Z
- 3ce:	fc 01       	movw	r30, r24
- 3d0:	ef 5e       	subi	r30, 0xEF	; 239
- 3d2:	fe 4f       	sbci	r31, 0xFE	; 254
- 3d4:	20 83       	st	Z, r18
+ 404:	fc 01       	movw	r30, r24
+ 406:	ef 5c       	subi	r30, 0xCF	; 207
+ 408:	fe 4f       	sbci	r31, 0xFE	; 254
+ 40a:	20 81       	ld	r18, Z
+ 40c:	fc 01       	movw	r30, r24
+ 40e:	ef 5e       	subi	r30, 0xEF	; 239
+ 410:	fe 4f       	sbci	r31, 0xFE	; 254
+ 412:	20 83       	st	Z, r18
 			bus_status.j1708_checksum_error = 1;
 		}
 		
 		// save buffer;
 		int i;
 		for(i=0;i<j1708_rx_buffer0_count;i++){
- 3d6:	01 96       	adiw	r24, 0x01	; 1
- 3d8:	20 91 30 01 	lds	r18, 0x0130	; 0x800130 <j1708_rx_buffer0_count>
- 3dc:	30 e0       	ldi	r19, 0x00	; 0
- 3de:	82 17       	cp	r24, r18
- 3e0:	93 07       	cpc	r25, r19
- 3e2:	8c f3       	brlt	.-30     	; 0x3c6 <_Z16handle_times_isrv+0x54>
+ 414:	01 96       	adiw	r24, 0x01	; 1
+ 416:	20 91 30 01 	lds	r18, 0x0130	; 0x800130 <j1708_rx_buffer0_count>
+ 41a:	30 e0       	ldi	r19, 0x00	; 0
+ 41c:	82 17       	cp	r24, r18
+ 41e:	93 07       	cpc	r25, r19
+ 420:	8c f3       	brlt	.-30     	; 0x404 <__LOCK_REGION_LENGTH__+0x4>
 			j1708_rx_buff_save[i] = j1708_rx_buffer0[i];
 		}
 		len_rx_save = j1708_rx_buffer0_count;
- 3e4:	80 91 30 01 	lds	r24, 0x0130	; 0x800130 <j1708_rx_buffer0_count>
- 3e8:	80 93 10 01 	sts	0x0110, r24	; 0x800110 <len_rx_save>
+ 422:	80 91 30 01 	lds	r24, 0x0130	; 0x800130 <j1708_rx_buffer0_count>
+ 426:	80 93 10 01 	sts	0x0110, r24	; 0x800110 <len_rx_save>
 		
 		if(len_rx_save!=0){ // we have a read packet
- 3ec:	80 91 10 01 	lds	r24, 0x0110	; 0x800110 <len_rx_save>
- 3f0:	88 23       	and	r24, r24
- 3f2:	19 f0       	breq	.+6      	; 0x3fa <_Z16handle_times_isrv+0x88>
+ 42a:	80 91 10 01 	lds	r24, 0x0110	; 0x800110 <len_rx_save>
+ 42e:	88 23       	and	r24, r24
+ 430:	19 f0       	breq	.+6      	; 0x438 <__LOCK_REGION_LENGTH__+0x38>
 			bus_status.j1708_finish_read_packet = 1;
- 3f4:	81 e0       	ldi	r24, 0x01	; 1
- 3f6:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <__data_end+0xa>
+ 432:	81 e0       	ldi	r24, 0x01	; 1
+ 434:	80 93 0a 01 	sts	0x010A, r24	; 0x80010a <_edata+0xa>
 		}
 		
 		j1708_rx_buffer0_ptr = 0;
- 3fa:	10 92 2f 01 	sts	0x012F, r1	; 0x80012f <j1708_rx_buffer0_ptr>
+ 438:	10 92 2f 01 	sts	0x012F, r1	; 0x80012f <j1708_rx_buffer0_ptr>
 		j1708_rx_buffer0_count = 0;
- 3fe:	10 92 30 01 	sts	0x0130, r1	; 0x800130 <j1708_rx_buffer0_count>
+ 43c:	10 92 30 01 	sts	0x0130, r1	; 0x800130 <j1708_rx_buffer0_count>
 		
 		if (bus_status.j1708_tx_busy){
- 402:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <__data_end+0x1>
- 406:	88 23       	and	r24, r24
- 408:	79 f0       	breq	.+30     	; 0x428 <__LOCK_REGION_LENGTH__+0x28>
+ 440:	80 91 01 01 	lds	r24, 0x0101	; 0x800101 <_edata+0x1>
+ 444:	88 23       	and	r24, r24
+ 446:	79 f0       	breq	.+30     	; 0x466 <__LOCK_REGION_LENGTH__+0x66>
 			//// need to add priority time 
 			count_times = 0;
- 40a:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <count_times>
+ 448:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <count_times>
 			bit_times = j1708_priority; //priority delay
- 40e:	88 e0       	ldi	r24, 0x08	; 8
- 410:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <bit_times>
+ 44c:	88 e0       	ldi	r24, 0x08	; 8
+ 44e:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <bit_times>
 			TCNT0=47; //104 us overflow   1 bit tim
- 414:	8f e2       	ldi	r24, 0x2F	; 47
- 416:	86 bd       	out	0x26, r24	; 38
+ 452:	8f e2       	ldi	r24, 0x2F	; 47
+ 454:	86 bd       	out	0x26, r24	; 38
 			TIMSK0|=(1<<TOIE0);//Enable Overflow Interrupt Enable
- 418:	ee e6       	ldi	r30, 0x6E	; 110
- 41a:	f0 e0       	ldi	r31, 0x00	; 0
- 41c:	80 81       	ld	r24, Z
- 41e:	81 60       	ori	r24, 0x01	; 1
- 420:	80 83       	st	Z, r24
+ 456:	ee e6       	ldi	r30, 0x6E	; 110
+ 458:	f0 e0       	ldi	r31, 0x00	; 0
+ 45a:	80 81       	ld	r24, Z
+ 45c:	81 60       	ori	r24, 0x01	; 1
+ 45e:	80 83       	st	Z, r24
 			bus_status.j1708_priority_check_flag = 1;
- 422:	81 e0       	ldi	r24, 0x01	; 1
- 424:	80 93 09 01 	sts	0x0109, r24	; 0x800109 <__data_end+0x9>
- 428:	08 95       	ret
+ 460:	81 e0       	ldi	r24, 0x01	; 1
+ 462:	80 93 09 01 	sts	0x0109, r24	; 0x800109 <_edata+0x9>
+ 466:	08 95       	ret
 
-0000042a <__vector_17>:
+00000468 <__vector_17>:
 	TCNT0=47; //104 us overflow   1 bit time
 }
 
 
 ISR(TIMER0_OVF_vect)
 {
- 42a:	1f 92       	push	r1
- 42c:	0f 92       	push	r0
- 42e:	0f b6       	in	r0, 0x3f	; 63
- 430:	0f 92       	push	r0
- 432:	11 24       	eor	r1, r1
- 434:	2f 93       	push	r18
- 436:	3f 93       	push	r19
- 438:	4f 93       	push	r20
- 43a:	5f 93       	push	r21
- 43c:	6f 93       	push	r22
- 43e:	7f 93       	push	r23
- 440:	8f 93       	push	r24
- 442:	9f 93       	push	r25
- 444:	af 93       	push	r26
- 446:	bf 93       	push	r27
- 448:	ef 93       	push	r30
- 44a:	ff 93       	push	r31
+ 468:	1f 92       	push	r1
+ 46a:	0f 92       	push	r0
+ 46c:	0f b6       	in	r0, 0x3f	; 63
+ 46e:	0f 92       	push	r0
+ 470:	11 24       	eor	r1, r1
+ 472:	2f 93       	push	r18
+ 474:	3f 93       	push	r19
+ 476:	4f 93       	push	r20
+ 478:	5f 93       	push	r21
+ 47a:	6f 93       	push	r22
+ 47c:	7f 93       	push	r23
+ 47e:	8f 93       	push	r24
+ 480:	9f 93       	push	r25
+ 482:	af 93       	push	r26
+ 484:	bf 93       	push	r27
+ 486:	ef 93       	push	r30
+ 488:	ff 93       	push	r31
 	//This is the interrupt service routine for TIMER0 OVERFLOW Interrupt.
 	//CPU automatically call this when TIMER0 overflows.
 	//Increment our variable
 	TCNT0=47; //104 us overflow   1 bit time
- 44c:	8f e2       	ldi	r24, 0x2F	; 47
- 44e:	86 bd       	out	0x26, r24	; 38
+ 48a:	8f e2       	ldi	r24, 0x2F	; 47
+ 48c:	86 bd       	out	0x26, r24	; 38
 	
 	count_times++;
- 450:	80 91 0b 01 	lds	r24, 0x010B	; 0x80010b <count_times>
- 454:	8f 5f       	subi	r24, 0xFF	; 255
- 456:	80 93 0b 01 	sts	0x010B, r24	; 0x80010b <count_times>
+ 48e:	80 91 0b 01 	lds	r24, 0x010B	; 0x80010b <count_times>
+ 492:	8f 5f       	subi	r24, 0xFF	; 255
+ 494:	80 93 0b 01 	sts	0x010B, r24	; 0x80010b <count_times>
 	if(count_times==bit_times) //reach n bit times
- 45a:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <count_times>
- 45e:	80 91 0c 01 	lds	r24, 0x010C	; 0x80010c <bit_times>
- 462:	98 13       	cpse	r25, r24
- 464:	09 c0       	rjmp	.+18     	; 0x478 <__vector_17+0x4e>
+ 498:	90 91 0b 01 	lds	r25, 0x010B	; 0x80010b <count_times>
+ 49c:	80 91 0c 01 	lds	r24, 0x010C	; 0x80010c <bit_times>
+ 4a0:	98 13       	cpse	r25, r24
+ 4a2:	09 c0       	rjmp	.+18     	; 0x4b6 <__vector_17+0x4e>
 	{
 		TIMSK0 &= ~(1<<TOIE0); // disable timer isr
- 466:	ee e6       	ldi	r30, 0x6E	; 110
- 468:	f0 e0       	ldi	r31, 0x00	; 0
- 46a:	80 81       	ld	r24, Z
- 46c:	8e 7f       	andi	r24, 0xFE	; 254
- 46e:	80 83       	st	Z, r24
+ 4a4:	ee e6       	ldi	r30, 0x6E	; 110
+ 4a6:	f0 e0       	ldi	r31, 0x00	; 0
+ 4a8:	80 81       	ld	r24, Z
+ 4aa:	8e 7f       	andi	r24, 0xFE	; 254
+ 4ac:	80 83       	st	Z, r24
 		count_times = 0;
- 470:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <count_times>
+ 4ae:	10 92 0b 01 	sts	0x010B, r1	; 0x80010b <count_times>
 		handle_times_isr(); // then reach 10 bit time idle time
- 474:	0e 94 b9 01 	call	0x372	; 0x372 <_Z16handle_times_isrv>
+ 4b2:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <_Z16handle_times_isrv>
 	}
 }
- 478:	ff 91       	pop	r31
- 47a:	ef 91       	pop	r30
- 47c:	bf 91       	pop	r27
- 47e:	af 91       	pop	r26
- 480:	9f 91       	pop	r25
- 482:	8f 91       	pop	r24
- 484:	7f 91       	pop	r23
- 486:	6f 91       	pop	r22
- 488:	5f 91       	pop	r21
- 48a:	4f 91       	pop	r20
- 48c:	3f 91       	pop	r19
- 48e:	2f 91       	pop	r18
- 490:	0f 90       	pop	r0
- 492:	0f be       	out	0x3f, r0	; 63
- 494:	0f 90       	pop	r0
- 496:	1f 90       	pop	r1
- 498:	18 95       	reti
+ 4b6:	ff 91       	pop	r31
+ 4b8:	ef 91       	pop	r30
+ 4ba:	bf 91       	pop	r27
+ 4bc:	af 91       	pop	r26
+ 4be:	9f 91       	pop	r25
+ 4c0:	8f 91       	pop	r24
+ 4c2:	7f 91       	pop	r23
+ 4c4:	6f 91       	pop	r22
+ 4c6:	5f 91       	pop	r21
+ 4c8:	4f 91       	pop	r20
+ 4ca:	3f 91       	pop	r19
+ 4cc:	2f 91       	pop	r18
+ 4ce:	0f 90       	pop	r0
+ 4d0:	0f be       	out	0x3f, r0	; 63
+ 4d2:	0f 90       	pop	r0
+ 4d4:	1f 90       	pop	r1
+ 4d6:	18 95       	reti
 
-0000049a <main>:
-uint8_t lentx = 2;
+000004d8 <_Z17j1708_read_bufferPhS_>:
+}
+
+
+int8_t j1708_read_buffer(uint8_t* buffer, uint8_t* len){
+
+	if(bus_status.j1708_finish_read_packet){
+ 4d8:	20 91 0a 01 	lds	r18, 0x010A	; 0x80010a <_edata+0xa>
+ 4dc:	22 23       	and	r18, r18
+ 4de:	e1 f0       	breq	.+56     	; 0x518 <_Z17j1708_read_bufferPhS_+0x40>
+		int i;
+		for(i=0;i<len_rx_save;i++){
+ 4e0:	20 91 10 01 	lds	r18, 0x0110	; 0x800110 <len_rx_save>
+ 4e4:	22 23       	and	r18, r18
+ 4e6:	81 f0       	breq	.+32     	; 0x508 <_Z17j1708_read_bufferPhS_+0x30>
+ 4e8:	e8 2f       	mov	r30, r24
+ 4ea:	f9 2f       	mov	r31, r25
+ 4ec:	80 e0       	ldi	r24, 0x00	; 0
+ 4ee:	90 e0       	ldi	r25, 0x00	; 0
+			buffer[i] = j1708_rx_buff_save[i];
+ 4f0:	dc 01       	movw	r26, r24
+ 4f2:	af 5e       	subi	r26, 0xEF	; 239
+ 4f4:	be 4f       	sbci	r27, 0xFE	; 254
+ 4f6:	2c 91       	ld	r18, X
+ 4f8:	21 93       	st	Z+, r18
+
+int8_t j1708_read_buffer(uint8_t* buffer, uint8_t* len){
+
+	if(bus_status.j1708_finish_read_packet){
+		int i;
+		for(i=0;i<len_rx_save;i++){
+ 4fa:	01 96       	adiw	r24, 0x01	; 1
+ 4fc:	20 91 10 01 	lds	r18, 0x0110	; 0x800110 <len_rx_save>
+ 500:	30 e0       	ldi	r19, 0x00	; 0
+ 502:	82 17       	cp	r24, r18
+ 504:	93 07       	cpc	r25, r19
+ 506:	a4 f3       	brlt	.-24     	; 0x4f0 <_Z17j1708_read_bufferPhS_+0x18>
+			buffer[i] = j1708_rx_buff_save[i];
+		}
+		*len = len_rx_save;
+ 508:	80 91 10 01 	lds	r24, 0x0110	; 0x800110 <len_rx_save>
+ 50c:	fb 01       	movw	r30, r22
+ 50e:	80 83       	st	Z, r24
+		bus_status.j1708_finish_read_packet = 0;
+ 510:	10 92 0a 01 	sts	0x010A, r1	; 0x80010a <_edata+0xa>
+		return 0;
+ 514:	80 e0       	ldi	r24, 0x00	; 0
+ 516:	08 95       	ret
+	}else{
+		return -1;
+ 518:	8f ef       	ldi	r24, 0xFF	; 255
+	}
+}
+ 51a:	08 95       	ret
+
+0000051c <main>:
+
 // main
 int main(void)
 {
 	
 	uart0_init();
- 49a:	0e 94 49 03 	call	0x692	; 0x692 <_Z10uart0_initv>
+ 51c:	0e 94 91 03 	call	0x722	; 0x722 <_Z10uart0_initv>
 	j1708_init();
- 49e:	0e 94 7b 01 	call	0x2f6	; 0x2f6 <_Z10j1708_initv>
-		res_rx_uart0 = uart0_rx_buff(uart0_in_buffer,&uart0_in_len);
-		//res_rx_j1708 = j1708_read_buffer(j1708_in_buffer,&j1708_in_len);
-		if(res_rx_uart0 < 0){
-			
-		}else{
-			uart0_out_buffer[0] = 'A';//uart0_in_len;
- 4a2:	03 e5       	ldi	r16, 0x53	; 83
- 4a4:	11 e0       	ldi	r17, 0x01	; 1
- 4a6:	c1 e4       	ldi	r28, 0x41	; 65
-			uart0_out_buffer[1] = 'B';
- 4a8:	d2 e4       	ldi	r29, 0x42	; 66
-			UDR0 = 'A';
- 4aa:	0f 2e       	mov	r0, r31
- 4ac:	f6 ec       	ldi	r31, 0xC6	; 198
- 4ae:	ef 2e       	mov	r14, r31
- 4b0:	f1 2c       	mov	r15, r1
- 4b2:	f0 2d       	mov	r31, r0
+ 520:	0e 94 70 01 	call	0x2e0	; 0x2e0 <_Z10j1708_initv>
 	int8_t res_rx_uart0 = -1;
 	int8_t res_rx_j1708 = -1;
     /* Replace with your application code */
     while (1) 
     {
 		res_rx_uart0 = uart0_rx_buff(uart0_in_buffer,&uart0_in_len);
- 4b4:	65 e5       	ldi	r22, 0x55	; 85
- 4b6:	71 e0       	ldi	r23, 0x01	; 1
- 4b8:	86 e5       	ldi	r24, 0x56	; 86
- 4ba:	91 e0       	ldi	r25, 0x01	; 1
- 4bc:	0e 94 1d 03 	call	0x63a	; 0x63a <_Z13uart0_rx_buffPhS_>
-		//res_rx_j1708 = j1708_read_buffer(j1708_in_buffer,&j1708_in_len);
-		if(res_rx_uart0 < 0){
- 4c0:	88 23       	and	r24, r24
- 4c2:	c4 f3       	brlt	.-16     	; 0x4b4 <main+0x1a>
+ 524:	63 e5       	ldi	r22, 0x53	; 83
+ 526:	71 e0       	ldi	r23, 0x01	; 1
+ 528:	84 e5       	ldi	r24, 0x54	; 84
+ 52a:	91 e0       	ldi	r25, 0x01	; 1
+ 52c:	0e 94 ab 03 	call	0x756	; 0x756 <_Z13uart0_rx_buffPhS_>
+ 530:	d8 2f       	mov	r29, r24
+		res_rx_j1708 = j1708_read_buffer(j1708_in_buffer,&j1708_in_len);
+ 532:	62 e7       	ldi	r22, 0x72	; 114
+ 534:	71 e0       	ldi	r23, 0x01	; 1
+ 536:	83 e7       	ldi	r24, 0x73	; 115
+ 538:	91 e0       	ldi	r25, 0x01	; 1
+ 53a:	0e 94 6c 02 	call	0x4d8	; 0x4d8 <_Z17j1708_read_bufferPhS_>
+ 53e:	c8 2f       	mov	r28, r24
+		if(res_rx_uart0 == 0){
+ 540:	d1 11       	cpse	r29, r1
+ 542:	06 c0       	rjmp	.+12     	; 0x550 <main+0x34>
 			
-		}else{
-			uart0_out_buffer[0] = 'A';//uart0_in_len;
- 4c4:	f8 01       	movw	r30, r16
- 4c6:	c0 83       	st	Z, r28
-			uart0_out_buffer[1] = 'B';
- 4c8:	d1 83       	std	Z+1, r29	; 0x01
-			UDR0 = 'A';
- 4ca:	f7 01       	movw	r30, r14
- 4cc:	c0 83       	st	Z, r28
- 4ce:	f2 cf       	rjmp	.-28     	; 0x4b4 <main+0x1a>
+			j1708_send_packet(uart0_in_buffer,uart0_in_len); // shedule send packet to j1708 bus;
+ 544:	60 91 53 01 	lds	r22, 0x0153	; 0x800153 <uart0_in_len>
+ 548:	84 e5       	ldi	r24, 0x54	; 84
+ 54a:	91 e0       	ldi	r25, 0x01	; 1
+ 54c:	0e 94 a1 01 	call	0x342	; 0x342 <_Z17j1708_send_packetPhh>
+		}
+		
+		if (res_rx_j1708 == 0){
+ 550:	c1 11       	cpse	r28, r1
+ 552:	e8 cf       	rjmp	.-48     	; 0x524 <main+0x8>
+			uart0_tx_buff(j1708_in_buffer,j1708_in_len);  // send to uart0
+ 554:	60 91 72 01 	lds	r22, 0x0172	; 0x800172 <j1708_in_len>
+ 558:	83 e7       	ldi	r24, 0x73	; 115
+ 55a:	91 e0       	ldi	r25, 0x01	; 1
+ 55c:	0e 94 ce 03 	call	0x79c	; 0x79c <_Z13uart0_tx_buffPhh>
+ 560:	e1 cf       	rjmp	.-62     	; 0x524 <main+0x8>
 
-000004d0 <__vector_22>:
+00000562 <__vector_22>:
+	if(uart0_len_out > 0){
+		return -1; // busy
+	} else {
+		return 0; //not busy
+	}
+}
+ 562:	1f 92       	push	r1
+ 564:	0f 92       	push	r0
+ 566:	0f b6       	in	r0, 0x3f	; 63
+ 568:	0f 92       	push	r0
+ 56a:	11 24       	eor	r1, r1
+ 56c:	8f 93       	push	r24
+ 56e:	9f 93       	push	r25
+ 570:	ef 93       	push	r30
+ 572:	ff 93       	push	r31
+ 574:	90 91 d7 01 	lds	r25, 0x01D7	; 0x8001d7 <uart0_len_out>
+ 578:	80 91 d8 01 	lds	r24, 0x01D8	; 0x8001d8 <uart0_ptr_out>
+ 57c:	89 17       	cp	r24, r25
+ 57e:	e8 f4       	brcc	.+58     	; 0x5ba <__vector_22+0x58>
+ 580:	80 91 d8 01 	lds	r24, 0x01D8	; 0x8001d8 <uart0_ptr_out>
+ 584:	e0 91 d5 01 	lds	r30, 0x01D5	; 0x8001d5 <uart0_buffer_out>
+ 588:	f0 91 d6 01 	lds	r31, 0x01D6	; 0x8001d6 <uart0_buffer_out+0x1>
+ 58c:	e8 0f       	add	r30, r24
+ 58e:	f1 1d       	adc	r31, r1
+ 590:	80 81       	ld	r24, Z
+ 592:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+ 596:	80 91 d8 01 	lds	r24, 0x01D8	; 0x8001d8 <uart0_ptr_out>
+ 59a:	8f 5f       	subi	r24, 0xFF	; 255
+ 59c:	80 93 d8 01 	sts	0x01D8, r24	; 0x8001d8 <uart0_ptr_out>
+ 5a0:	90 91 d8 01 	lds	r25, 0x01D8	; 0x8001d8 <uart0_ptr_out>
+ 5a4:	80 91 d7 01 	lds	r24, 0x01D7	; 0x8001d7 <uart0_len_out>
+ 5a8:	98 13       	cpse	r25, r24
+ 5aa:	07 c0       	rjmp	.+14     	; 0x5ba <__vector_22+0x58>
+ 5ac:	10 92 d7 01 	sts	0x01D7, r1	; 0x8001d7 <uart0_len_out>
+ 5b0:	e1 ec       	ldi	r30, 0xC1	; 193
+ 5b2:	f0 e0       	ldi	r31, 0x00	; 0
+ 5b4:	80 81       	ld	r24, Z
+ 5b6:	8f 7d       	andi	r24, 0xDF	; 223
+ 5b8:	80 83       	st	Z, r24
+ 5ba:	ff 91       	pop	r31
+ 5bc:	ef 91       	pop	r30
+ 5be:	9f 91       	pop	r25
+ 5c0:	8f 91       	pop	r24
+ 5c2:	0f 90       	pop	r0
+ 5c4:	0f be       	out	0x3f, r0	; 63
+ 5c6:	0f 90       	pop	r0
+ 5c8:	1f 90       	pop	r1
+ 5ca:	18 95       	reti
+
+000005cc <__vector_21>:
+ 5cc:	1f 92       	push	r1
+ 5ce:	0f 92       	push	r0
+ 5d0:	0f b6       	in	r0, 0x3f	; 63
+ 5d2:	0f 92       	push	r0
+ 5d4:	11 24       	eor	r1, r1
+ 5d6:	8f 93       	push	r24
+ 5d8:	ef 93       	push	r30
+ 5da:	ff 93       	push	r31
+ 5dc:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+ 5e0:	e0 91 b6 01 	lds	r30, 0x01B6	; 0x8001b6 <uart0_ptr_in>
+ 5e4:	f0 e0       	ldi	r31, 0x00	; 0
+ 5e6:	e9 54       	subi	r30, 0x49	; 73
+ 5e8:	fe 4f       	sbci	r31, 0xFE	; 254
+ 5ea:	80 83       	st	Z, r24
+ 5ec:	80 91 b6 01 	lds	r24, 0x01B6	; 0x8001b6 <uart0_ptr_in>
+ 5f0:	8f 5f       	subi	r24, 0xFF	; 255
+ 5f2:	80 93 b6 01 	sts	0x01B6, r24	; 0x8001b6 <uart0_ptr_in>
+ 5f6:	10 92 91 01 	sts	0x0191, r1	; 0x800191 <count_tmr2>
+ 5fa:	10 92 92 01 	sts	0x0192, r1	; 0x800192 <count_tmr2+0x1>
+ 5fe:	10 92 93 01 	sts	0x0193, r1	; 0x800193 <count_tmr2+0x2>
+ 602:	10 92 94 01 	sts	0x0194, r1	; 0x800194 <count_tmr2+0x3>
+ 606:	8f e2       	ldi	r24, 0x2F	; 47
+ 608:	80 93 b2 00 	sts	0x00B2, r24	; 0x8000b2 <__TEXT_REGION_LENGTH__+0x7e00b2>
+ 60c:	e0 e7       	ldi	r30, 0x70	; 112
+ 60e:	f0 e0       	ldi	r31, 0x00	; 0
+ 610:	80 81       	ld	r24, Z
+ 612:	81 60       	ori	r24, 0x01	; 1
+ 614:	80 83       	st	Z, r24
+ 616:	ff 91       	pop	r31
+ 618:	ef 91       	pop	r30
+ 61a:	8f 91       	pop	r24
+ 61c:	0f 90       	pop	r0
+ 61e:	0f be       	out	0x3f, r0	; 63
+ 620:	0f 90       	pop	r0
+ 622:	1f 90       	pop	r1
+ 624:	18 95       	reti
+
+00000626 <_Z23uart0_rx_packet_timeoutv>:
+ 626:	80 91 b6 01 	lds	r24, 0x01B6	; 0x8001b6 <uart0_ptr_in>
+ 62a:	88 23       	and	r24, r24
+ 62c:	81 f0       	breq	.+32     	; 0x64e <_Z23uart0_rx_packet_timeoutv+0x28>
+ 62e:	20 e0       	ldi	r18, 0x00	; 0
+ 630:	82 2f       	mov	r24, r18
+ 632:	90 e0       	ldi	r25, 0x00	; 0
+ 634:	fc 01       	movw	r30, r24
+ 636:	e9 54       	subi	r30, 0x49	; 73
+ 638:	fe 4f       	sbci	r31, 0xFE	; 254
+ 63a:	30 81       	ld	r19, Z
+ 63c:	fc 01       	movw	r30, r24
+ 63e:	e9 56       	subi	r30, 0x69	; 105
+ 640:	fe 4f       	sbci	r31, 0xFE	; 254
+ 642:	30 83       	st	Z, r19
+ 644:	2f 5f       	subi	r18, 0xFF	; 255
+ 646:	80 91 b6 01 	lds	r24, 0x01B6	; 0x8001b6 <uart0_ptr_in>
+ 64a:	28 17       	cp	r18, r24
+ 64c:	88 f3       	brcs	.-30     	; 0x630 <_Z23uart0_rx_packet_timeoutv+0xa>
+ 64e:	80 91 b6 01 	lds	r24, 0x01B6	; 0x8001b6 <uart0_ptr_in>
+ 652:	80 93 b5 01 	sts	0x01B5, r24	; 0x8001b5 <uart0_count_in>
+ 656:	80 91 b5 01 	lds	r24, 0x01B5	; 0x8001b5 <uart0_count_in>
+ 65a:	80 93 96 01 	sts	0x0196, r24	; 0x800196 <uart0_rx_len_save>
+ 65e:	10 92 b6 01 	sts	0x01B6, r1	; 0x8001b6 <uart0_ptr_in>
+ 662:	81 e0       	ldi	r24, 0x01	; 1
+ 664:	80 93 95 01 	sts	0x0195, r24	; 0x800195 <flag_finish_rx_packet>
+ 668:	08 95       	ret
+
+0000066a <__vector_10>:
+ 66a:	1f 92       	push	r1
+ 66c:	0f 92       	push	r0
+ 66e:	0f b6       	in	r0, 0x3f	; 63
+ 670:	0f 92       	push	r0
+ 672:	11 24       	eor	r1, r1
+ 674:	2f 93       	push	r18
+ 676:	3f 93       	push	r19
+ 678:	4f 93       	push	r20
+ 67a:	5f 93       	push	r21
+ 67c:	6f 93       	push	r22
+ 67e:	7f 93       	push	r23
+ 680:	8f 93       	push	r24
+ 682:	9f 93       	push	r25
+ 684:	af 93       	push	r26
+ 686:	bf 93       	push	r27
+ 688:	ef 93       	push	r30
+ 68a:	ff 93       	push	r31
+ 68c:	8f e2       	ldi	r24, 0x2F	; 47
+ 68e:	80 93 b2 00 	sts	0x00B2, r24	; 0x8000b2 <__TEXT_REGION_LENGTH__+0x7e00b2>
+ 692:	80 91 91 01 	lds	r24, 0x0191	; 0x800191 <count_tmr2>
+ 696:	90 91 92 01 	lds	r25, 0x0192	; 0x800192 <count_tmr2+0x1>
+ 69a:	a0 91 93 01 	lds	r26, 0x0193	; 0x800193 <count_tmr2+0x2>
+ 69e:	b0 91 94 01 	lds	r27, 0x0194	; 0x800194 <count_tmr2+0x3>
+ 6a2:	01 96       	adiw	r24, 0x01	; 1
+ 6a4:	a1 1d       	adc	r26, r1
+ 6a6:	b1 1d       	adc	r27, r1
+ 6a8:	80 93 91 01 	sts	0x0191, r24	; 0x800191 <count_tmr2>
+ 6ac:	90 93 92 01 	sts	0x0192, r25	; 0x800192 <count_tmr2+0x1>
+ 6b0:	a0 93 93 01 	sts	0x0193, r26	; 0x800193 <count_tmr2+0x2>
+ 6b4:	b0 93 94 01 	sts	0x0194, r27	; 0x800194 <count_tmr2+0x3>
+ 6b8:	80 91 91 01 	lds	r24, 0x0191	; 0x800191 <count_tmr2>
+ 6bc:	90 91 92 01 	lds	r25, 0x0192	; 0x800192 <count_tmr2+0x1>
+ 6c0:	a0 91 93 01 	lds	r26, 0x0193	; 0x800193 <count_tmr2+0x2>
+ 6c4:	b0 91 94 01 	lds	r27, 0x0194	; 0x800194 <count_tmr2+0x3>
+ 6c8:	0b 97       	sbiw	r24, 0x0b	; 11
+ 6ca:	a1 05       	cpc	r26, r1
+ 6cc:	b1 05       	cpc	r27, r1
+ 6ce:	79 f4       	brne	.+30     	; 0x6ee <__vector_10+0x84>
+ 6d0:	10 92 91 01 	sts	0x0191, r1	; 0x800191 <count_tmr2>
+ 6d4:	10 92 92 01 	sts	0x0192, r1	; 0x800192 <count_tmr2+0x1>
+ 6d8:	10 92 93 01 	sts	0x0193, r1	; 0x800193 <count_tmr2+0x2>
+ 6dc:	10 92 94 01 	sts	0x0194, r1	; 0x800194 <count_tmr2+0x3>
+ 6e0:	e0 e7       	ldi	r30, 0x70	; 112
+ 6e2:	f0 e0       	ldi	r31, 0x00	; 0
+ 6e4:	80 81       	ld	r24, Z
+ 6e6:	8e 7f       	andi	r24, 0xFE	; 254
+ 6e8:	80 83       	st	Z, r24
+ 6ea:	0e 94 13 03 	call	0x626	; 0x626 <_Z23uart0_rx_packet_timeoutv>
+ 6ee:	ff 91       	pop	r31
+ 6f0:	ef 91       	pop	r30
+ 6f2:	bf 91       	pop	r27
+ 6f4:	af 91       	pop	r26
+ 6f6:	9f 91       	pop	r25
+ 6f8:	8f 91       	pop	r24
+ 6fa:	7f 91       	pop	r23
+ 6fc:	6f 91       	pop	r22
+ 6fe:	5f 91       	pop	r21
+ 700:	4f 91       	pop	r20
+ 702:	3f 91       	pop	r19
+ 704:	2f 91       	pop	r18
+ 706:	0f 90       	pop	r0
+ 708:	0f be       	out	0x3f, r0	; 63
+ 70a:	0f 90       	pop	r0
+ 70c:	1f 90       	pop	r1
+ 70e:	18 95       	reti
+
+00000710 <_Z13config_timer2v>:
+ 710:	e0 eb       	ldi	r30, 0xB0	; 176
+ 712:	f0 e0       	ldi	r31, 0x00	; 0
+ 714:	80 81       	ld	r24, Z
+ 716:	82 60       	ori	r24, 0x02	; 2
+ 718:	80 83       	st	Z, r24
+ 71a:	8f e2       	ldi	r24, 0x2F	; 47
+ 71c:	80 93 b2 00 	sts	0x00B2, r24	; 0x8000b2 <__TEXT_REGION_LENGTH__+0x7e00b2>
+ 720:	08 95       	ret
+
+00000722 <_Z10uart0_initv>:
+ 722:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
+ 726:	87 e6       	ldi	r24, 0x67	; 103
+ 728:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
+ 72c:	10 92 d7 01 	sts	0x01D7, r1	; 0x8001d7 <uart0_len_out>
+ 730:	10 92 d8 01 	sts	0x01D8, r1	; 0x8001d8 <uart0_ptr_out>
+ 734:	10 92 96 01 	sts	0x0196, r1	; 0x800196 <uart0_rx_len_save>
+ 738:	e0 ec       	ldi	r30, 0xC0	; 192
+ 73a:	f0 e0       	ldi	r31, 0x00	; 0
+ 73c:	80 81       	ld	r24, Z
+ 73e:	8d 7f       	andi	r24, 0xFD	; 253
+ 740:	80 83       	st	Z, r24
+ 742:	88 e9       	ldi	r24, 0x98	; 152
+ 744:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
+ 748:	86 e0       	ldi	r24, 0x06	; 6
+ 74a:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
+ 74e:	0e 94 88 03 	call	0x710	; 0x710 <_Z13config_timer2v>
+ 752:	78 94       	sei
+ 754:	08 95       	ret
+
+00000756 <_Z13uart0_rx_buffPhS_>:
+ 756:	dc 01       	movw	r26, r24
+ 758:	80 91 95 01 	lds	r24, 0x0195	; 0x800195 <flag_finish_rx_packet>
+ 75c:	88 23       	and	r24, r24
+ 75e:	e1 f0       	breq	.+56     	; 0x798 <_Z13uart0_rx_buffPhS_+0x42>
+ 760:	10 92 95 01 	sts	0x0195, r1	; 0x800195 <flag_finish_rx_packet>
+ 764:	80 91 96 01 	lds	r24, 0x0196	; 0x800196 <uart0_rx_len_save>
+ 768:	88 23       	and	r24, r24
+ 76a:	81 f0       	breq	.+32     	; 0x78c <_Z13uart0_rx_buffPhS_+0x36>
+ 76c:	90 e0       	ldi	r25, 0x00	; 0
+ 76e:	29 2f       	mov	r18, r25
+ 770:	30 e0       	ldi	r19, 0x00	; 0
+ 772:	f9 01       	movw	r30, r18
+ 774:	e9 56       	subi	r30, 0x69	; 105
+ 776:	fe 4f       	sbci	r31, 0xFE	; 254
+ 778:	40 81       	ld	r20, Z
+ 77a:	fd 01       	movw	r30, r26
+ 77c:	e2 0f       	add	r30, r18
+ 77e:	f3 1f       	adc	r31, r19
+ 780:	40 83       	st	Z, r20
+ 782:	9f 5f       	subi	r25, 0xFF	; 255
+ 784:	20 91 96 01 	lds	r18, 0x0196	; 0x800196 <uart0_rx_len_save>
+ 788:	92 17       	cp	r25, r18
+ 78a:	88 f3       	brcs	.-30     	; 0x76e <_Z13uart0_rx_buffPhS_+0x18>
+ 78c:	80 91 96 01 	lds	r24, 0x0196	; 0x800196 <uart0_rx_len_save>
+ 790:	fb 01       	movw	r30, r22
+ 792:	80 83       	st	Z, r24
+ 794:	80 e0       	ldi	r24, 0x00	; 0
+ 796:	08 95       	ret
+ 798:	8f ef       	ldi	r24, 0xFF	; 255
+ 79a:	08 95       	ret
+
+0000079c <_Z13uart0_tx_buffPhh>:
+
+
+
+int8_t uart0_tx_buff(uint8_t* buff_tx, uint8_t len_tx){ // send to serial port
+ 79c:	9c 01       	movw	r18, r24
+	if(uart0_len_out){
+ 79e:	90 91 d7 01 	lds	r25, 0x01D7	; 0x8001d7 <uart0_len_out>
+ 7a2:	91 11       	cpse	r25, r1
+ 7a4:	0f c0       	rjmp	.+30     	; 0x7c4 <_Z13uart0_tx_buffPhh+0x28>
+		//fail because we are already sending something
+		return -1;
+	} else {
+		uart0_len_out = len_tx;
+ 7a6:	60 93 d7 01 	sts	0x01D7, r22	; 0x8001d7 <uart0_len_out>
+		uart0_ptr_out = 0;
+ 7aa:	10 92 d8 01 	sts	0x01D8, r1	; 0x8001d8 <uart0_ptr_out>
+		uart0_buffer_out = buff_tx;
+ 7ae:	30 93 d6 01 	sts	0x01D6, r19	; 0x8001d6 <uart0_buffer_out+0x1>
+ 7b2:	20 93 d5 01 	sts	0x01D5, r18	; 0x8001d5 <uart0_buffer_out>
+		//enable UART interrupt
+		UCSR0B |= (1 << UDRIE0); //enable sending
+ 7b6:	e1 ec       	ldi	r30, 0xC1	; 193
+ 7b8:	f0 e0       	ldi	r31, 0x00	; 0
+ 7ba:	80 81       	ld	r24, Z
+ 7bc:	80 62       	ori	r24, 0x20	; 32
+ 7be:	80 83       	st	Z, r24
+
+		return 0;
+ 7c0:	80 e0       	ldi	r24, 0x00	; 0
+ 7c2:	08 95       	ret
+
+
+int8_t uart0_tx_buff(uint8_t* buff_tx, uint8_t len_tx){ // send to serial port
+	if(uart0_len_out){
+		//fail because we are already sending something
+		return -1;
+ 7c4:	8f ef       	ldi	r24, 0xFF	; 255
 		//enable UART interrupt
 		UCSR0B |= (1 << UDRIE0); //enable sending
 
 		return 0;
 	}
 }
- 4d0:	1f 92       	push	r1
- 4d2:	0f 92       	push	r0
- 4d4:	0f b6       	in	r0, 0x3f	; 63
- 4d6:	0f 92       	push	r0
- 4d8:	11 24       	eor	r1, r1
- 4da:	8f 93       	push	r24
- 4dc:	9f 93       	push	r25
- 4de:	ef 93       	push	r30
- 4e0:	ff 93       	push	r31
- 4e2:	90 91 b7 01 	lds	r25, 0x01B7	; 0x8001b7 <uart0_len_out>
- 4e6:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <uart0_ptr_out>
- 4ea:	89 17       	cp	r24, r25
- 4ec:	e8 f4       	brcc	.+58     	; 0x528 <__vector_22+0x58>
- 4ee:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <uart0_ptr_out>
- 4f2:	e0 91 b5 01 	lds	r30, 0x01B5	; 0x8001b5 <uart0_buffer_out>
- 4f6:	f0 91 b6 01 	lds	r31, 0x01B6	; 0x8001b6 <uart0_buffer_out+0x1>
- 4fa:	e8 0f       	add	r30, r24
- 4fc:	f1 1d       	adc	r31, r1
- 4fe:	80 81       	ld	r24, Z
- 500:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
- 504:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <uart0_ptr_out>
- 508:	8f 5f       	subi	r24, 0xFF	; 255
- 50a:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <uart0_ptr_out>
- 50e:	90 91 b8 01 	lds	r25, 0x01B8	; 0x8001b8 <uart0_ptr_out>
- 512:	80 91 b7 01 	lds	r24, 0x01B7	; 0x8001b7 <uart0_len_out>
- 516:	98 13       	cpse	r25, r24
- 518:	07 c0       	rjmp	.+14     	; 0x528 <__vector_22+0x58>
- 51a:	10 92 b7 01 	sts	0x01B7, r1	; 0x8001b7 <uart0_len_out>
- 51e:	e1 ec       	ldi	r30, 0xC1	; 193
- 520:	f0 e0       	ldi	r31, 0x00	; 0
- 522:	80 81       	ld	r24, Z
- 524:	8f 7d       	andi	r24, 0xDF	; 223
- 526:	80 83       	st	Z, r24
- 528:	ff 91       	pop	r31
- 52a:	ef 91       	pop	r30
- 52c:	9f 91       	pop	r25
- 52e:	8f 91       	pop	r24
- 530:	0f 90       	pop	r0
- 532:	0f be       	out	0x3f, r0	; 63
- 534:	0f 90       	pop	r0
- 536:	1f 90       	pop	r1
- 538:	18 95       	reti
+ 7c6:	08 95       	ret
 
-0000053a <__vector_21>:
- 53a:	1f 92       	push	r1
- 53c:	0f 92       	push	r0
- 53e:	0f b6       	in	r0, 0x3f	; 63
- 540:	0f 92       	push	r0
- 542:	11 24       	eor	r1, r1
- 544:	8f 93       	push	r24
- 546:	ef 93       	push	r30
- 548:	ff 93       	push	r31
- 54a:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
- 54e:	e0 91 96 01 	lds	r30, 0x0196	; 0x800196 <uart0_ptr_in>
- 552:	f0 e0       	ldi	r31, 0x00	; 0
- 554:	e9 56       	subi	r30, 0x69	; 105
- 556:	fe 4f       	sbci	r31, 0xFE	; 254
- 558:	80 83       	st	Z, r24
- 55a:	80 91 96 01 	lds	r24, 0x0196	; 0x800196 <uart0_ptr_in>
- 55e:	8f 5f       	subi	r24, 0xFF	; 255
- 560:	80 93 96 01 	sts	0x0196, r24	; 0x800196 <uart0_ptr_in>
- 564:	8f e2       	ldi	r24, 0x2F	; 47
- 566:	80 93 b2 00 	sts	0x00B2, r24	; 0x8000b2 <__TEXT_REGION_LENGTH__+0x7e00b2>
- 56a:	10 92 74 01 	sts	0x0174, r1	; 0x800174 <count_tmr2>
- 56e:	e0 e7       	ldi	r30, 0x70	; 112
- 570:	f0 e0       	ldi	r31, 0x00	; 0
- 572:	80 81       	ld	r24, Z
- 574:	81 60       	ori	r24, 0x01	; 1
- 576:	80 83       	st	Z, r24
- 578:	ff 91       	pop	r31
- 57a:	ef 91       	pop	r30
- 57c:	8f 91       	pop	r24
- 57e:	0f 90       	pop	r0
- 580:	0f be       	out	0x3f, r0	; 63
- 582:	0f 90       	pop	r0
- 584:	1f 90       	pop	r1
- 586:	18 95       	reti
+000007c8 <_exit>:
+ 7c8:	f8 94       	cli
 
-00000588 <_Z23uart0_rx_packet_timeoutv>:
- 588:	80 91 96 01 	lds	r24, 0x0196	; 0x800196 <uart0_ptr_in>
- 58c:	88 23       	and	r24, r24
- 58e:	81 f0       	breq	.+32     	; 0x5b0 <_Z23uart0_rx_packet_timeoutv+0x28>
- 590:	20 e0       	ldi	r18, 0x00	; 0
- 592:	82 2f       	mov	r24, r18
- 594:	90 e0       	ldi	r25, 0x00	; 0
- 596:	fc 01       	movw	r30, r24
- 598:	e9 56       	subi	r30, 0x69	; 105
- 59a:	fe 4f       	sbci	r31, 0xFE	; 254
- 59c:	30 81       	ld	r19, Z
- 59e:	fc 01       	movw	r30, r24
- 5a0:	e9 58       	subi	r30, 0x89	; 137
- 5a2:	fe 4f       	sbci	r31, 0xFE	; 254
- 5a4:	30 83       	st	Z, r19
- 5a6:	2f 5f       	subi	r18, 0xFF	; 255
- 5a8:	80 91 96 01 	lds	r24, 0x0196	; 0x800196 <uart0_ptr_in>
- 5ac:	28 17       	cp	r18, r24
- 5ae:	88 f3       	brcs	.-30     	; 0x592 <_Z23uart0_rx_packet_timeoutv+0xa>
- 5b0:	80 91 96 01 	lds	r24, 0x0196	; 0x800196 <uart0_ptr_in>
- 5b4:	80 93 95 01 	sts	0x0195, r24	; 0x800195 <uart0_count_in>
- 5b8:	80 91 95 01 	lds	r24, 0x0195	; 0x800195 <uart0_count_in>
- 5bc:	80 93 76 01 	sts	0x0176, r24	; 0x800176 <uart0_rx_len_save>
- 5c0:	10 92 96 01 	sts	0x0196, r1	; 0x800196 <uart0_ptr_in>
- 5c4:	81 e0       	ldi	r24, 0x01	; 1
- 5c6:	80 93 75 01 	sts	0x0175, r24	; 0x800175 <flag_finish_rx_packet>
- 5ca:	08 95       	ret
-
-000005cc <__vector_10>:
- 5cc:	1f 92       	push	r1
- 5ce:	0f 92       	push	r0
- 5d0:	0f b6       	in	r0, 0x3f	; 63
- 5d2:	0f 92       	push	r0
- 5d4:	11 24       	eor	r1, r1
- 5d6:	2f 93       	push	r18
- 5d8:	3f 93       	push	r19
- 5da:	4f 93       	push	r20
- 5dc:	5f 93       	push	r21
- 5de:	6f 93       	push	r22
- 5e0:	7f 93       	push	r23
- 5e2:	8f 93       	push	r24
- 5e4:	9f 93       	push	r25
- 5e6:	af 93       	push	r26
- 5e8:	bf 93       	push	r27
- 5ea:	ef 93       	push	r30
- 5ec:	ff 93       	push	r31
- 5ee:	8f e2       	ldi	r24, 0x2F	; 47
- 5f0:	80 93 b2 00 	sts	0x00B2, r24	; 0x8000b2 <__TEXT_REGION_LENGTH__+0x7e00b2>
- 5f4:	80 91 74 01 	lds	r24, 0x0174	; 0x800174 <count_tmr2>
- 5f8:	8f 5f       	subi	r24, 0xFF	; 255
- 5fa:	80 93 74 01 	sts	0x0174, r24	; 0x800174 <count_tmr2>
- 5fe:	80 91 74 01 	lds	r24, 0x0174	; 0x800174 <count_tmr2>
- 602:	8a 30       	cpi	r24, 0x0A	; 10
- 604:	49 f4       	brne	.+18     	; 0x618 <__vector_10+0x4c>
- 606:	10 92 74 01 	sts	0x0174, r1	; 0x800174 <count_tmr2>
- 60a:	e0 e7       	ldi	r30, 0x70	; 112
- 60c:	f0 e0       	ldi	r31, 0x00	; 0
- 60e:	80 81       	ld	r24, Z
- 610:	8e 7f       	andi	r24, 0xFE	; 254
- 612:	80 83       	st	Z, r24
- 614:	0e 94 c4 02 	call	0x588	; 0x588 <_Z23uart0_rx_packet_timeoutv>
- 618:	ff 91       	pop	r31
- 61a:	ef 91       	pop	r30
- 61c:	bf 91       	pop	r27
- 61e:	af 91       	pop	r26
- 620:	9f 91       	pop	r25
- 622:	8f 91       	pop	r24
- 624:	7f 91       	pop	r23
- 626:	6f 91       	pop	r22
- 628:	5f 91       	pop	r21
- 62a:	4f 91       	pop	r20
- 62c:	3f 91       	pop	r19
- 62e:	2f 91       	pop	r18
- 630:	0f 90       	pop	r0
- 632:	0f be       	out	0x3f, r0	; 63
- 634:	0f 90       	pop	r0
- 636:	1f 90       	pop	r1
- 638:	18 95       	reti
-
-0000063a <_Z13uart0_rx_buffPhS_>:
-
-
-int8_t uart0_rx_buff(uint8_t* buff_rx, uint8_t* len_rx){ // receive from serial port
- 63a:	dc 01       	movw	r26, r24
-	if(flag_finish_rx_packet){ //packet complete
- 63c:	80 91 75 01 	lds	r24, 0x0175	; 0x800175 <flag_finish_rx_packet>
- 640:	88 23       	and	r24, r24
- 642:	e1 f0       	breq	.+56     	; 0x67c <_Z13uart0_rx_buffPhS_+0x42>
-		flag_finish_rx_packet = 0; // just clear flag
- 644:	10 92 75 01 	sts	0x0175, r1	; 0x800175 <flag_finish_rx_packet>
-		uint8_t kk;
-		for(kk=0;kk<uart0_rx_len_save;kk++){
- 648:	80 91 76 01 	lds	r24, 0x0176	; 0x800176 <uart0_rx_len_save>
- 64c:	88 23       	and	r24, r24
- 64e:	81 f0       	breq	.+32     	; 0x670 <_Z13uart0_rx_buffPhS_+0x36>
- 650:	90 e0       	ldi	r25, 0x00	; 0
-			buff_rx[kk]=uart0_rx_save[kk]; //transfer buffer
- 652:	29 2f       	mov	r18, r25
- 654:	30 e0       	ldi	r19, 0x00	; 0
- 656:	f9 01       	movw	r30, r18
- 658:	e9 58       	subi	r30, 0x89	; 137
- 65a:	fe 4f       	sbci	r31, 0xFE	; 254
- 65c:	40 81       	ld	r20, Z
- 65e:	fd 01       	movw	r30, r26
- 660:	e2 0f       	add	r30, r18
- 662:	f3 1f       	adc	r31, r19
- 664:	40 83       	st	Z, r20
-
-int8_t uart0_rx_buff(uint8_t* buff_rx, uint8_t* len_rx){ // receive from serial port
-	if(flag_finish_rx_packet){ //packet complete
-		flag_finish_rx_packet = 0; // just clear flag
-		uint8_t kk;
-		for(kk=0;kk<uart0_rx_len_save;kk++){
- 666:	9f 5f       	subi	r25, 0xFF	; 255
- 668:	20 91 76 01 	lds	r18, 0x0176	; 0x800176 <uart0_rx_len_save>
- 66c:	92 17       	cp	r25, r18
- 66e:	88 f3       	brcs	.-30     	; 0x652 <_Z13uart0_rx_buffPhS_+0x18>
-			buff_rx[kk]=uart0_rx_save[kk]; //transfer buffer
-		}
-		*len_rx = uart0_rx_len_save; // transfer len of buffer
- 670:	80 91 76 01 	lds	r24, 0x0176	; 0x800176 <uart0_rx_len_save>
- 674:	fb 01       	movw	r30, r22
- 676:	80 83       	st	Z, r24
-		return 0;
- 678:	80 e0       	ldi	r24, 0x00	; 0
- 67a:	08 95       	ret
-	}else{ // cant read buff try again later;
-		return -1;
- 67c:	8f ef       	ldi	r24, 0xFF	; 255
-	}
-}
- 67e:	08 95       	ret
-
-00000680 <_Z13config_timer2v>:
-
-
-// config timer2
-void config_timer2(void){
-	// Pre scaler = FCPU/8
-	TCCR2A |= (1<<CS21);
- 680:	e0 eb       	ldi	r30, 0xB0	; 176
- 682:	f0 e0       	ldi	r31, 0x00	; 0
- 684:	80 81       	ld	r24, Z
- 686:	82 60       	ori	r24, 0x02	; 2
- 688:	80 83       	st	Z, r24
-	//Enable Overflow Interrupt Enable
-	//TIMSK2|=(1<<TOIE2);
-	
-	//Initialize Counter
-	TCNT2=47; //104 us overflow   1 bit time
- 68a:	8f e2       	ldi	r24, 0x2F	; 47
- 68c:	80 93 b2 00 	sts	0x00B2, r24	; 0x8000b2 <__TEXT_REGION_LENGTH__+0x7e00b2>
- 690:	08 95       	ret
-
-00000692 <_Z10uart0_initv>:
-
-}
-
-
-void uart0_init(void) {
-	UBRR0H = UBRRH_VALUE;
- 692:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
-	UBRR0L = UBRRL_VALUE;
- 696:	87 e6       	ldi	r24, 0x67	; 103
- 698:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
-	
-	uart0_len_out = 0;
- 69c:	10 92 b7 01 	sts	0x01B7, r1	; 0x8001b7 <uart0_len_out>
-	uart0_ptr_out = 0;
- 6a0:	10 92 b8 01 	sts	0x01B8, r1	; 0x8001b8 <uart0_ptr_out>
-	uart0_rx_len_save = 0;
- 6a4:	10 92 76 01 	sts	0x0176, r1	; 0x800176 <uart0_rx_len_save>
-
-	#if USE_2X
-	UCSR0A |= _BV(U2X0);
-	#else
-	UCSR0A &= ~(_BV(U2X0));
- 6a8:	e0 ec       	ldi	r30, 0xC0	; 192
- 6aa:	f0 e0       	ldi	r31, 0x00	; 0
- 6ac:	80 81       	ld	r24, Z
- 6ae:	8d 7f       	andi	r24, 0xFD	; 253
- 6b0:	80 83       	st	Z, r24
-	#endif
-
-	
-	UCSR0B = _BV(RXEN0) | _BV(TXEN0) | _BV(RXCIE0);   /* Enable RX and TX, RX complete ISR */
- 6b2:	e1 ec       	ldi	r30, 0xC1	; 193
- 6b4:	f0 e0       	ldi	r31, 0x00	; 0
- 6b6:	88 e9       	ldi	r24, 0x98	; 152
- 6b8:	80 83       	st	Z, r24
-	UCSR0C = _BV(UCSZ01) | _BV(UCSZ00); /* 8-bit data, 1 stop bit, no parity, asynchronous UART*/
- 6ba:	86 e0       	ldi	r24, 0x06	; 6
- 6bc:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
-
-	UCSR0B &= ~(1 << UDRIE0); //Disable sending, ready TX buffer
- 6c0:	80 81       	ld	r24, Z
- 6c2:	8f 7d       	andi	r24, 0xDF	; 223
- 6c4:	80 83       	st	Z, r24
-
-	//set_sleep_mode(SLEEP_MODE_IDLE);
-	//enable global interrupt
-	config_timer2();
- 6c6:	0e 94 40 03 	call	0x680	; 0x680 <_Z13config_timer2v>
-	sei();
- 6ca:	78 94       	sei
- 6cc:	08 95       	ret
-
-000006ce <_exit>:
- 6ce:	f8 94       	cli
-
-000006d0 <__stop_program>:
- 6d0:	ff cf       	rjmp	.-2      	; 0x6d0 <__stop_program>
+000007ca <__stop_program>:
+ 7ca:	ff cf       	rjmp	.-2      	; 0x7ca <__stop_program>
