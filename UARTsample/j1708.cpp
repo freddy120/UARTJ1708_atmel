@@ -435,7 +435,7 @@ void j1708_tx_data(){
 int8_t j1708_read_buffer(uint8_t* buffer, uint8_t* len){
 
 	if(bus_status.j1708_finish_read_packet){
-		int i;
+		uint8_t i;
 		for(i=0;i<len_rx_save;i++){
 			buffer[i] = j1708_rx_buff_save[i];
 		}

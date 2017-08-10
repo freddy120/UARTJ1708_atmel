@@ -55,8 +55,11 @@ int main(void)
 		}
 		
 		if (res_rx_j1708 == 0){
+			j1708_in_buffer[j1708_in_buffer] = 'M';
+			j1708_in_buffer[j1708_in_buffer+1] = 'S';
+			j1708_in_buffer[j1708_in_buffer+2] = 'S';
 			
-			uart0_tx_buff(j1708_in_buffer,j1708_in_len);  // send to uart0, need to add  'MSS' at the end
+			uart0_tx_buff(j1708_in_buffer,j1708_in_len+3);  // send to uart0, need to add  'MSS' at the end
 			
 		}
 

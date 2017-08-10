@@ -945,7 +945,8 @@ int main(void)
 		if (res_rx_j1708 == 0){
  550:	c1 11       	cpse	r28, r1
  552:	e8 cf       	rjmp	.-48     	; 0x524 <main+0x8>
-			uart0_tx_buff(j1708_in_buffer,j1708_in_len);  // send to uart0
+			
+			uart0_tx_buff(j1708_in_buffer,j1708_in_len);  // send to uart0, need to add  'MSS' at the end
  554:	60 91 72 01 	lds	r22, 0x0172	; 0x800172 <j1708_in_len>
  558:	83 e7       	ldi	r24, 0x73	; 115
  55a:	91 e0       	ldi	r25, 0x01	; 1
